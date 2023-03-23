@@ -5,18 +5,20 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
-      backgroundColor: {
+      colors: {
         primary: {
+          light: '#3358C4',
           DEFAULT: '#3358C4',
           dark: '#121212',
-          light: '#FFFFFF',
         },
-        secondary: {
-          DEFAULT: '#F0F0F0',
-        },
+        secondary: '#F0F0F0',
         accent: {
           DEFAULT: '#FF8A3D',
           hover: '#FFA15F',
+        },
+        background: {
+          light: '#F0F0F0',
+          dark: '#121212',
         },
       },
       textColor: {
@@ -44,3 +46,15 @@ module.exports = {
   },
   plugins: [],
 };
+
+// Colors Palette
+// * Dark Theme:
+//     * Primary Color: #3358C4 (a deep blue)
+//     * Secondary Color: #F0F0F0 (a light gray)
+//     * Accent Color: #FF8A3D (an orange)
+//     * Background Color: #121212 (a dark black)
+// * Light Theme:
+//     * Primary Color: #3358C4 (a deep blue)
+//     * Secondary Color: #F0F0F0 (a light gray)
+//     * Accent Color: #FF8A3D (an orange)
+//     * Background Color: #FFFFFF (a bright white)
