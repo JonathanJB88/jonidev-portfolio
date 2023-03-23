@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { ThemeProvider } from 'next-themes';
 import type { AppProps } from 'next/app';
 
-import { HomeBg, ThemeSwitcher } from '@/components';
+import { DynamicBg, HomeBg, ThemeSwitcher } from '@/components';
 
 export default function App({ Component, pageProps }: AppProps) {
   const { pathname } = useRouter();
@@ -12,8 +12,16 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <ThemeProvider attribute='class'>
-      {isHomePage && <HomeBg />}
-      <Component {...pageProps} />
+      {isHomePage ? (
+        <>
+          <HomeBg />
+          <Component {...pageProps} />
+        </>
+      ) : (
+        <DynamicBg>
+          <Component {...pageProps} />
+        </DynamicBg>
+      )}
       <ThemeSwitcher />
     </ThemeProvider>
   );
