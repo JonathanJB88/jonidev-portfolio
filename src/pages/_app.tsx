@@ -9,6 +9,7 @@ import { HomeBg, ThemeSwitcher } from '@/components';
 export default function App({ Component, pageProps }: AppProps) {
   const { pathname } = useRouter();
   const isHomePage = pathname === '/';
+
   return (
     <ThemeProvider attribute='class'>
       {isHomePage && <HomeBg />}
