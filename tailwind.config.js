@@ -6,10 +6,6 @@ module.exports = {
   theme: {
     extend: {
       backgroundColor: {
-        zIndex: {
-          0: '0',
-          10: '10',
-        },
         primary: {
           DEFAULT: '#3358C4',
           dark: '#121212',

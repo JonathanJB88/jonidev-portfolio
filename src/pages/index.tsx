@@ -1,6 +1,13 @@
+import { GetStaticProps } from 'next';
 import Head from 'next/head';
 
-const Home = () => {
+import { Intro } from '@/components';
+
+interface HomeProps {
+  about: string;
+}
+
+const Home = ({ about }: HomeProps) => {
   return (
     <>
       <Head>
@@ -14,11 +21,18 @@ const Home = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <main>
-        <h1 className='text-4xl font-bold text-red-600'>Hello Dev !!</h1>
-        <p className='text-2xl font-semibold text-gray-600'>Welcome to my portfolio</p>
+        <Intro about={about} />
       </main>
     </>
   );
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/data`);
+  const { about } = await res.json();
+  return {
+    props: { about },
+  };
 };
 
 export default Home;
