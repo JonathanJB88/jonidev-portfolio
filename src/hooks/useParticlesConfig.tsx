@@ -1,11 +1,11 @@
-import { useCallback, useEffect, useMemo, useRef } from 'react';
+import { MutableRefObject, useCallback, useEffect, useMemo, useRef } from 'react';
 import type { Engine, Container } from 'tsparticles-engine';
 import { loadFull } from 'tsparticles';
 import { useTheme } from 'next-themes';
 
 import { getParticleOptions } from '@/config';
 
-const useParticlesRefresh = (particlesRef: React.MutableRefObject<Container | null>, theme: string) => {
+const useParticlesRefresh = (particlesRef: MutableRefObject<Container | null>, theme: string) => {
   useEffect(() => {
     if (particlesRef.current) {
       particlesRef.current.refresh();
