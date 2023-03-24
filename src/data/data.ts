@@ -1,155 +1,104 @@
-import {
-  SiChakraui,
-  SiCypress,
-  SiJest,
-  SiNextdotjs,
-  SiRedux,
-  SiTailwindcss,
-  SiTypescript,
-  SiMaterialdesign,
-  SiExpress,
-  SiJirasoftware,
-  SiMongodb,
-  SiPostgresql,
-} from 'react-icons/si';
-import { FaChalkboardTeacher, FaMobileAlt, FaReact, FaServer, FaTrello } from 'react-icons/fa';
-import { IoLogoNodejs, IoLogoJavascript, IoIosChatboxes } from 'react-icons/io';
-import { BiGitBranch, BiTestTube } from 'react-icons/bi';
-import { DiScrum } from 'react-icons/di';
-import { AiOutlineTeam } from 'react-icons/ai';
-import { MdOutlineLeaderboard, MdLanguage, MdDeveloperMode } from 'react-icons/md';
-import { RiComputerLine } from 'react-icons/ri';
-
 import { ISkill, IProject, IService } from '@/interfaces';
 
 export const about: string = `I'm Jonathan Bracho, a Frontend Developer proficient in React, Typescript, Next.js, and Node.js. With a unique background in education and business, I excel in strategic planning, teamwork, and communication. Driven by curiosity, I'm always eager to enhance my skills and create innovative web solutions that spark your interest.`;
 
-export const languages: ISkill[] = [
+export const techSkills: ISkill[] = [
   {
-    Icon: SiTypescript,
     name: 'TypeScript',
     level: '87%',
   },
   {
-    Icon: FaReact,
     name: 'React.js',
     level: '89%',
   },
   {
-    Icon: FaReact,
     name: 'React Native',
     level: '85%',
   },
   {
-    Icon: SiRedux,
     name: 'Redux & Redux Toolkit',
     level: '92%',
   },
   {
-    Icon: SiNextdotjs,
     name: 'Next.js',
     level: '89%',
   },
   {
-    Icon: SiCypress,
     name: 'Cypress',
     level: '85%',
   },
   {
-    Icon: SiJest,
     name: 'Jest',
     level: '82%',
   },
   {
-    Icon: SiTailwindcss,
     name: 'Tailwind CSS',
     level: '82%',
   },
   {
-    Icon: SiChakraui,
     name: 'ChakraUI',
     level: '77%',
   },
   {
-    Icon: SiMaterialdesign,
     name: 'MaterialUI',
     level: '50%',
   },
   {
-    Icon: IoLogoNodejs,
     name: 'Node.js',
     level: '93%',
   },
   {
-    Icon: SiExpress,
-    name: 'Express',
+    name: 'Git & GitHub',
+    level: '95%',
+  },
+  {
+    name: 'Express.js',
     level: '90%',
   },
   {
-    Icon: IoLogoJavascript,
+    name: 'MongoDB',
+    level: '91%',
+  },
+  {
+    name: 'PostgreSQL',
+    level: '75%',
+  },
+  {
+    name: 'Scrum',
+    level: '90%',
+  },
+  {
     name: 'JavaScript',
     level: '95%',
   },
 ];
 
-export const tools: ISkill[] = [
+export const softSkills: ISkill[] = [
   {
-    Icon: BiGitBranch,
-    name: 'Git & GitHub',
-    level: '95%',
-  },
-  {
-    Icon: DiScrum,
-    name: 'Scrum',
-    level: '90%',
-  },
-  {
-    Icon: SiJirasoftware,
-    name: 'Jira',
-    level: '85%',
-  },
-  {
-    Icon: FaTrello,
-    name: 'Trello',
-    level: '95%',
-  },
-  {
-    Icon: SiMongodb,
-    name: 'MongoDB',
-    level: '91%',
-  },
-  {
-    Icon: SiPostgresql,
-    name: 'PostgreSQL',
-    level: '75%',
-  },
-  {
-    Icon: IoIosChatboxes,
     name: 'Communication',
     level: '100%',
   },
   {
-    Icon: AiOutlineTeam,
     name: 'Teamwork',
     level: '100%',
   },
   {
-    Icon: MdOutlineLeaderboard,
     name: 'Leadership',
     level: '95%',
   },
   {
-    Icon: MdLanguage,
+    name: 'Problem Solving',
+    level: '100%',
+  },
+  {
     name: 'Spanish',
     level: '100%',
   },
   {
-    Icon: MdLanguage,
     name: 'English',
     level: '95%',
   },
   {
-    Icon: MdLanguage,
     name: 'Italian',
     level: '55%',
   },
@@ -310,41 +259,34 @@ export const projects: IProject[] = [
 
 export const services: IService[] = [
   {
-    Icon: RiComputerLine,
     title: 'Frontend Development',
     about:
       'I can build beautiful and scalable SPAs using <b>React</b> + <b>TypeScript</b>, <b>Redux-toolkit</b>, <b>Next.js</b>, <b>Tailwind CSS</b> and others.',
   },
   {
-    Icon: BiTestTube,
     title: 'e2e Testing & Unit Tests',
     about:
       'I am able to create e2e tests using <b>Cypress</b> and unit tests using <b>Jest & React Testing Library</b>.',
   },
   {
-    Icon: FaMobileAlt,
     title: 'Mobile Application Development',
     about:
       'I can develop beautiful and scalable mobile applications for <b>iOS</b> and <b>Android</b> using <b>React Native</b>.',
   },
   {
-    Icon: FaServer,
     title: 'Backend  Development',
     about: 'Handle databases, server, api using <b>Express.js</b> & other popular frameworks.',
   },
   {
-    Icon: MdDeveloperMode,
     title: 'Competitive Coder',
     about:
       'A daily <b>problem solver</b>, <b>quick learner</b>, very <b>passionate about coding</b>, and love to take up challenging tasks.',
   },
   {
-    Icon: DiScrum,
     title: 'Scrum Master',
     about: 'A high-quality coding service with a focus on the <b>Scrum</b> methodology.',
   },
   {
-    Icon: FaChalkboardTeacher,
     title: 'Experienced Teacher',
     about: 'A vast amount of experience in teaching and mentoring students.',
   },

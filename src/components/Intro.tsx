@@ -1,10 +1,14 @@
+import { useContext } from 'react';
 import Link from 'next/link';
 
-interface IntroProps {
-  about: string;
-}
+import { PortfolioContext } from '@/context';
+import { Btn } from '@/components';
 
-export const Intro = ({ about }: IntroProps) => {
+export const Intro = () => {
+  //
+
+  const { about } = useContext(PortfolioContext);
+
   return (
     <section className='flex flex-col items-center justify-center min-h-screen px-4 py-20 bg-center bg-cover md:px-8'>
       <div className='text-center animate-fade-in'>
@@ -16,9 +20,9 @@ export const Intro = ({ about }: IntroProps) => {
       </div>
       <div className='animate-slide-in'>
         <Link href='/skills'>
-          <button className='px-4 py-2 mt-8 font-semibold transition-colors duration-300 border-2 rounded-md font-body text-accent border-accent hover:bg-accent-hover hover:text-primary'>
-            Explore Skills
-          </button>
+          <div className='mt-8'>
+            <Btn label='Explore my Skills' />
+          </div>
         </Link>
       </div>
     </section>

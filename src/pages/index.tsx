@@ -1,13 +1,26 @@
+import { useContext, useEffect } from 'react';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 
-import { Intro } from '@/components';
+import { PortfolioContext } from '@/context';
+import { Intro, Loading } from '@/components';
 
 interface HomeProps {
   about: string;
 }
 
 const Home = ({ about }: HomeProps) => {
+  //
+  const { setAbout, setLoading, isLoading } = useContext(PortfolioContext);
+
+  useEffect(() => {
+    setLoading(true);
+    setAbout(about);
+    setLoading(false);
+  }, [about]);
+
+  if (isLoading) return <Loading />;
+
   return (
     <>
       <Head>
@@ -21,14 +34,14 @@ const Home = ({ about }: HomeProps) => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <main>
-        <Intro about={about} />
+        <Intro />
       </main>
     </>
   );
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/data`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/data`);
   const { about } = await res.json();
   return {
     props: { about },
