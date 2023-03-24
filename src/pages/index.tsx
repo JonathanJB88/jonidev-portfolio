@@ -11,15 +11,15 @@ interface HomeProps {
 
 const Home = ({ about }: HomeProps) => {
   //
-  const { setAbout, setLoading, isLoading } = useContext(PortfolioContext);
+  // const { setAbout, setLoading, isLoading } = useContext(PortfolioContext);
 
-  useEffect(() => {
-    setLoading(true);
-    setAbout(about);
-    setLoading(false);
-  }, [about]);
+  // useEffect(() => {
+  //   setLoading(true);
+  //   setAbout(about);
+  //   setLoading(false);
+  // }, [about]);
 
-  if (isLoading) return <Loading />;
+  // if (isLoading) return <Loading />;
 
   return (
     <>
@@ -33,9 +33,7 @@ const Home = ({ about }: HomeProps) => {
         />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <main>
-        <Intro />
-      </main>
+      <main>{!about ? <Loading /> : <Intro about={about} />}</main>
     </>
   );
 };

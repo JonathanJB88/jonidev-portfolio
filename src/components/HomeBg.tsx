@@ -17,7 +17,6 @@ export const HomeBg = memo(
   forwardRef<ParticlesRef, Props>((Props, ref) => {
     //
     const { particlesRef, particleOptions, particlesInit } = useParticlesConfig();
-    const { isLoading } = useContext(PortfolioContext);
 
     useImperativeHandle(ref, () => ({
       refresh() {
@@ -26,8 +25,6 @@ export const HomeBg = memo(
         }
       },
     }));
-
-    if (isLoading) return <Loading />;
 
     return (
       <div className='fixed top-0 left-0 w-full h-full -z-50 animate-fade-in'>

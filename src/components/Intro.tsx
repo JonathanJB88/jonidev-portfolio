@@ -4,10 +4,12 @@ import Link from 'next/link';
 import { PortfolioContext } from '@/context';
 import { Btn } from '@/components';
 
-export const Intro = () => {
-  //
+interface IntroProps {
+  about: string;
+}
 
-  const { about } = useContext(PortfolioContext);
+export const Intro = ({ about }: IntroProps) => {
+  //
 
   return (
     <section className='flex flex-col items-center justify-center min-h-screen px-4 py-20 bg-center bg-cover md:px-8'>

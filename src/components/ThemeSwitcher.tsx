@@ -1,13 +1,21 @@
-import { memo, useContext } from 'react';
+import { memo, useContext, useEffect, useState } from 'react';
 
 import { PortfolioContext } from '@/context';
+import { useTheme } from 'next-themes';
 
 export const ThemeSwitcher = memo(() => {
   const { theme, setTheme } = useContext(PortfolioContext);
+  // const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
   const toggleTheme = () => {
     setTheme(theme === 'dark' ? 'light' : 'dark');
   };
+
+  // After mounting, we have access to the theme
+  useEffect(() => setMounted(true), []);
+
+  if (!mounted) return null;
 
   return (
     <div className='fixed flex items-center top-4 right-6'>

@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { PortfolioContext } from '@/context';
 import { Btn, Loading, SkillsSet } from '@/components';
 import { ISkill } from '@/interfaces';
+import { Transition } from 'react-spring';
 
 interface SkillsProps {
   techSkills: ISkill[];
@@ -14,27 +15,34 @@ interface SkillsProps {
 const Skills = ({ techSkills, softSkills }: SkillsProps) => {
   //
 
-  const { setTechSkills, setSoftSkills, setLoading, isLoading } = useContext(PortfolioContext);
-
-  useEffect(() => {
-    if (techSkills.length === 0 || softSkills.length === 0) setLoading(true);
-    setTechSkills(techSkills);
-    setSoftSkills(softSkills);
-    setLoading(false);
-  }, [techSkills, softSkills]);
-
-  if (isLoading) return <Loading />;
+  if (!techSkills || !softSkills) return <Loading />;
 
   return (
     <div className='px-16 py-9'>
-      <SkillsSet />
-      <div className='flex justify-center mt-8 animate-slide-in'>
-        <Link href='/projects'>
-          <div className='-mt-4'>
-            <Btn label='Check out my Projects' />
+      <Transition
+        items={<SkillsSet techSkills={techSkills} softSkills={softSkills} />}
+        from={{ opacity: 0, transform: 'translateY(20px)' }}
+        enter={{ opacity: 1, transform: 'translateY(0)' }}
+        leave={{ opacity: 0, transform: 'translateY(20px)' }}
+      >
+        {(styles, item) => item && <div style={styles}>{item}</div>}
+      </Transition>
+      <Transition
+        items={
+          <div className='flex justify-center mt-8 animate-slide-in'>
+            <Link href='/projects'>
+              <div className='-mt-4'>
+                <Btn label='Check out my Projects' />
+              </div>
+            </Link>
           </div>
-        </Link>
-      </div>
+        }
+        from={{ opacity: 0, transform: 'translateY(20px)' }}
+        enter={{ opacity: 1, transform: 'translateY(0)' }}
+        leave={{ opacity: 0, transform: 'translateY(20px)' }}
+      >
+        {(styles, item) => item && <div style={styles}>{item}</div>}
+      </Transition>
     </div>
   );
 };

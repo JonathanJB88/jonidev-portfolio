@@ -26,11 +26,11 @@ export const renderSkillSet = (skills: ISkill[], numCols: number) => {
 
         cols.push(
           <div key={skill.name} className='flex items-center mb-4'>
-            <IconComponent className='mr-4 text-2xl' />
+            <IconComponent className='mr-4 text-2xl dark:text-secondary' />
             <div className='flex-1'>
               <div className='flex items-center justify-between mb-1'>
-                <p className='text-base font-semibold'>{skill.name}</p>
-                <p className='text-sm'>{skill.level}</p>
+                <p className='text-base font-semibold dark:text-secondary'>{skill.name}</p>
+                <p className='text-sm dark:text-secondary'>{skill.level}</p>
               </div>
               <div className='w-full h-2 rounded opacity-75 bg-background-light'>
                 <div className={`h-full ${barColor} opacity-90 rounded`} style={{ width: skill.level }}></div>
