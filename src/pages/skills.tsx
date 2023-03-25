@@ -1,8 +1,10 @@
+import { useContext } from 'react';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
-import { Fade } from 'react-awesome-reveal';
+import { Slide } from 'react-awesome-reveal';
 
+import { PortfolioContext } from '@/context';
 import { Btn, Loading, SkillsSet } from '@/components';
 
 import { ISkill } from '@/interfaces';
@@ -14,6 +16,11 @@ interface SkillsProps {
 
 const Skills = ({ techSkills, softSkills }: SkillsProps) => {
   //
+
+  const { theme } = useContext(PortfolioContext);
+
+  const darkTheme = theme === 'dark';
+  const textBg = darkTheme ? 'text-accent' : 'text-primary';
 
   if (!techSkills || !softSkills) return <Loading />;
 
@@ -29,20 +36,15 @@ const Skills = ({ techSkills, softSkills }: SkillsProps) => {
         />
       </Head>
 
-      <main>
-        <div className='px-16 py-9'>
-          <Fade direction='right' triggerOnce>
-            <SkillsSet techSkills={techSkills} softSkills={softSkills} />
-          </Fade>
-          <Fade direction='right' triggerOnce>
-            <div className='flex justify-center mt-8 animate-slide-in'>
-              <Link href='/projects'>
-                <div className='-mt-4'>
-                  <Btn label='Check out my Projects' />
-                </div>
-              </Link>
-            </div>
-          </Fade>
+      <main className='relative'>
+        <Slide direction='down'>
+          <h1 className={`pt-12 text-xl font-extrabold text-center font-header md:text-4xl ${textBg}`}>My Skills</h1>
+        </Slide>
+        <SkillsSet techSkills={techSkills} softSkills={softSkills} />
+        <div className='absolute bottom-0 right-0 mb-8 mr-24 md:mr-8 lg:md-12 animate-slide-in'>
+          <Link href='/skills'>
+            <Btn label='Explore my Projects' />
+          </Link>
         </div>
       </main>
     </>

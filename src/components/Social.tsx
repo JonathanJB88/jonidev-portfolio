@@ -22,12 +22,10 @@ const social: ISocial[] = [
   },
 ];
 
-export const Social = () => {
-  return (
-    <>
-      {social.map((link) => (
-        <SocialLink key={link.id} Icon={link.Icon} url={link.url} delay={link.id * 100} />
-      ))}
-    </>
-  );
-};
+export const Social = () => (
+  <>
+    {social.map(({ id, Icon, url }) => (
+      <SocialLink key={id} Icon={Icon} url={url} delay={id * 100} />
+    ))}
+  </>
+);

@@ -6,7 +6,7 @@ interface SocialLinkProps {
   url: string;
   delay?: number;
 }
-export const SocialLink = ({ Icon, url, delay }: SocialLinkProps) => {
+export const SocialLink = ({ Icon, url, delay = 100 }: SocialLinkProps) => {
   //
   const iconClassName = 'w-8 h-8 text-primary hover:text-accent mx-1';
 

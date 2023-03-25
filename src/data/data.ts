@@ -16,7 +16,7 @@ export const techSkills: ISkill[] = [
     level: '85%',
   },
   {
-    name: 'Redux & Redux Toolkit',
+    name: 'Redux',
     level: '92%',
   },
   {

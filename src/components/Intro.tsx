@@ -1,5 +1,8 @@
+import Image from 'next/image';
 import Link from 'next/link';
+import { Fade } from 'react-awesome-reveal';
 
+import profilepic from '@/assets/images/profilepic.png';
 import { Btn, Social, DownloadCV } from '@/components';
 
 interface IntroProps {
@@ -8,10 +11,21 @@ interface IntroProps {
 
 export const Intro = ({ about }: IntroProps) => {
   //
-
   return (
     <section className='flex flex-col items-center justify-center min-h-screen px-4 py-20 bg-center bg-cover md:px-8'>
       <div className='text-center animate-fade-in'>
+        <Fade direction='down' delay={300} triggerOnce>
+          <div className='flex justify-center mb-6 -mt-8'>
+            <Image
+              src={profilepic}
+              alt='Profile Photo'
+              width={150}
+              height={150}
+              loading='lazy'
+              className='rounded-2xl'
+            />
+          </div>
+        </Fade>
         <h1 className='text-4xl font-bold md:text-5xl lg:text-6xl text-primary font-header'>Jonathan Bracho</h1>
         <h2 className='text-2xl font-semibold md:text-3xl lg:text-4xl dark:text-secondary font-header'>
           Frontend Developer

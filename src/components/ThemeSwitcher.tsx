@@ -3,6 +3,7 @@ import { memo, useContext } from 'react';
 import { PortfolioContext } from '@/context';
 
 export const ThemeSwitcher = memo(() => {
+  //
   const { theme, setTheme } = useContext(PortfolioContext);
 
   const toggleTheme = () => {

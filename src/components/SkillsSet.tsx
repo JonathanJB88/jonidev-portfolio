@@ -1,7 +1,6 @@
-import { useContext } from 'react';
+import { Slide } from 'react-awesome-reveal';
 
-import { PortfolioContext } from '@/context';
-import { renderSkillSet } from '@/utils';
+import { SoftSkills, TechSkills } from '@/components';
 
 import { ISkill } from '../interfaces';
 
@@ -13,18 +12,28 @@ interface SkillsSetProps {
 export const SkillsSet = ({ techSkills, softSkills }: SkillsSetProps) => {
   //
 
-  const { theme } = useContext(PortfolioContext);
-
   return (
-    <>
-      <div className='mb-12'>
-        <h1 className='mb-6 text-2xl font-semibold animate-fade-in dark:text-secondary'>Technical Skills</h1>
-        {renderSkillSet(techSkills, 3, theme)}
+    <section className='relative flex flex-col w-full pb-16 md:flex-row'>
+      <div className='w-full px-8 md:w-3/4'>
+        <Slide direction='right'>
+          <h2 className='my-6 text-base text-center md:text-left font-body md:text-xl md:pl-2'>Technical Skills</h2>
+        </Slide>
+        <Slide direction='left'>
+          <div className='grid grid-cols-2 gap-4 md:grid-cols-3'>
+            <TechSkills techSkills={techSkills} />
+          </div>
+        </Slide>
       </div>
-      <div>
-        <h1 className='mb-6 text-2xl font-semibold animate-fade-in dark:text-secondary'>Soft Skills</h1>
-        {renderSkillSet(softSkills, 3, theme)}
+      <div className='w-full px-8 md:w-1/2'>
+        <Slide direction='left'>
+          <h2 className='my-6 text-center md:text-right font-body md:text-xl md:pr-2'>Soft Skills</h2>
+        </Slide>
+        <Slide direction='right'>
+          <div className='grid grid-cols-1 gap-4 md:grid-cols-2'>
+            <SoftSkills softSkills={softSkills} />
+          </div>
+        </Slide>
       </div>
-    </>
+    </section>
   );
 };

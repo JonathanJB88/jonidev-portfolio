@@ -30,7 +30,7 @@ export const getIconComponent = (skillName: string): IconType => {
     TypeScript: SiTypescript,
     'React.js': FaReact,
     'React Native': FaMobileAlt,
-    'Redux & Redux Toolkit': SiRedux,
+    Redux: SiRedux,
     'Next.js': SiNextdotjs,
     Cypress: SiCypress,
     Jest: SiJest,
