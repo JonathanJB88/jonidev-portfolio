@@ -1,7 +1,7 @@
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
-import { Transition } from 'react-spring';
+import { Fade } from 'react-awesome-reveal';
 
 import { Btn, Loading, SkillsSet } from '@/components';
 
@@ -31,30 +31,18 @@ const Skills = ({ techSkills, softSkills }: SkillsProps) => {
 
       <main>
         <div className='px-16 py-9'>
-          <Transition
-            items={<SkillsSet techSkills={techSkills} softSkills={softSkills} />}
-            from={{ opacity: 0, transform: 'translateY(20px)' }}
-            enter={{ opacity: 1, transform: 'translateY(0)' }}
-            leave={{ opacity: 0, transform: 'translateY(20px)' }}
-          >
-            {(styles, item) => item && <div style={styles}>{item}</div>}
-          </Transition>
-          <Transition
-            items={
-              <div className='flex justify-center mt-8 animate-slide-in'>
-                <Link href='/projects'>
-                  <div className='-mt-4'>
-                    <Btn label='Check out my Projects' />
-                  </div>
-                </Link>
-              </div>
-            }
-            from={{ opacity: 0, transform: 'translateY(20px)' }}
-            enter={{ opacity: 1, transform: 'translateY(0)' }}
-            leave={{ opacity: 0, transform: 'translateY(20px)' }}
-          >
-            {(styles, item) => item && <div style={styles}>{item}</div>}
-          </Transition>
+          <Fade direction='right' triggerOnce>
+            <SkillsSet techSkills={techSkills} softSkills={softSkills} />
+          </Fade>
+          <Fade direction='right' triggerOnce>
+            <div className='flex justify-center mt-8 animate-slide-in'>
+              <Link href='/projects'>
+                <div className='-mt-4'>
+                  <Btn label='Check out my Projects' />
+                </div>
+              </Link>
+            </div>
+          </Fade>
         </div>
       </main>
     </>

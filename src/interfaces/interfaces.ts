@@ -1,3 +1,5 @@
+import { IconType } from 'react-icons';
+
 export interface IService {
   title: string;
   about: string;
@@ -28,3 +30,9 @@ export type Category =
   | 'ChakraUI'
   | 'JavaScript'
   | 'TypeScript';
+
+export interface ISocial {
+  id: number;
+  Icon: IconType;
+  url: string;
+}

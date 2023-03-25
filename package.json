@@ -14,19 +14,17 @@
     "@types/react-dom": "18.0.11",
     "eslint": "8.36.0",
     "eslint-config-next": "13.2.4",
-    "lodash": "^4.17.21",
     "next": "13.2.4",
     "next-themes": "^0.2.1",
     "react": "18.2.0",
+    "react-awesome-reveal": "^4.2.3",
     "react-dom": "18.2.0",
     "react-icons": "^4.8.0",
     "react-particles": "^2.9.3",
-    "react-spring": "^9.7.1",
     "tsparticles": "^2.9.3",
     "typescript": "5.0.2"
   },
   "devDependencies": {
-    "@types/lodash": "^4.14.191",
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.21",
     "tailwindcss": "^3.2.7"

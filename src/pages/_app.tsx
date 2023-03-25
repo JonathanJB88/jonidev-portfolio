@@ -1,12 +1,12 @@
 import '@/styles/globals.css';
 import 'tailwindcss/tailwind.css';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { ThemeProvider } from 'next-themes';
 import type { AppProps } from 'next/app';
 
 import { DynamicBg, HomeBg, ThemeSwitcher } from '@/components';
 import { PortfolioProvider } from '@/context';
-import { useEffect, useState } from 'react';
 
 export default function App({ Component, pageProps }: AppProps) {
   const { pathname } = useRouter();

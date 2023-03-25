@@ -5,3 +5,6 @@ export * from './DynamicBg';
 export * from './Btn';
 export * from './Loading';
 export * from './SkillsSet';
+export * from './Social';
+export * from './SocialLinks';
+export * from './DownloadCV';

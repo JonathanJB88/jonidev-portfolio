@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { Btn } from '@/components';
+import { Btn, Social, DownloadCV } from '@/components';
 
 interface IntroProps {
   about: string;
@@ -24,6 +24,14 @@ export const Intro = ({ about }: IntroProps) => {
             <Btn label='Explore my Skills' />
           </div>
         </Link>
+      </div>
+      <div className='flex flex-col items-center w-1/2 mt-20 justify-evenly md:flex-row'>
+        <div className='flex flex-row items-center mb-2 md:mb-0 md:mr-2'>
+          <Social />
+        </div>
+        <div className='mt-4 md:mt-0 md:mr-2'>
+          <DownloadCV />
+        </div>
       </div>
     </section>
   );
