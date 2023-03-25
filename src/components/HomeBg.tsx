@@ -1,9 +1,7 @@
-import { useImperativeHandle, forwardRef, memo, useContext } from 'react';
+import { useImperativeHandle, forwardRef, memo } from 'react';
 import Particles from 'react-particles';
 
 import { useParticlesConfig } from '@/hooks';
-import { PortfolioContext } from '@/context';
-import { Loading } from '@/components';
 
 type Props = {
   children?: React.ReactNode;
@@ -14,7 +12,7 @@ type ParticlesRef = {
 };
 
 export const HomeBg = memo(
-  forwardRef<ParticlesRef, Props>((Props, ref) => {
+  forwardRef<ParticlesRef, Props>((props, ref) => {
     //
     const { particlesRef, particleOptions, particlesInit } = useParticlesConfig();
 

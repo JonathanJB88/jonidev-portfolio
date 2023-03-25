@@ -2,13 +2,13 @@ import { memo, ReactNode, useContext } from 'react';
 
 import { PortfolioContext } from '@/context';
 import styles from '@/styles/DynamicBg.module.css';
-import { useTheme } from 'next-themes';
 
 interface DynamicBgProps {
   children: ReactNode;
 }
 
 export const DynamicBg = memo(({ children }: DynamicBgProps) => {
+  //
   const { theme } = useContext(PortfolioContext);
 
   const isDark = theme === 'dark';

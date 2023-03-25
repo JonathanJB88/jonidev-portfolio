@@ -6,10 +6,15 @@ import type { AppProps } from 'next/app';
 
 import { DynamicBg, HomeBg, ThemeSwitcher } from '@/components';
 import { PortfolioProvider } from '@/context';
+import { useEffect, useState } from 'react';
 
 export default function App({ Component, pageProps }: AppProps) {
   const { pathname } = useRouter();
   const isHomePage = pathname === '/';
+
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return null;
 
   return (
     <ThemeProvider attribute='class' defaultTheme='dark'>

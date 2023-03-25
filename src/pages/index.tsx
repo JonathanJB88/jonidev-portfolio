@@ -1,8 +1,6 @@
-import { useContext, useEffect } from 'react';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 
-import { PortfolioContext } from '@/context';
 import { Intro, Loading } from '@/components';
 
 interface HomeProps {
@@ -11,15 +9,6 @@ interface HomeProps {
 
 const Home = ({ about }: HomeProps) => {
   //
-  // const { setAbout, setLoading, isLoading } = useContext(PortfolioContext);
-
-  // useEffect(() => {
-  //   setLoading(true);
-  //   setAbout(about);
-  //   setLoading(false);
-  // }, [about]);
-
-  // if (isLoading) return <Loading />;
 
   return (
     <>
@@ -39,11 +28,18 @@ const Home = ({ about }: HomeProps) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/data`);
-  const { about } = await res.json();
-  return {
-    props: { about },
-  };
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/data`);
+    const { about } = await res.json();
+    return {
+      props: { about },
+    };
+  } catch (error) {
+    console.error('Error fetching data from API: ', error);
+    return {
+      props: { about: null },
+    };
+  }
 };
 
 export default Home;

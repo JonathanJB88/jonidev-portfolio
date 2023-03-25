@@ -1,13 +1,10 @@
-import { useContext } from 'react';
-
-import { PortfolioContext } from '@/context';
+import { Theme } from '@/context';
 import { getIconComponent } from '@/utils';
+
 import { ISkill } from '@/interfaces';
 
-export const renderSkillSet = (skills: ISkill[], numCols: number) => {
+export const renderSkillSet = (skills: ISkill[], numCols: number, theme: Theme) => {
   //
-
-  const { theme } = useContext(PortfolioContext);
 
   const barColor = theme === 'dark' ? 'bg-accent' : 'bg-primary';
 

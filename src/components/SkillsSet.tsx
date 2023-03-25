@@ -1,8 +1,9 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 
 import { PortfolioContext } from '@/context';
 import { renderSkillSet } from '@/utils';
-import { ISkill } from '../interfaces/interfaces';
+
+import { ISkill } from '../interfaces';
 
 interface SkillsSetProps {
   techSkills: ISkill[];
@@ -12,15 +13,17 @@ interface SkillsSetProps {
 export const SkillsSet = ({ techSkills, softSkills }: SkillsSetProps) => {
   //
 
+  const { theme } = useContext(PortfolioContext);
+
   return (
     <>
       <div className='mb-12'>
         <h1 className='mb-6 text-2xl font-semibold animate-fade-in dark:text-secondary'>Technical Skills</h1>
-        {renderSkillSet(techSkills, 3)}
+        {renderSkillSet(techSkills, 3, theme)}
       </div>
       <div>
         <h1 className='mb-6 text-2xl font-semibold animate-fade-in dark:text-secondary'>Soft Skills</h1>
-        {renderSkillSet(softSkills, 3)}
+        {renderSkillSet(softSkills, 3, theme)}
       </div>
     </>
   );

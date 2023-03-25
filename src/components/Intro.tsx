@@ -1,7 +1,5 @@
-import { useContext } from 'react';
 import Link from 'next/link';
 
-import { PortfolioContext } from '@/context';
 import { Btn } from '@/components';
 
 interface IntroProps {

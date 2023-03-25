@@ -1,6 +1,6 @@
-type ThemeType = 'dark' | 'light';
+import { Theme } from '@/context';
 
-export const getParticleOptions = (theme: ThemeType) => {
+export const getParticleOptions = (theme: Theme) => {
   const isDark = theme === 'dark';
   return {
     background: {
@@ -69,7 +69,11 @@ export const getParticleOptions = (theme: ThemeType) => {
         type: 'circle',
       },
       size: {
-        value: { min: 1, max: 5 },
+        random: {
+          enable: true,
+          minimumValue: 1,
+        },
+        value: 5,
       },
     },
     detectRetina: true,
