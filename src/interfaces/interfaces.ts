@@ -21,15 +21,7 @@ export interface IProject {
   key_techs: string[];
 }
 
-export type Category =
-  | 'React'
-  | 'React Native'
-  | 'Next'
-  | 'CSS3'
-  | 'Tailwind CSS'
-  | 'ChakraUI'
-  | 'JavaScript'
-  | 'TypeScript';
+export type Category = 'React' | 'React Native' | 'Next' | 'TailwindCSS' | 'ChakraUI' | 'JavaScript' | 'TypeScript';
 
 export interface ISocial {
   id: number;

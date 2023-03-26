@@ -11,3 +11,7 @@ export * from './DownloadCV';
 export * from './TechSkills';
 export * from './SoftSkills';
 export * from './SkillCard';
+export * from './ProjectsNavBar';
+export * from './ProjectsNavItem';
+export * from './ProjectCard';
+export * from './ProjectsSet';

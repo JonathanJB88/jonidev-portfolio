@@ -37,7 +37,7 @@ export const getStaticProps: GetStaticProps = async () => {
   } catch (error) {
     console.error('Error fetching data from API: ', error);
     return {
-      props: { about: null },
+      props: { about: '' },
     };
   }
 };

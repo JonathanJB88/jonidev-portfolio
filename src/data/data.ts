@@ -113,8 +113,8 @@ export const projects: IProject[] = [
     image_path: '/images/fisicafacil.gif',
     deployed_url: 'https://fisicafacil.vercel.app/',
     github_url: 'https://github.com/JonathanJB88/AIEasyPhysics',
-    category: ['TypeScript', 'React', 'Tailwind CSS'],
-    key_techs: ['React', 'Typescript', 'Tailwind CSS', 'Framer Motion', 'React-hot-toast'],
+    category: ['TypeScript', 'React', 'TailwindCSS'],
+    key_techs: ['React', 'Typescript', 'TailwindCSS', 'Framer Motion', 'React-hot-toast'],
   },
   {
     id: 2,
@@ -124,8 +124,8 @@ export const projects: IProject[] = [
     image_path: '/images/portfolio.gif',
     deployed_url: 'https://jonathanbrachoportfolio.vercel.app/',
     github_url: 'https://github.com/JonathanJB88/portfolio',
-    category: ['TypeScript', 'React', 'Next', 'Tailwind CSS'],
-    key_techs: ['React', 'Next', 'Tailwind CSS', 'Framer Motion', 'React Icons'],
+    category: ['TypeScript', 'React', 'Next', 'TailwindCSS'],
+    key_techs: ['React', 'Next', 'TailwindCSS', 'Framer Motion', 'React Icons'],
   },
   {
     id: 3,
@@ -144,8 +144,8 @@ export const projects: IProject[] = [
     image_path: '/images/maps-app.gif',
     deployed_url: 'https://jonathandev-mapsapp.netlify.app/',
     github_url: 'https://github.com/JonathanJB88/Maps-App',
-    category: ['TypeScript', 'React', 'CSS3'],
-    key_techs: ['React', 'TypeScript', 'Vite', 'Jest', 'Css', 'Mapbox', 'React Testing Library'],
+    category: ['TypeScript', 'React'],
+    key_techs: ['React', 'TypeScript', 'Vite', 'Jest', 'CSS3', 'Mapbox', 'React Testing Library'],
   },
   {
     id: 5,
@@ -154,8 +154,8 @@ export const projects: IProject[] = [
     image_path: '/images/calendar-app.gif',
     deployed_url: 'https://jonathandev-calendar-app.netlify.app/',
     github_url: 'https://github.com/JonathanJB88/CalendarApp_Frontend-React',
-    category: ['JavaScript', 'React', 'CSS3'],
-    key_techs: ['React', 'JavaScript', 'Vite', 'Jest', 'Css', 'React Testing Library'],
+    category: ['JavaScript', 'React'],
+    key_techs: ['React', 'JavaScript', 'Vite', 'Jest', 'CSS3', 'React Testing Library'],
   },
   {
     id: 6,
@@ -165,7 +165,7 @@ export const projects: IProject[] = [
     image_path: '/images/jon-productcard-component.gif',
     deployed_url: 'https://www.npmjs.com/package/jon-productcard-component',
     github_url: 'https://github.com/JonathanJB88/jon-productcard-component',
-    category: ['TypeScript', 'React', 'CSS3'],
+    category: ['TypeScript', 'React'],
     key_techs: ['React', 'TypeScript', 'CSS3'],
   },
   {
@@ -176,7 +176,7 @@ export const projects: IProject[] = [
     image_path: '/images/pokemon.gif',
     deployed_url: 'https://pokemon-app-by-jonathanbracho.vercel.app/',
     github_url: 'https://github.com/JonathanJB88/PI-Pokemon',
-    category: ['JavaScript', 'React', 'CSS3'],
+    category: ['JavaScript', 'React'],
     key_techs: ['React', 'Redux', 'CSS3', 'Node.js', 'Express', 'PostgreSQL'],
   },
   {
@@ -210,7 +210,7 @@ export const projects: IProject[] = [
     image_path: '/images/calculator.gif',
     deployed_url: 'https://drive.google.com/file/d/1pRb-u9kmI1Hn7l_912FhVt3tLHUleJJr/view',
     github_url: 'https://github.com/JonathanJB88/Calculator-ReactNative',
-    category: ['TypeScript', 'React Native', 'CSS3'],
+    category: ['TypeScript', 'React Native'],
     key_techs: ['React Native', 'TypeScript'],
   },
   {
@@ -220,7 +220,7 @@ export const projects: IProject[] = [
     image_path: '/images/movies.gif',
     deployed_url: 'https://drive.google.com/file/d/1s3o437uFC_lKef53EPjyLEwKSM96kxrO/view',
     github_url: 'https://github.com/JonathanJB88/MoviesApp-reactNative',
-    category: ['TypeScript', 'React Native', 'CSS3'],
+    category: ['TypeScript', 'React Native'],
     key_techs: ['React Native', 'TypeScript'],
   },
   {
@@ -231,7 +231,7 @@ export const projects: IProject[] = [
     image_path: '/images/pokedex.gif',
     deployed_url: 'https://drive.google.com/file/d/19U2myC_swNI4gOiS67__Ih96P3FCRRdW/view',
     github_url: 'https://github.com/JonathanJB88/PokedexApp',
-    category: ['TypeScript', 'React Native', 'CSS3'],
+    category: ['TypeScript', 'React Native'],
     key_techs: ['React Native', 'TypeScript'],
   },
   {
@@ -241,7 +241,7 @@ export const projects: IProject[] = [
     image_path: '/images/routes.gif',
     deployed_url: 'https://drive.google.com/file/d/1phkcH9OlQdZ6bfwIZq2_MkPwMVj-08TI/view',
     github_url: 'https://github.com/JonathanJB88/MapsApp-ReactNative',
-    category: ['TypeScript', 'React Native', 'CSS3'],
+    category: ['TypeScript', 'React Native'],
     key_techs: ['React Native', 'TypeScript'],
   },
   {
@@ -252,7 +252,7 @@ export const projects: IProject[] = [
     image_path: '/images/products.gif',
     deployed_url: 'https://drive.google.com/file/d/1YUeCUpUja6gz1W6sbVjlfxH3_18_HDtf/view',
     github_url: 'https://github.com/JonathanJB88/ProductsApp',
-    category: ['TypeScript', 'React Native', 'CSS3'],
+    category: ['TypeScript', 'React Native'],
     key_techs: ['React Native', 'TypeScript', 'MongoDB', 'Cloudinary'],
   },
 ];

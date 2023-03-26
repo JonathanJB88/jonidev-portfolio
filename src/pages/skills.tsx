@@ -42,7 +42,7 @@ const Skills = ({ techSkills, softSkills }: SkillsProps) => {
         </Slide>
         <SkillsSet techSkills={techSkills} softSkills={softSkills} />
         <div className='absolute bottom-0 right-0 mb-8 mr-24 md:mr-8 lg:md-12 animate-slide-in'>
-          <Link href='/skills'>
+          <Link href='/projects'>
             <Btn label='Explore my Projects' />
           </Link>
         </div>
@@ -66,8 +66,8 @@ export const getStaticProps: GetStaticProps = async () => {
     console.error('Error fetching data from API: ', error);
     return {
       props: {
-        techSkills: null,
-        softSkills: null,
+        techSkills: [],
+        softSkills: [],
       },
     };
   }
