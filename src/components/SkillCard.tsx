@@ -17,10 +17,9 @@ export const SkillCard = ({ skillTitle, skillLevel }: SkillCardProps) => {
   const isDark = theme === 'dark';
 
   const barBg = isDark ? 'bg-accent' : 'bg-primary';
-  const cardBg = isDark ? 'bg-slate-700' : 'bg-secondary';
 
   return (
-    <div className={`flex p-4 rounded-md bg- ${cardBg}`}>
+    <div className={`flex p-4 rounded-md bg-gray-200 dark:bg-gray-700`}>
       <div className='flex items-center'>
         <JackInTheBox delay={500}>
           <Icon className='mr-4 text-2xl md:text-4xl dark:text-secondary' />

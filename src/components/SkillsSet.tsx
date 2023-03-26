@@ -13,8 +13,8 @@ export const SkillsSet = ({ techSkills, softSkills }: SkillsSetProps) => {
   //
 
   return (
-    <section className='relative flex flex-col w-full pb-16 md:flex-row'>
-      <div className='w-full px-8 md:w-3/4'>
+    <section className='relative flex flex-col pb-24 overflow-x-hidden md:flex-row md:overflow-x-auto md:justify-center'>
+      <div className='px-8 md:w-3/4'>
         <Slide direction='right'>
           <h2 className='my-6 text-base text-center md:text-left font-body md:text-xl md:pl-2'>Technical Skills</h2>
         </Slide>
@@ -24,7 +24,7 @@ export const SkillsSet = ({ techSkills, softSkills }: SkillsSetProps) => {
           </div>
         </Slide>
       </div>
-      <div className='w-full px-8 md:w-1/2'>
+      <div className='px-8 md:w-1/2'>
         <Slide direction='left'>
           <h2 className='my-6 text-center md:text-right font-body md:text-xl md:pr-2'>Soft Skills</h2>
         </Slide>

@@ -2,7 +2,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Fade } from 'react-awesome-reveal';
 
-import profilepic from '@/assets/images/profilepic.png';
 import { Btn, Social, DownloadCV } from '@/components';
 
 interface IntroProps {
@@ -17,7 +16,7 @@ export const Intro = ({ about }: IntroProps) => {
         <Fade direction='down' delay={300} triggerOnce>
           <div className='flex justify-center mb-6 -mt-8'>
             <Image
-              src={profilepic}
+              src='/images/profilepic.png'
               alt='Profile Photo'
               width={150}
               height={150}

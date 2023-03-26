@@ -22,7 +22,7 @@ const categories: Categories[] = [
 
 export const ProjectsNavBar = ({ active, handleCategory }: ProjectsNavBarProps) => {
   return (
-    <div className='grid grid-cols-4 pt-2 list-none md:grid-cols-9'>
+    <div className='grid grid-cols-4 pt-2 list-none md:grid-cols-8'>
       {categories.map((category) => (
         <ProjectsNavItem key={category} value={category} active={active} handleCategory={handleCategory} />
       ))}

@@ -41,7 +41,7 @@ const Skills = ({ techSkills, softSkills }: SkillsProps) => {
           <h1 className={`pt-12 text-xl font-extrabold text-center font-header md:text-4xl ${textBg}`}>My Skills</h1>
         </Slide>
         <SkillsSet techSkills={techSkills} softSkills={softSkills} />
-        <div className='absolute bottom-0 right-0 mb-8 mr-24 md:mr-8 lg:md-12 animate-slide-in'>
+        <div className='absolute bottom-0 right-0 mb-8 mr-24 md:mr-8 md:mb-16 lg:md-12 animate-slide-in'>
           <Link href='/projects'>
             <Btn label='Explore my Projects' />
           </Link>
