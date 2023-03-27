@@ -21,7 +21,7 @@ export const Intro = ({ about }: IntroProps) => {
               width={150}
               height={150}
               loading='lazy'
-              className='rounded-2xl'
+              className='shadow-lg shadow-gray-700 rounded-2xl'
             />
           </div>
         </Fade>

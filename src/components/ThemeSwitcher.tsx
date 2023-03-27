@@ -1,8 +1,8 @@
-import { memo, useContext } from 'react';
+import { useContext } from 'react';
 
 import { PortfolioContext } from '@/context';
 
-export const ThemeSwitcher = memo(() => {
+export const ThemeSwitcher = () => {
   //
   const { theme, setTheme } = useContext(PortfolioContext);
 
@@ -31,4 +31,4 @@ export const ThemeSwitcher = memo(() => {
       </label>
     </div>
   );
-});
+};

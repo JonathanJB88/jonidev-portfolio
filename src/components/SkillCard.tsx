@@ -21,15 +21,15 @@ export const SkillCard = ({ skillTitle, skillLevel }: SkillCardProps) => {
   return (
     <div className={`flex p-4 rounded-md bg-gray-200 dark:bg-gray-700`}>
       <div className='flex items-center'>
-        <JackInTheBox delay={500}>
+        <JackInTheBox delay={500} triggerOnce>
           <Icon className='mr-4 text-2xl md:text-4xl dark:text-secondary' />
         </JackInTheBox>
       </div>
-      <div>
-        <h2 className='overflow-hidden text-sm font-bold font-body md:text-lg whitespace-nowrap overflow-ellipsis'>
+      <div className='flex-1'>
+        <h2 className='overflow-hidden text-sm font-body md:text-lg whitespace-nowrap overflow-ellipsis'>
           {skillTitle}
         </h2>
-        <div className='h-2 mt-2 bg-gray-500 rounded-md'>
+        <div className='w-full h-2 mt-2 bg-gray-500 rounded-md'>
           <div className={`h-2 rounded-md ${barBg}`} style={{ width: skillLevel }} />
         </div>
       </div>

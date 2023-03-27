@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
+import Link from 'next/link';
 
-import { Loading, ProjectsSet } from '@/components';
+import { Btn, Loading, ProjectsSet } from '@/components';
 
 import { Category, IProject } from '@/interfaces';
 
