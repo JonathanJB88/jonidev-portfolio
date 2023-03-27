@@ -31,6 +31,9 @@ module.exports = {
         accent: {
           DEFAULT: '#FF8A3D',
         },
+        dark: {
+          DEFAULT: '#121212',
+        },
       },
       fontFamily: {
         header: ['Montserrat', 'sans-serif'],
