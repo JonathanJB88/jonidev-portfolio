@@ -2,7 +2,7 @@ import { Slide } from 'react-awesome-reveal';
 
 import { SoftSkills, TechSkills } from '@/components';
 
-import { ISkill } from '../interfaces';
+import { ISkill } from '../../interfaces';
 
 interface SkillsSetProps {
   techSkills: ISkill[];

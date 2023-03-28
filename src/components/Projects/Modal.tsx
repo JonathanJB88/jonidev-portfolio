@@ -1,6 +1,8 @@
 import Image from 'next/image';
 import { AiFillGithub, AiFillProject } from 'react-icons/ai';
 
+import { ButtonLink } from '@/components';
+
 import { IProject } from '@/interfaces';
 
 interface ModalProps {
@@ -33,26 +35,8 @@ export const Modal = ({ setIsModalOpen, project }: ModalProps) => {
             loader={() => `/images/${image_path}`}
           />
           <div className='flex justify-center my-4 space-x-3'>
-            <a
-              href={github_url}
-              className='flex items-center px-2 py-1 space-x-3 text-lg rounded-lg md:px-4 md:py-2 bg-primary dark:bg-accent'
-              target='_blank'
-              aria-label='Github Project'
-              rel='noreferrer'
-            >
-              <AiFillGithub className='text-secondary dark:text-dark font-body' />{' '}
-              <span className='text-secondary dark:text-dark font-body'>GitHub</span>
-            </a>
-            <a
-              href={deployed_url}
-              className='flex items-center px-2 py-1 space-x-3 text-lg rounded-lg md:px-4 md:py-2 bg-primary dark:bg-accent'
-              target='_blank'
-              aria-label='Project Link'
-              rel='noreferrer'
-            >
-              <AiFillProject className='text-secondary dark:text-dark font-body' />{' '}
-              <span className='text-secondary dark:text-dark font-body'>Deploy</span>
-            </a>
+            <ButtonLink url={github_url} Icon={AiFillGithub} text='GitHub' />
+            <ButtonLink url={deployed_url} Icon={AiFillProject} text='Deploy' />
           </div>
         </div>
         <div className='flex flex-col justify-center my-4'>
