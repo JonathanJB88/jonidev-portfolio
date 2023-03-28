@@ -1,4 +1,4 @@
-import { ISkill, IProject, IService } from '@/interfaces';
+import { ISkill, IProject, IService, IJourney } from '@/interfaces';
 
 export const about: string = `I'm Jonathan Bracho, a Frontend Developer proficient in React, Typescript, Next.js, and Node.js. With a unique background in education and business, I excel in strategic planning, teamwork, and communication. Driven by curiosity, I'm always eager to enhance my skills and create innovative web solutions that spark your interest.`;
 
@@ -289,5 +289,55 @@ export const services: IService[] = [
   {
     title: 'Experienced Teacher',
     about: 'A vast amount of experience in teaching and mentoring students.',
+  },
+];
+
+export const journey: IJourney[] = [
+  {
+    year: '2019',
+    title: 'Full Stack Web Development',
+    category: 'education',
+    description:
+      'Completed Full Stack Developer Program, building real-world projects with agile methodologies, and gaining valuable skills in Full-Stack Development, Front-End Development, Back-End Web Development and Soft Skills.',
+  },
+  {
+    year: '2014-2017',
+    title: `Master's Degree in Administration and Management`,
+    category: 'education',
+    description: 'Gained valuable skills in project management, business management, and leadership.',
+  },
+  {
+    year: '2005-2011',
+    title: `Bachelor's Degree in Math and Physics Education`,
+    category: 'education',
+    description:
+      'Gained valuable skills in educational technology, physics and math education, teaching, process planning, and supervisory skills.',
+  },
+  {
+    year: '2022-Present',
+    title: 'Intructor - Full Stack Web Developer | Atexis',
+    category: 'experience',
+    description:
+      'Experienced educator with 12+ years of expertise in full-stack development, teaching coding, frameworks and libraries, project execution, SCRUM methodology, problem-solving, communication, physics education and management.',
+  },
+  {
+    year: '2021-2022',
+    title: 'Frontend Web Developer | BlustFunnels',
+    category: 'experience',
+    description: `Experienced Frontend Developer with expertise in React, TypeScript, Jest, agile methodology, and Git, effectively developing and maintaining Blast Funnels' website and web-based applications, meeting project deadlines, and contributing to the team's success through writing clean, effective code.`,
+  },
+  {
+    year: '2020-2021',
+    title: 'Frontend Developer | Four Tools Language Academy',
+    category: 'experience',
+    description:
+      'Experienced full-stack developer with MERN stack expertise, leading the design and development of a robust internal management tool with seamless frontend-backend integration, utilizing Git, Github, SCRUM methodology, communication, and problem-solving skills.',
+  },
+  {
+    year: '2019-2020',
+    title: 'Frontend Developer | World Travelers',
+    category: 'experience',
+    description:
+      'Developed World Travelers, a Next.js and Typescript SPA using Postgres and MongoDB with Prisma and Mongoose as ORMs, Socket.io, Nodemailer, Auth0, and Cloudinary for the backend, and ChakraUI, React, ReactQuery, Leaflet, Rainbowkit, Wagmi, and Ethers.js for the frontend, utilizing Git & Github for version control, SCRUM methodology, and railway and Heroku for deployment, enabling users to create and filter trips, pay, chat, and interact, showcasing skills in Full-Stack Development, Scrum, Front-end Design, and other relevant technologies.',
   },
 ];

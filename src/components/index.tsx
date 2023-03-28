@@ -16,3 +16,5 @@ export * from './ProjectsNavItem';
 export * from './ProjectCard';
 export * from './ProjectsSet';
 export * from './Modal';
+export * from './TimelineItem';
+export * from './TimelineSection';

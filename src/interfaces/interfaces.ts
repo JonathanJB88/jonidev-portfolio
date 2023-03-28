@@ -28,3 +28,10 @@ export interface ISocial {
   Icon: IconType;
   url: string;
 }
+
+export interface IJourney {
+  year: string;
+  title: string;
+  description: string;
+  category: 'experience' | 'education';
+}

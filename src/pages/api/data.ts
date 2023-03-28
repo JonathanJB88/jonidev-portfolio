@@ -1,8 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-import { about, techSkills, projects, services, softSkills } from '../../data/data';
+import { about, techSkills, projects, services, softSkills, journey } from '../../data/data';
 
-import { ISkill, IProject, IService } from '../../interfaces';
+import { ISkill, IProject, IService, IJourney } from '../../interfaces';
 
 type Data = {
   about: string;
@@ -10,8 +10,9 @@ type Data = {
   softSkills: ISkill[];
   projects: IProject[];
   services: IService[];
+  journey: IJourney[];
 };
 
 export default function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
-  res.status(200).json({ about, techSkills, projects, services, softSkills });
+  res.status(200).json({ about, techSkills, projects, services, softSkills, journey });
 }
