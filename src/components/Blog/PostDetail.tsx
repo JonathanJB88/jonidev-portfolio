@@ -12,7 +12,7 @@ interface PostDetailProps {
 
 export const PostDetail = ({ post }: PostDetailProps) => {
   return (
-    <div>
+    <section>
       <h1 className='mb-4 text-3xl font-semibold'>{post.title}</h1>
       <div className='mb-8'>
         <Image
@@ -27,6 +27,6 @@ export const PostDetail = ({ post }: PostDetailProps) => {
       <BlockContent blocks={post.content} />
       <AuthorBox author={post.author} />
       {/* <CommentsSection postId={post.slug} /> */}
-    </div>
+    </section>
   );
 };

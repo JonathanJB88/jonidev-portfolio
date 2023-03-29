@@ -1,6 +1,6 @@
 import InfiniteScroll from 'react-infinite-scroll-component';
 
-import { BlogCard } from '@/components';
+import { BlogCard, EndMessage, Loading } from '@/components';
 
 import { Post } from '@/interfaces';
 
@@ -16,8 +16,8 @@ export const BlogGrid = ({ posts, hasMore, loadMore }: BlogGridProps) => {
       dataLength={posts.length}
       next={loadMore}
       hasMore={hasMore}
-      loader={<h4>Loading...</h4>}
-      endMessage={<p>All posts have been loaded</p>}
+      loader={<Loading />}
+      endMessage={<EndMessage />}
       className='grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3'
     >
       {posts.map((post) => (

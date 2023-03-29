@@ -27,3 +27,5 @@ export * from './Blog/PostDetail';
 export * from './Blog/SliderCard';
 export * from './Blog/CommentsSection';
 export * from './Blog/AuthorBox';
+export * from './Blog/NotFoundPost';
+export * from './Blog/EndMessage';

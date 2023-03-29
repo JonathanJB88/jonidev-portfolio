@@ -17,12 +17,17 @@ export const FilterBar = ({ onFilterChange, onSortChange, categories, tags }: Fi
   };
 
   return (
-    <div className='flex flex-wrap items-center justify-between mb-4'>
-      <div className='w-full mb-4 sm:w-auto sm:mb-0'>
-        <label htmlFor='filter' className='mr-2'>
+    <div className='flex flex-wrap items-center justify-between mb-2 md:mb-4'>
+      <div className='flex flex-col items-center mb-2 md:flex-row md:mb-0 md:w-auto'>
+        <label htmlFor='filter' className='mr-0 md:mr-2 font-body'>
           Filter by:
         </label>
-        <select name='filter' id='filter' onChange={handleFilterChange} className='p-2 border border-gray-300 rounded'>
+        <select
+          name='filter'
+          id='filter'
+          onChange={handleFilterChange}
+          className='w-20 p-1 capitalize bg-gray-200 border border-gray-500 rounded dark:border-gray-900 dark:bg-gray-700 font-body'
+        >
           <option value='all'>All</option>
           <optgroup label='Categories'>
             {categories.map((category) => (
@@ -40,11 +45,16 @@ export const FilterBar = ({ onFilterChange, onSortChange, categories, tags }: Fi
           </optgroup>
         </select>
       </div>
-      <div className='w-full sm:w-auto'>
-        <label htmlFor='sort' className='mr-2'>
+      <div className='flex flex-col items-center mb-2 md:flex-row md:w-auto'>
+        <label htmlFor='sort' className='mr-0 md:mr-2 font-body'>
           Sort by:
         </label>
-        <select name='sort' id='sort' onChange={handleSortChange} className='p-2 border border-gray-300 rounded'>
+        <select
+          name='sort'
+          id='sort'
+          onChange={handleSortChange}
+          className='w-20 p-1 capitalize bg-gray-200 border border-gray-500 rounded dark:border-gray-900 dark:bg-gray-700 font-body'
+        >
           <option value='date'>Date</option>
           <option value='title'>Title</option>
         </select>

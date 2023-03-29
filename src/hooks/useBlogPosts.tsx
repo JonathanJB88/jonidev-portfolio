@@ -4,11 +4,11 @@ import { Post } from '@/interfaces';
 
 export const useBlogPosts = (posts: Post[]) => {
   //
-  const [filteredPosts, setFilteredPosts] = useState<Post[]>(posts);
+  const [filteredPosts, setFilteredPosts] = useState<Post[]>([]);
   const [hasMore, setHasMore] = useState<boolean>(true);
   const [categories, setCategories] = useState<string[]>([]);
   const [tags, setTags] = useState<string[]>([]);
-  const [latestPosts, setLatestPosts] = useState<Post[]>(posts.slice(0, 5));
+  const [latestPosts, setLatestPosts] = useState<Post[]>([]);
 
   const getCategoryTags = () => {
     const categories: string[] = [];
@@ -26,28 +26,27 @@ export const useBlogPosts = (posts: Post[]) => {
   };
 
   const handleFilterChange = (filterValue: string) => {
-    if (filterValue === 'all') setFilteredPosts(posts);
-    const [filterType, filterName] = filterValue.split(':');
-    if (filterType === 'category')
-      setFilteredPosts(
-        posts.filter((post) =>
-          post.categories.map((category) => category.toLowerCase()).includes(filterName.toLowerCase())
-        )
-      );
-    if (filterType === 'tag')
-      setFilteredPosts(
-        posts.filter((post) => post.tags.map((tag) => tag.toLowerCase()).includes(filterName.toLowerCase()))
-      );
+    setFilteredPosts(
+      filterValue === 'all'
+        ? posts
+        : posts.filter((post) => {
+            const [filterType, filterName] = filterValue.split(':');
+            const items = filterType === 'category' ? post.categories : post.tags;
+            return items.map((x) => x.toLowerCase()).includes(filterName.toLowerCase());
+          })
+    );
   };
 
   const handleSortChange = (sortValue: string) => {
-    const sortedPosts = [...filteredPosts].sort((a, b) => {
-      if (sortValue === 'date') {
-        return new Date(b.date).getTime() - new Date(a.date).getTime();
-      }
-      return a.title.localeCompare(b.title);
+    setFilteredPosts((prevState) => {
+      const sortedPosts = [...prevState];
+      return sortedPosts.sort((a, b) => {
+        if (sortValue === 'date') {
+          return new Date(b.date).getTime() - new Date(a.date).getTime();
+        }
+        return a.title.localeCompare(b.title);
+      });
     });
-    setFilteredPosts(sortedPosts);
   };
 
   const loadMore = () => {

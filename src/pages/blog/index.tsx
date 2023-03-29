@@ -2,7 +2,7 @@ import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import { getAllPosts } from '@/lib/Sanity';
 
-import { FeaturedPostSlider, Loading, BlogGrid, FilterBar } from '@/components';
+import { FeaturedPostsSlider, Loading, BlogGrid, FilterBar } from '@/components';
 import { useBlogPosts } from '@/hooks';
 
 import { Post } from '@/interfaces';
@@ -30,7 +30,7 @@ const Blog = ({ posts }: BlogProps) => {
 
       <main>
         {!posts.length && <Loading />}
-        <FeaturedPostSlider posts={latestPosts} />
+        <FeaturedPostsSlider posts={latestPosts} />
 
         <section className='container px-4 py-8 mx-auto'>
           <FilterBar

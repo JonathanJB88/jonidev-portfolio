@@ -1,5 +1,5 @@
 import 'swiper/swiper-bundle.min.css';
-import SwiperCore, { Autoplay, Navigation, Pagination } from 'swiper';
+import SwiperCore, { Autoplay, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { SliderCard } from '@/components';
@@ -7,20 +7,21 @@ import { SliderCard } from '@/components';
 import { Post } from '@/interfaces';
 
 // Install Swiper modules
-SwiperCore.use([Autoplay, Navigation, Pagination]);
+SwiperCore.use([Autoplay, Pagination]);
 
 interface FeaturedPostSliderProps {
   posts: Post[];
 }
 
-export const FeaturedPostSlider = ({ posts }: FeaturedPostSliderProps) => {
+export const FeaturedPostsSlider = ({ posts }: FeaturedPostSliderProps) => {
   return (
     <div className='relative'>
       <Swiper
         spaceBetween={50}
         slidesPerView={1}
-        navigation
-        pagination={{ clickable: true }}
+        pagination={{
+          clickable: true,
+        }}
         autoplay={{ delay: 5000 }}
         className='w-full h-[400px] overflow-hidden'
       >

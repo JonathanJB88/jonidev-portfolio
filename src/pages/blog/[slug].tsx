@@ -1,9 +1,12 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
-import { Post } from '@/interfaces';
-import { getAllPosts, getPostBySlug } from '@/lib/Sanity';
-import { PostDetail } from '@/components';
 import { ParsedUrlQuery } from 'querystring';
+
+import { getAllPosts, getPostBySlug } from '@/lib/Sanity';
+import { Loading, NotFoundPost, PostDetail } from '@/components';
+
+import { Post } from '@/interfaces';
 
 interface Params extends ParsedUrlQuery {
   slug: string;
@@ -16,15 +19,22 @@ interface PostPageProps {
 const PostPage = ({ post }: PostPageProps) => {
   const router = useRouter();
 
-  if (router.isFallback) {
-    return <div>Loading...</div>;
-  }
+  if (router.isFallback) return <Loading />;
 
-  if (!post) {
-    return <div>Post not found</div>;
-  }
-
-  return <PostDetail post={post} />;
+  return (
+    <>
+      <Head>
+        <title>Jonathan Bracho | Blog | {post?.title}</title>
+        <meta name='description' content='Frontend Developer with a strong background in React + Typescript' />
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
+        <meta
+          name='keywords'
+          content='Frontend Web Developer, TypeScript, React, Redux, Node.js, Express.js, Redux-toolkit, Cypress, Jest, Next.js, React Testing Library, Scrum'
+        />
+      </Head>
+      <main>{post ? <PostDetail post={post} /> : <NotFoundPost />}</main>
+    </>
+  );
 };
 
 export const getStaticProps: GetStaticProps<PostPageProps, Params> = async ({ params }) => {
