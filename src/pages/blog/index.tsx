@@ -32,7 +32,7 @@ const Blog = ({ posts }: BlogProps) => {
         {!posts.length && <Loading />}
         <FeaturedPostsSlider posts={latestPosts} />
 
-        <section className='container px-4 py-8 mx-auto'>
+        <section className='container px-8 py-8 mx-auto'>
           <FilterBar
             categories={categories}
             tags={tags}

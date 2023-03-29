@@ -7,6 +7,7 @@ import { PortfolioContext } from '@/context';
 import { Btn, TimelineItem } from '@/components';
 
 import { IJourney } from '@/interfaces';
+import { Slide } from 'react-awesome-reveal';
 
 interface TimelineSectionProps {
   journey: IJourney[];
@@ -34,15 +35,17 @@ export const TimelineSection = ({ journey }: TimelineSectionProps) => {
   return (
     <section>
       <div className='container py-10 mx-auto'>
-        <h1 className={`mb-6 text-xl font-extrabold text-center font-header md:text-4xl ${textBg}`}>My Journey</h1>
-        <div className='flex justify-center mb-10'>
-          <button className={educationBtnClass} onClick={() => setShowEducation(true)}>
-            Education
-          </button>
-          <button className={experienceBtnClass} onClick={() => setShowEducation(false)}>
-            Experience
-          </button>
-        </div>
+        <Slide direction='down' triggerOnce>
+          <h1 className={`mb-6 text-xl font-extrabold text-center font-header md:text-4xl ${textBg}`}>My Journey</h1>
+          <div className='flex justify-center mb-10'>
+            <button className={educationBtnClass} onClick={() => setShowEducation(true)}>
+              Education
+            </button>
+            <button className={experienceBtnClass} onClick={() => setShowEducation(false)}>
+              Experience
+            </button>
+          </div>
+        </Slide>
         <VerticalTimeline animate lineColor={lineColor} layout='2-columns'>
           {filteredJourneyList.map((journey, index) => (
             <TimelineItem key={index} journey={journey} />

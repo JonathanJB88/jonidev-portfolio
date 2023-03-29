@@ -37,17 +37,13 @@ export const ProjectsSet = ({ projects, active, handleCategory }: ProjectsSetPro
   return (
     <section className='relative'>
       <div className='flex flex-col min-h-screen'>
-        <div className='flex flex-col items-center pt-10 md:flex-row md:justify-between lg:pt-12'>
-          <Slide direction='left' triggerOnce>
-            <h1 className={`text-xl font-extrabold text-center font-header md:text-4xl md:pl-10 ${textBg}`}>
-              My Projects
-            </h1>
-          </Slide>
-          <Slide direction='right' triggerOnce>
-            <div className='-ml-5 md:pr-10'>
-              <ProjectsNavBar handleCategory={handleCategory} active={active} />
-            </div>
-          </Slide>
+        <div className='flex flex-col items-center pt-10 md:flex-row md:justify-between lg:pt-12 animate-fade-in'>
+          <h1 className={`text-xl font-extrabold text-center font-header md:text-4xl md:pl-10 ${textBg}`}>
+            My Projects
+          </h1>
+          <div className='-ml-5 md:pr-10'>
+            <ProjectsNavBar handleCategory={handleCategory} active={active} />
+          </div>
         </div>
         <div className='relative flex-grow px-8 py-2 animate-fade-in'>
           <div className='relative grid grid-cols-12 gap-4 my-3 mb-20'>
