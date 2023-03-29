@@ -2,6 +2,10 @@
 const nextConfig = {
   reactStrictMode: true,
 
+  images: {
+    remotePatterns: [{ hostname: 'cdn.sanity.io' }],
+  },
+
   webpack: (config, { isServer }) => {
     config.module.rules.push({
       test: /\.pdf$/,

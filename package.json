@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@sanity/block-content-to-react": "^3.0.0",
     "@types/node": "18.15.5",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
@@ -16,13 +17,16 @@
     "eslint": "8.36.0",
     "eslint-config-next": "13.2.4",
     "next": "13.2.4",
+    "next-sanity": "^4.1.6",
     "next-themes": "^0.2.1",
     "react": "18.2.0",
     "react-awesome-reveal": "^4.2.3",
     "react-dom": "18.2.0",
     "react-icons": "^4.8.0",
+    "react-infinite-scroll-component": "^6.1.0",
     "react-particles": "^2.9.3",
     "react-vertical-timeline-component": "^3.6.0",
+    "swiper": "^9.1.1",
     "tsparticles": "^2.9.3",
     "typescript": "5.0.2"
   },
