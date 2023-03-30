@@ -30,3 +30,27 @@ interface Children {
   marks: string[];
   text: string;
 }
+
+export interface BlockProps {
+  node: {
+    _type: string;
+    style: string;
+    list?: string;
+    listItem?: string;
+  };
+  children: React.ReactNode;
+  isInline?: boolean;
+  serializers: {
+    types: {
+      [key: string]: React.ComponentType<BlockProps>;
+    };
+  };
+}
+
+export interface ImageProps {
+  node: {
+    _type: string;
+    asset: string;
+    alt: string;
+  };
+}
