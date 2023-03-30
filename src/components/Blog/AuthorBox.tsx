@@ -11,7 +11,7 @@ type AuthorBoxProps = {
 
 export const AuthorBox = ({ author }: AuthorBoxProps) => {
   return (
-    <div className='flex items-center mt-8'>
+    <div className='flex items-center my-8'>
       <div className='mr-4'>
         <Image
           src={urlForImage(author.picture).url() || ''}
@@ -22,7 +22,7 @@ export const AuthorBox = ({ author }: AuthorBoxProps) => {
         />
       </div>
       <div>
-        <h3 className='mb-2 text-xl font-semibold'>{author.name}</h3>
+        <h3 className='mb-2 text-lg font-semibold md:text-xl font-header'>{author.name}</h3>
         <div className='flex space-x-2'>
           <Social />
         </div>

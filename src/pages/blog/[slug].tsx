@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { ParsedUrlQuery } from 'querystring';
 
 import { getAllPosts, getPostBySlug } from '@/lib/Sanity';
-import { Loading, NotFoundPost, PostDetail } from '@/components';
+import { BlogFooter, Loading, NotFoundPost, PostDetail } from '@/components';
 
 import { Post } from '@/interfaces';
 
@@ -24,7 +24,7 @@ const PostPage = ({ post }: PostPageProps) => {
   return (
     <>
       <Head>
-        <title>Jonathan Bracho | Blog | {post?.title}</title>
+        <title>Jonathan Bracho | Blog | {post?.title || 'Frontend Blog Posts'}</title>
         <meta name='description' content='Frontend Developer with a strong background in React + Typescript' />
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <meta
@@ -33,6 +33,7 @@ const PostPage = ({ post }: PostPageProps) => {
         />
       </Head>
       <main>{post ? <PostDetail post={post} /> : <NotFoundPost />}</main>
+      <BlogFooter />
     </>
   );
 };

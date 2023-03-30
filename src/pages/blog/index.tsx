@@ -2,7 +2,7 @@ import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import { getAllPosts } from '@/lib/Sanity';
 
-import { FeaturedPostsSlider, Loading, BlogGrid, FilterBar } from '@/components';
+import { FeaturedPostsSlider, Loading, BlogGrid, FilterBar, BlogFooter } from '@/components';
 import { useBlogPosts } from '@/hooks';
 
 import { Post } from '@/interfaces';
@@ -42,6 +42,7 @@ const Blog = ({ posts }: BlogProps) => {
           <BlogGrid posts={filteredPosts} hasMore={hasMore} loadMore={loadMore} />
         </section>
       </main>
+      <BlogFooter />
     </>
   );
 };
