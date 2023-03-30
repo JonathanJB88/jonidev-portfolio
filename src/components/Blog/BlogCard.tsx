@@ -5,6 +5,7 @@ import { urlForImage } from '@/lib/Sanity';
 import { Btn, PostDate } from '@/components';
 
 import { Post } from '@/interfaces';
+import { Fade } from 'react-awesome-reveal';
 
 interface BlogCardProps {
   post: Post;
@@ -12,7 +13,7 @@ interface BlogCardProps {
 
 export const BlogCard = ({ post: { coverImage, title, excerpt, author, tags, slug, date } }: BlogCardProps) => {
   return (
-    <div className='flex flex-col h-full overflow-hidden bg-gray-200 rounded-lg shadow-lg dark:bg-gray-700'>
+    <div className='flex flex-col h-full overflow-hidden bg-gray-200 rounded-lg shadow-lg dark:bg-gray-700 animate-fade-in'>
       <div className='relative w-full h-40'>
         <Image src={urlForImage(coverImage).url() || ''} alt={`Cover Image for the post ${title}`} fill />
       </div>

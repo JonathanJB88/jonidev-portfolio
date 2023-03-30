@@ -3,7 +3,8 @@ import { BsCloudDownloadFill } from 'react-icons/bs';
 
 export const DownloadCV = () => {
   //
-  const iconClassName = 'w-8 h-8 text-primary hover:text-accent';
+  const iconClassName =
+    'w-8 h-8 text-primary transition-colors duration-300 hover:text-accent dark:text-accent dark:hover:text-primary';
 
   return (
     <a download='Fronted-Developer_JonathanBracho' className='flex justify-center' href='/docs/CV.pdf'>
@@ -11,7 +12,10 @@ export const DownloadCV = () => {
         <BsCloudDownloadFill className={iconClassName} />
       </Fade>
       <Fade direction='up' delay={200} triggerOnce>
-        <span className='ml-2 text-xl text-primary hover:text-accent font-body'> Download CV</span>
+        <span className='ml-2 text-xl transition-colors duration-300 dark:hover:text-primary text-primary dark:text-accent hover:text-accent font-body'>
+          {' '}
+          Download CV
+        </span>
       </Fade>
     </a>
   );

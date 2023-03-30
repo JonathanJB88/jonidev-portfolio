@@ -22,11 +22,11 @@ export const TimelineSection = ({ journey }: TimelineSectionProps) => {
   const lineColor = isDark ? '#4B5563' : '#EDF2F7';
 
   const educationBtnClass = showEducation
-    ? 'bg-primary text-white px-3 py-2 rounded-lg mr-2 font-body font-bold hover:bg-accent-hover hover:text-primary dark:bg-accent dark:text-primary dark:hover:bg-primary dark:hover:text-white'
-    : 'bg-gray-200 text-gray-700 px-3 py-2 rounded-lg mr-2 font-body font-bold hover:bg-gray-300 hover:text-gray-800';
+    ? 'bg-primary text-white px-3 py-1 rounded-lg mr-2 font-body font-bold hover:bg-accent-hover hover:text-primary dark:bg-accent dark:text-primary dark:hover:bg-primary dark:hover:text-white'
+    : 'bg-gray-200 text-gray-700 px-3 py-1 rounded-lg mr-2 font-body font-bold hover:bg-gray-300 hover:text-gray-800';
   const experienceBtnClass = !showEducation
-    ? 'bg-primary text-white px-3 py-2 rounded-lg mr-2 font-body font-bold hover:bg-accent-hover hover:text-primary dark:bg-accent dark:text-primary dark:hover:bg-primary dark:hover:text-white'
-    : 'bg-gray-200 text-gray-700 px-3 py-2 rounded-lg font-body font-bold hover:bg-gray-300 hover:text-gray-800';
+    ? 'bg-primary text-white px-3 py-1 rounded-lg mr-2 font-body font-bold hover:bg-accent-hover hover:text-primary dark:bg-accent dark:text-primary dark:hover:bg-primary dark:hover:text-white'
+    : 'bg-gray-200 text-gray-700 px-3 py-1 rounded-lg font-body font-bold hover:bg-gray-300 hover:text-gray-800';
 
   const filteredJourneyList = journey.filter((journey) =>
     showEducation ? journey.category === 'education' : journey.category === 'experience'

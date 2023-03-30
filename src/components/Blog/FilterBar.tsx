@@ -17,7 +17,7 @@ export const FilterBar = ({ onFilterChange, onSortChange, categories, tags }: Fi
   };
 
   return (
-    <div className='flex flex-wrap items-center justify-between mb-2 md:mb-4'>
+    <div className='flex flex-wrap items-center justify-between mb-2 md:mb-4 animate-slide-in'>
       <div className='flex flex-col items-center mb-2 md:flex-row md:mb-0 md:w-auto'>
         <label htmlFor='filter' className='mr-0 text-sm md:text-base md:mr-2 font-body'>
           Filter by:

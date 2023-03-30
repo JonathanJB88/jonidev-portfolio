@@ -22,17 +22,17 @@ const serializers = {
 export const PostDetail = ({ post: { coverImage, title, content, author, date } }: PostDetailProps) => {
   return (
     <section>
-      <div className='relative w-full mb-2 h-80'>
+      <div className='relative w-full mb-2 h-80 animate-fade-in'>
         <Image src={urlForImage(coverImage).url() || ''} alt={`Cover Image for the post ${title}`} fill />
       </div>
       <div className='px-4 py-4 md:px-40'>
         <h1
-          className='mb-4 text-2xl font-semibold md:text-4xl font-header text-primary dark:text-accent'
+          className='mb-4 text-2xl font-semibold md:text-4xl font-header text-primary dark:text-accent animate-slide-in'
           style={{ textShadow: '1px #121212' }}
         >
           {title}
         </h1>
-        <div className='flex flex-col'>
+        <div className='flex flex-col animate-fade-in'>
           <PostDate dateString={date} />
           <span className='mt-2 text-xs italic font-medium font-body md:text-sm'>
             by
@@ -46,7 +46,7 @@ export const PostDetail = ({ post: { coverImage, title, content, author, date } 
           </span>
         </div>
 
-        <hr className='mt-2 mb-4 border-gray-300 dark:border-gray-700' />
+        <hr className='mt-2 mb-4 border-gray-300 dark:border-gray-700 animate-fade-in' />
 
         <BlockContent blocks={content} serializers={serializers} />
         <div className='mt-4'>

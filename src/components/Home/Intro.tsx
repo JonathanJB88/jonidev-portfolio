@@ -25,7 +25,9 @@ export const Intro = ({ about }: IntroProps) => {
             />
           </div>
         </Fade>
-        <h1 className='text-4xl font-bold md:text-5xl lg:text-6xl text-primary font-header'>Jonathan Bracho</h1>
+        <h1 className='text-4xl font-bold md:text-5xl lg:text-6xl text-primary dark:text-accent font-header'>
+          Jonathan Bracho
+        </h1>
         <h2 className='text-2xl font-semibold md:text-3xl lg:text-4xl dark:text-secondary font-header'>
           Frontend Developer
         </h2>
