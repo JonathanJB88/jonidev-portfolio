@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { SliderCard } from '@/components';
 
 import { Post } from '@/interfaces';
+import Link from 'next/link';
 
 // Install Swiper modules
 SwiperCore.use([Autoplay, Pagination]);
@@ -27,7 +28,9 @@ export const FeaturedPostsSlider = ({ posts }: FeaturedPostSliderProps) => {
       >
         {posts.map((post) => (
           <SwiperSlide key={post._id}>
-            <SliderCard post={post} />
+            <Link href={`/blog/${post.slug}`}>
+              <SliderCard post={post} />
+            </Link>
           </SwiperSlide>
         ))}
       </Swiper>

@@ -40,7 +40,11 @@ export const TimelineItem = ({ journey: { year, title, description, category } }
       date={year}
       dateClassName='font-body text-base'
       iconStyle={iconStyle}
-      icon={icon}
+      icon={
+        <span role='img' aria-label={icon}>
+          {icon}
+        </span>
+      }
     >
       <h3 className='underline vertical-timeline-element-title font-header'>{title}</h3>
       <p className='text-justify font-body' style={{ fontSize: '14px' }}>

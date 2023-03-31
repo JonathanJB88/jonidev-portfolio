@@ -22,8 +22,14 @@ const serializers = {
 export const PostDetail = ({ post: { coverImage, title, content, author, date } }: PostDetailProps) => {
   return (
     <section>
-      <div className='relative w-full mb-2 h-80 animate-fade-in'>
-        <Image src={urlForImage(coverImage).url() || ''} alt={`Cover Image for the post ${title}`} fill />
+      <div className='relative w-full mb-2 h-96 animate-fade-in'>
+        <Image
+          src={urlForImage(coverImage).url() || ''}
+          alt={`Cover Image for the post ${title}`}
+          loading='lazy'
+          fill
+          sizes='(max-width: 640px) 640px, (max-width: 768px) 768px, (max-width: 1024px) 1024px, 1280px'
+        />
       </div>
       <div className='px-4 py-4 md:px-40'>
         <h1

@@ -1,5 +1,6 @@
 import { createContext } from 'react';
-import { BreadCrumb } from '../interfaces/BreadCrumbInterfaces';
+
+import { BreadCrumb } from '../interfaces';
 
 export type Theme = 'light' | 'dark';
 

@@ -18,6 +18,7 @@ export const AuthorBox = ({ author }: AuthorBoxProps) => {
           alt={author.name}
           width={80}
           height={80}
+          loading='lazy'
           className='rounded-full'
         />
       </div>

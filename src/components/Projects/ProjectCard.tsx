@@ -23,20 +23,23 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
 
   return (
     <div className='flex flex-col items-center justify-center'>
-      <Image
-        src={`/images/${image_path}`}
-        alt={name}
-        className='rounded-md cursor-pointer animate-fade-in'
+      <div
+        className='relative w-full h-0 pb-[50%] overflow-hidden rounded-lg cursor-pointer'
         onClick={handleClickImage}
-        width={200}
-        height={100}
-        loading='lazy'
-        layout='responsive'
-        loader={() => `/images/${image_path}`}
-        placeholder='blur'
-        blurDataURL={blurDataURL}
-      />
-      <p className='my-2 text-base text-center font-body md:text-xl'>{name}</p>
+      >
+        <Image
+          src={`/images/${image_path}`}
+          alt={name}
+          width={200}
+          height={100}
+          loading='lazy'
+          sizes='(max-width: 768px) 100vw, 200px'
+          placeholder='blur'
+          blurDataURL={blurDataURL}
+          className='absolute inset-0 object-cover w-full h-full rounded-lg'
+        />
+      </div>
+      <p className='my-2 text-base font-semibold text-center font-body md:text-xl'>{name}</p>
       {isModalOpen === id && <Modal setIsModalOpen={setIsModalOpen} project={project} />}
     </div>
   );

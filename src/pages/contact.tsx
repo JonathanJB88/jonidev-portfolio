@@ -83,7 +83,7 @@ const Contact = () => {
           )}
         </form>
 
-        <Btn label='Visit my Blog' onClick={handleCTAClick} />
+        <Btn label='Visit my Blog' onClick={handleCTAClick} className='px-2 py-1' />
       </Fade>
     </div>
   );

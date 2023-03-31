@@ -13,7 +13,7 @@ export const SocialLink = ({ Icon, url, delay = 100 }: SocialLinkProps) => {
 
   return (
     <Fade direction='up' delay={delay} triggerOnce>
-      <a href={url} target='_blank' rel='noreferrer'>
+      <a href={url} target='_blank' rel='noreferrer' aria-label={url}>
         <Icon className={iconClassName} />
       </a>
     </Fade>

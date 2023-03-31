@@ -2,20 +2,27 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { urlForImage } from '@/lib/Sanity';
-import { Btn, PostDate } from '@/components';
+import { Btn } from '@/components';
 
 import { Post } from '@/interfaces';
-import { Fade } from 'react-awesome-reveal';
 
 interface BlogCardProps {
   post: Post;
 }
 
-export const BlogCard = ({ post: { coverImage, title, excerpt, author, tags, slug, date } }: BlogCardProps) => {
+export const BlogCard = ({ post: { coverImage, title, excerpt, author, tags, slug } }: BlogCardProps) => {
   return (
     <div className='flex flex-col h-full overflow-hidden bg-gray-200 rounded-lg shadow-lg dark:bg-gray-700 animate-fade-in'>
-      <div className='relative w-full h-40'>
-        <Image src={urlForImage(coverImage).url() || ''} alt={`Cover Image for the post ${title}`} fill />
+      <div className='relative w-full h-0 overflow-hidden' style={{ paddingTop: '30%' }}>
+        <Image
+          src={urlForImage(coverImage).url() || ''}
+          alt={`Cover Image for the post ${title}`}
+          loading='lazy'
+          width={1400}
+          height={350}
+          sizes='100vw'
+          className='absolute top-0 left-0 w-full h-full'
+        />
       </div>
       <div className='flex flex-col flex-grow p-6'>
         <h2 className='mb-2 text-sm font-semibold md:text-xl font-header'>{title}</h2>

@@ -24,16 +24,17 @@ export const Modal = ({ setIsModalOpen, project }: ModalProps) => {
           &times;
         </button>
         <div className='border-2 border-gray-100 rounded-lg dark:border-gray-600'>
-          <Image
-            src={`/images/${image_path}`}
-            alt={name}
-            className='rounded-md animate-fade-in'
-            width={200}
-            height={100}
-            loading='lazy'
-            layout='responsive'
-            loader={() => `/images/${image_path}`}
-          />
+          <div className='relative w-full h-0 pb-[50%] overflow-hidden rounded-lg'>
+            <Image
+              src={`/images/${image_path}`}
+              alt={name}
+              width={200}
+              height={100}
+              loading='lazy'
+              sizes='(max-width: 768px) 100vw, 200px'
+              className='absolute inset-0 object-cover w-full h-full rounded-lg animate-fade-in'
+            />
+          </div>
           <div className='flex justify-center my-4 space-x-3'>
             <ButtonLink url={github_url} Icon={AiFillGithub} text='GitHub' />
             <ButtonLink url={deployed_url} Icon={AiFillProject} text='Deploy' />

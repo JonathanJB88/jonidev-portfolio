@@ -19,7 +19,7 @@ export const blockSerializer = (props: BlockProps) => {
         </blockquote>
       );
     default:
-      return <p className='pb-2 text-sm animate-fade-in font-body md:text-base'>{props.children}</p>;
+      return <div className='pb-2 text-sm animate-fade-in font-body md:text-base'>{props.children}</div>;
   }
 };
 
@@ -28,15 +28,16 @@ export const imageSerializer = ({ node }: ImageProps) => {
   const imageUrl = urlForImage(asset).url();
 
   return (
-    <div className='flex justify-center w-full my-4animate-fade-in '>
-      <div className='max-w-full'>
+    <div className='flex justify-center'>
+      <div className='relative w-3/4 h-0 overflow-hidden' style={{ paddingTop: '35%' }}>
         <Image
           src={imageUrl}
           alt={alt || 'Post-related image'}
-          layout='responsive'
-          width={1}
-          height={1}
-          className='rounded-lg shadow-xl'
+          loading='lazy'
+          width={1400}
+          height={350}
+          sizes='100vw'
+          className='absolute top-0 left-0 w-full h-full rounded-lg shadow-sm'
         />
       </div>
     </div>

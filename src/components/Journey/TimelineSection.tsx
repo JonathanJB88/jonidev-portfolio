@@ -33,16 +33,25 @@ export const TimelineSection = ({ journey }: TimelineSectionProps) => {
   );
 
   return (
-    <section>
-      <div className='container py-10 mx-auto'>
+    <>
+      <div className='container mx-auto'>
+        <div className='relative py-10'>
+          <div className='absolute right-0 hidden top-14 md:block md:mr-4'>
+            <Link href='/blog'>
+              <Btn label='Visit my Blog' />
+            </Link>
+          </div>
+        </div>
+      </div>
+      <section className='pb-5'>
         <Slide direction='down' triggerOnce>
           <h1 className={`mb-6 text-xl font-extrabold text-center font-header md:text-4xl ${textBg}`}>My Journey</h1>
           <div className='flex justify-center mb-10'>
-            <button className={educationBtnClass} onClick={() => setShowEducation(true)}>
-              Education
-            </button>
             <button className={experienceBtnClass} onClick={() => setShowEducation(false)}>
               Experience
+            </button>
+            <button className={educationBtnClass} onClick={() => setShowEducation(true)}>
+              Education
             </button>
           </div>
         </Slide>
@@ -51,12 +60,14 @@ export const TimelineSection = ({ journey }: TimelineSectionProps) => {
             <TimelineItem key={index} journey={journey} />
           ))}
         </VerticalTimeline>
+      </section>
+      <div className='py-10 md:hidden'>
+        <div className='flex justify-center'>
+          <Link href='/blog'>
+            <Btn label='Visit my Blog' />
+          </Link>
+        </div>
       </div>
-      <div className='flex justify-center py-10'>
-        <Link href='/blog'>
-          <Btn label='Visit my Blog' />
-        </Link>
-      </div>
-    </section>
+    </>
   );
 };

@@ -20,7 +20,7 @@ export const DynamicBg = memo(({ children }: DynamicBgProps) => {
 
   return (
     <div
-      className={`items-center justify-center min-h-screen w-screen h-full bg-gradient-to-br ${primaryColor} ${secondaryColor} ${accentColor} ${gradientOpacity} ${styles.gradientAnimation}`}
+      className={`items-center -z-50 justify-center min-h-screen w-screen h-full bg-gradient-to-br ${primaryColor} ${secondaryColor} ${accentColor} ${gradientOpacity} ${styles.gradientAnimation}`}
     >
       {children}
     </div>
