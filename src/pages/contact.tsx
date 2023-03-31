@@ -6,11 +6,21 @@ import autosize from 'autosize';
 
 import { Btn, Social } from '@/components';
 import { useContact } from '@/hooks';
+import { PortfolioContext } from '@/context';
+import { useContext } from 'react';
+import { useRouter } from 'next/router';
 
 const Contact = () => {
   //
+  const { setLastVisitedBlog } = useContext(PortfolioContext);
+  const router = useRouter();
   const { name, email, project, loading, messageSent, errorMessage, handleChange, handleSubmit } = useContact();
   const anchorClass = 'flex items-center justify-center';
+
+  const handleCTAClick = () => {
+    setLastVisitedBlog(true);
+    router.push('/blog');
+  };
 
   return (
     <div className='flex flex-col items-center justify-center min-h-screen'>
@@ -72,9 +82,8 @@ const Contact = () => {
             <p className='mt-2 text-sm font-semibold text-center text-red-500 md:text-lg'>{errorMessage}</p>
           )}
         </form>
-        <Link href='/blog'>
-          <Btn label='Visit my Blog' />
-        </Link>
+
+        <Btn label='Visit my Blog' onClick={handleCTAClick} />
       </Fade>
     </div>
   );

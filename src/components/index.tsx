@@ -31,3 +31,4 @@ export * from './Blog/NotFoundPost';
 export * from './Blog/EndMessage';
 export * from './Blog/PostDate';
 export * from './Blog/BlogFooter';
+export * from './Layout/BreadCrumbs';
