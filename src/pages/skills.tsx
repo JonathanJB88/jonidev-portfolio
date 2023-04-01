@@ -11,7 +11,8 @@ import { withPageStaticProps } from '@/utils';
 import { MyPageProps } from '@/interfaces';
 
 const SkillsSet = dynamic<SkillsSetProps>(() => import('../components/Skills/SkillsSet').then((mod) => mod.SkillsSet), {
-  ssr: true,
+  loading: () => <Loading />,
+  ssr: false,
 });
 
 const SkillsPage: NextPage<MyPageProps> = ({ data: { softSkills, techSkills } }) => {

@@ -18,7 +18,6 @@ const SliderCard = ({ post: { coverImage, title, excerpt } }: SliderCardProps) =
         alt={title}
         loading='lazy'
         fill
-        className='z-0'
         sizes='(max-width: 640px) 640px, (max-width: 768px) 768px, (max-width: 1024px) 1024px, 1280px'
       />
       <div className='absolute inset-0 z-10 bg-background-dark bg-opacity-60 dark:bg-opacity-30' />

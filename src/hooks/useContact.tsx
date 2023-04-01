@@ -1,5 +1,5 @@
-import { send } from 'emailjs-com';
-import { useState } from 'react';
+import { send as emailjsSend } from 'emailjs-com';
+import { useState, useCallback } from 'react';
 
 const serviceId = process.env.NEXT_PUBLIC_SERVICE_ID;
 const templateId = process.env.NEXT_PUBLIC_TEMPLATE_ID;
@@ -11,44 +11,51 @@ export const useContact = () => {
   const [messageSent, setMessageSent] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  const handleChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+      setFormData({ ...formData, [e.target.name]: e.target.value });
+      setErrorMessage('');
+    },
+    [formData]
+  );
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const handleSubmit = useCallback(
+    async (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
 
-    if (!serviceId || !templateId || !publicKey) {
-      console.warn('Please provide your emailjs serviceId, templateId and publicKey in the .env.local file.');
-      return;
-    }
+      if (!serviceId || !templateId || !publicKey) {
+        console.warn('Please provide your emailjs serviceId, templateId and publicKey in the .env.local file.');
+        return;
+      }
 
-    if (!formData.name || !formData.email || !formData.project) {
-      setErrorMessage('Please fill out all the fields.');
-      return;
-    }
+      if (!formData.name || !formData.email || !formData.project) {
+        setErrorMessage('Please fill out all the fields.');
+        return;
+      }
 
-    setLoading(true);
+      setLoading(true);
 
-    try {
-      const result = await send(
-        serviceId,
-        templateId,
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          message: formData.project,
-        },
-        publicKey
-      );
-      setMessageSent(result.status === 200);
-      if (result.status === 200) setFormData({ name: '', email: '', project: '' });
-    } catch (error) {
-      setMessageSent(false);
-      setErrorMessage(messageSent ? '' : 'An error occurred while sending the message. Please try again later.');
-    }
-    setLoading(false);
-  };
+      try {
+        const result = await emailjsSend(
+          serviceId,
+          templateId,
+          {
+            from_name: formData.name,
+            from_email: formData.email,
+            message: formData.project,
+          },
+          publicKey
+        );
+        setMessageSent(result.status === 200);
+        if (result.status === 200) setFormData({ name: '', email: '', project: '' });
+      } catch (error) {
+        setMessageSent(false);
+        setErrorMessage(messageSent ? '' : 'An error occurred while sending the message. Please try again later.');
+      }
+      setLoading(false);
+    },
+    [formData, messageSent]
+  );
 
   return {
     ...formData,

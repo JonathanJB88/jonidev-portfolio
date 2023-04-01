@@ -5,12 +5,11 @@ import { PortfolioContext } from '@/context';
 import { getBreadCrumbItem, saveVisitedItemsToLocalStorage } from '@/utils';
 
 export const useBreadcrumbNavigation = () => {
-  //
   const { lastVisitedBlog, visitedItems, setLastVisitedBlog, setVisitedItems } = useContext(PortfolioContext);
 
   const { pathname, query } = useRouter();
   const isHomePage = pathname === '/';
-  const postTitle = query.slug as string;
+  const postTitle = typeof query.slug === 'string' ? query.slug : undefined;
 
   useEffect(() => {
     if (!isHomePage) {

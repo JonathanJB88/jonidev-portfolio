@@ -15,12 +15,14 @@ interface BlogPageProps {
 const FeaturedPostsSlider = dynamic<FeaturedPostSliderProps>(
   () => import('../../components/Blog/FeaturedPostsSlider').then((mod) => mod.FeaturedPostsSlider),
   {
-    ssr: true,
+    loading: () => <Loading />,
+    ssr: false,
   }
 );
 
 const BlogGrid = dynamic<BlogGridProps>(() => import('../../components/Blog/BlogGrid').then((mod) => mod.BlogGrid), {
-  ssr: true,
+  loading: () => <Loading />,
+  ssr: false,
 });
 
 const BlogPage: NextPage<BlogPageProps> = ({ posts }) => {

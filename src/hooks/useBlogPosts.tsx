@@ -1,63 +1,83 @@
-import { useEffect, useState } from 'react';
-
+import { useEffect, useState, useMemo } from 'react';
 import { Post } from '@/interfaces';
 
 export const useBlogPosts = (posts: Post[]) => {
-  //
   const [filteredPosts, setFilteredPosts] = useState<Post[]>([]);
   const [hasMore, setHasMore] = useState<boolean>(true);
   const [categories, setCategories] = useState<string[]>([]);
   const [tags, setTags] = useState<string[]>([]);
   const [latestPosts, setLatestPosts] = useState<Post[]>([]);
+  const [currentFilter, setCurrentFilter] = useState<string>('all');
+  const [currentSort, setCurrentSort] = useState<string>('date');
+  const [loadedPostsCount, setLoadedPostsCount] = useState<number>(6);
 
   const getCategoryTags = () => {
-    const categories: string[] = [];
-    const tags: string[] = [];
+    const categoriesSet = new Set<string>();
+    const tagsSet = new Set<string>();
+
     posts.forEach((post) => {
       post.categories.forEach((category) => {
-        if (!categories.includes(category.toLowerCase())) categories.push(category.toLowerCase());
+        categoriesSet.add(category.toLowerCase());
       });
       post.tags.forEach((tag) => {
-        if (!tags.includes(tag.toLowerCase())) tags.push(tag.toLowerCase());
+        tagsSet.add(tag.toLowerCase());
       });
     });
-    setCategories(categories);
-    setTags(tags);
+
+    setCategories(Array.from(categoriesSet));
+    setTags(Array.from(tagsSet));
+  };
+
+  const filterPosts = (postsToFilter: Post[]): Post[] => {
+    return currentFilter === 'all'
+      ? postsToFilter
+      : postsToFilter.filter((post) => {
+          const [filterType, filterName] = currentFilter.split(':');
+          const items = filterType === 'category' ? post.categories : post.tags;
+          return items.map((x) => x.toLowerCase()).includes(filterName.toLowerCase());
+        });
+  };
+
+  const sortPosts = (filteredPosts: Post[]): Post[] => {
+    return filteredPosts.sort((a, b) => {
+      if (currentSort === 'date') {
+        return new Date(b.date).getTime() - new Date(a.date).getTime();
+      }
+      return a.title.localeCompare(b.title);
+    });
   };
 
   const handleFilterChange = (filterValue: string) => {
-    setFilteredPosts(
-      filterValue === 'all'
-        ? posts
-        : posts.filter((post) => {
-            const [filterType, filterName] = filterValue.split(':');
-            const items = filterType === 'category' ? post.categories : post.tags;
-            return items.map((x) => x.toLowerCase()).includes(filterName.toLowerCase());
-          })
-    );
+    setCurrentFilter(filterValue);
   };
 
   const handleSortChange = (sortValue: string) => {
-    setFilteredPosts((prevState) => {
-      const sortedPosts = [...prevState];
-      return sortedPosts.sort((a, b) => {
-        if (sortValue === 'date') {
-          return new Date(b.date).getTime() - new Date(a.date).getTime();
-        }
-        return a.title.localeCompare(b.title);
-      });
-    });
+    setCurrentSort(sortValue);
   };
 
   const loadMore = () => {
-    const currentLength = filteredPosts.length;
-    const newPosts = posts.slice(currentLength, currentLength + 6);
-    if (newPosts.length === 0) setHasMore(false);
-    setFilteredPosts((prevPosts) => [...prevPosts, ...newPosts]);
+    if (loadedPostsCount >= posts.length) {
+      setHasMore(false);
+      return;
+    }
+
+    const newPosts = posts.slice(loadedPostsCount, loadedPostsCount + 6);
+    setLoadedPostsCount((prevCount) => prevCount + newPosts.length);
+    setFilteredPosts((prevPosts) => [...prevPosts, ...sortPosts(filterPosts(newPosts))]);
   };
 
+  const slicedPosts = useMemo(() => posts.slice(0, loadedPostsCount), [posts, loadedPostsCount]);
+  const filteredAndSortedPosts = useMemo(
+    () => sortPosts(filterPosts(slicedPosts)),
+    [slicedPosts, currentFilter, currentSort]
+  );
+
   useEffect(() => {
-    setFilteredPosts(posts);
+    setFilteredPosts(filteredAndSortedPosts);
+    setHasMore(loadedPostsCount < posts.length);
+  }, [filteredAndSortedPosts, loadedPostsCount]);
+
+  useEffect(() => {
     getCategoryTags();
     setLatestPosts(posts.slice(0, 5));
   }, [posts]);

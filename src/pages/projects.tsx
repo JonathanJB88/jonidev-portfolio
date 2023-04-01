@@ -10,7 +10,8 @@ import { Category, MyPageProps } from '@/interfaces';
 const ProjectsSet = dynamic<ProjectsSetProps>(
   () => import('../components/Projects/ProjectsSet').then((mod) => mod.ProjectsSet),
   {
-    ssr: true,
+    loading: () => <Loading />,
+    ssr: false,
   }
 );
 

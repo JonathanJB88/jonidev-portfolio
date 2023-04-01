@@ -1,7 +1,8 @@
-import { useImperativeHandle, forwardRef, memo } from 'react';
+import { useImperativeHandle, forwardRef, memo, useContext } from 'react';
 import Particles from 'react-particles';
 
-import { useParticlesConfig } from '@/hooks';
+import { useParticlesConfig, useParticlesRefresh } from '@/hooks';
+import { PortfolioContext } from '@/context';
 
 type Props = {
   children?: React.ReactNode;
@@ -13,7 +14,7 @@ type ParticlesRef = {
 
 export const HomeBg = memo(
   forwardRef<ParticlesRef, Props>((props, ref) => {
-    //
+    const { theme } = useContext(PortfolioContext);
     const { particlesRef, particleOptions, particlesInit } = useParticlesConfig();
 
     useImperativeHandle(ref, () => ({
@@ -23,6 +24,8 @@ export const HomeBg = memo(
         }
       },
     }));
+
+    useParticlesRefresh(particlesRef, theme);
 
     return (
       <div className='fixed top-0 left-0 w-full h-full -z-50 animate-fade-in'>

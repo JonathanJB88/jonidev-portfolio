@@ -5,19 +5,18 @@ import { loadFull } from 'tsparticles';
 import { getParticleOptions } from '@/config';
 import { PortfolioContext, Theme } from '@/context';
 
-const useParticlesRefresh = (particlesRef: MutableRefObject<Container | null>, theme: Theme) => {
+export const useParticlesRefresh = (particlesRef: MutableRefObject<Container | null>, theme: Theme) => {
   useEffect(() => {
-    if (particlesRef.current) {
-      particlesRef.current.refresh();
+    if (!theme || !particlesRef.current) {
+      return;
     }
+    particlesRef.current.refresh();
   }, [theme, particlesRef]);
 };
 
 export const useParticlesConfig = () => {
-  //
-
   const { theme } = useContext(PortfolioContext);
-  const particlesRef = useRef<Container>(null);
+  const particlesRef = useRef<Container | null>(null);
 
   const particlesInit = useCallback(async (engine: Engine) => {
     await loadFull(engine);
@@ -26,8 +25,6 @@ export const useParticlesConfig = () => {
   const particleOptions = useMemo(() => {
     return getParticleOptions(theme as Theme);
   }, [theme]);
-
-  theme && useParticlesRefresh(particlesRef, theme);
 
   return { particleOptions, particlesRef, particlesInit };
 };
