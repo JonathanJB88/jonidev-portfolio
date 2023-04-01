@@ -1,72 +1,45 @@
 import { useState } from 'react';
-import { GetStaticProps } from 'next';
-import Head from 'next/head';
-import Link from 'next/link';
+import { NextPage } from 'next';
+import dynamic from 'next/dynamic';
 
-import { Btn, Loading, ProjectsSet } from '@/components';
+import { HeadComponent, Loading, ProjectsSetProps } from '@/components';
+import { withPageStaticProps } from '@/utils';
 
-import { Category, IProject } from '@/interfaces';
+import { Category, MyPageProps } from '@/interfaces';
 
-interface ProjectsProps {
-  projects: IProject[];
-}
+const ProjectsSet = dynamic<ProjectsSetProps>(
+  () => import('../components/Projects/ProjectsSet').then((mod) => mod.ProjectsSet),
+  {
+    ssr: true,
+  }
+);
 
-const Projects = ({ projects: projectsData }: ProjectsProps) => {
-  //
-  const [active, setActive] = useState<Category | 'All'>('All');
-  const [projects, setProjects] = useState(projectsData);
+const ProjectsPage: NextPage<MyPageProps> = ({ data: { projects } }) => {
+  const [activeCategory, setActiveCategory] = useState<Category | 'All'>('All');
+  const projectsFallback = projects ?? [];
+  const [filteredProjects, setFilteredProjects] = useState(projectsFallback);
 
   const handleCategory = (category: Category | 'All') => {
-    if (category === 'All') {
-      setProjects(projectsData);
-      setActive(category);
-      return;
-    }
-    const filteredProjects = projectsData.filter((project) => project.category.includes(category));
-    setProjects(filteredProjects);
-    setActive(category);
+    setActiveCategory(category);
+    setFilteredProjects(
+      category === 'All' ? projectsFallback : projectsFallback.filter((project) => project.category.includes(category))
+    );
   };
 
   return (
     <>
-      <Head>
-        <title>Jonathan Bracho | Frontend Developer | Projects</title>
-        <meta name='description' content='Frontend Developer with a strong background in React + Typescript' />
-        <meta name='viewport' content='width=device-width, initial-scale=1' />
-        <meta
-          name='keywords'
-          content='Frontend Web Developer, TypeScript, React, Redux, Node.js, Express.js, Redux-toolkit, Cypress, Jest, Next.js, React Testing Library, Scrum'
-        />
-      </Head>
+      <HeadComponent title='Projects' />
       <main>
-        {!projectsData.length ? (
+        {!projectsFallback.length ? (
           <Loading />
         ) : (
-          <ProjectsSet projects={projects} handleCategory={handleCategory} active={active} />
+          <ProjectsSet projects={filteredProjects} handleCategory={handleCategory} active={activeCategory} />
         )}
       </main>
     </>
   );
 };
 
-export const getStaticProps: GetStaticProps = async () => {
-  try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/data`);
-    const { projects } = await res.json();
+export const getStaticProps = withPageStaticProps('/api/data');
 
-    return {
-      props: {
-        projects,
-      },
-    };
-  } catch (error) {
-    console.error('Error fetching data from API: ', error);
-    return {
-      props: {
-        projects: [],
-      },
-    };
-  }
-};
-
-export default Projects;
+export default ProjectsPage;

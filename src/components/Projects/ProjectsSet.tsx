@@ -1,13 +1,13 @@
 import { useContext, useEffect, useState } from 'react';
 import Link from 'next/link';
-import { Slide } from 'react-awesome-reveal';
+import { debounce } from 'lodash';
 
 import { PortfolioContext } from '@/context';
 import { Btn, ProjectCard, ProjectsNavBar } from '@/components';
 
 import { Category, IProject } from '@/interfaces';
 
-interface ProjectsSetProps {
+export interface ProjectsSetProps {
   projects: IProject[];
   handleCategory: (category: Category | 'All') => void;
   active: string;
@@ -21,9 +21,9 @@ export const ProjectsSet = ({ projects, active, handleCategory }: ProjectsSetPro
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const handleResize = () => {
+    const handleResize = debounce(() => {
       setIsMobile(window.innerWidth <= 768);
-    };
+    }, 200);
 
     handleResize();
     window.addEventListener('resize', handleResize);
@@ -66,3 +66,5 @@ export const ProjectsSet = ({ projects, active, handleCategory }: ProjectsSetPro
     </section>
   );
 };
+
+export default ProjectsSet;

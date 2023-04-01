@@ -35,3 +35,16 @@ export interface IJourney {
   description: string;
   category: 'experience' | 'education';
 }
+
+export interface DataResponse {
+  about?: string | null;
+  techSkills?: ISkill[] | null;
+  softSkills?: ISkill[] | null;
+  projects?: IProject[] | null;
+  services?: IService[] | null;
+  journey?: IJourney[] | null;
+}
+
+export interface MyPageProps {
+  data: DataResponse;
+}

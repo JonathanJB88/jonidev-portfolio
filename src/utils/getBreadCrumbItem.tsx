@@ -1,23 +1,46 @@
 import { BreadCrumb } from '@/interfaces';
 
+interface PathMap {
+  [key: string]: BreadCrumb;
+}
+
+const pathMap: PathMap = {
+  '/blog': {
+    label: 'Blog',
+    href: '/blog',
+  },
+  '/about': {
+    label: 'About',
+    href: '/about',
+  },
+  '/contact': {
+    label: 'Contact',
+    href: '/contact',
+  },
+  '/projects': {
+    label: 'Projects',
+    href: '/projects',
+  },
+  '/journey': {
+    label: 'Journey',
+    href: '/journey',
+  },
+  '/skills': {
+    label: 'Skills',
+    href: '/skills',
+  },
+};
+
 export const getBreadCrumbItem = (pathname: string, postTitle?: string): BreadCrumb | null => {
-  if (pathname.startsWith('/blog')) {
-    if (pathname === '/blog') {
-      return { label: 'Blog', href: '/blog' };
-    }
+  if (pathname.startsWith('/blog') && pathname !== '/blog') {
     if (postTitle) {
       return { label: postTitle, href: '/blog/[slug]', query: { slug: postTitle } };
     }
-  } else if (pathname === '/about') {
-    return { label: 'About', href: pathname };
-  } else if (pathname === '/contact') {
-    return { label: 'Contact', href: pathname };
-  } else if (pathname === '/projects') {
-    return { label: 'Projects', href: pathname };
-  } else if (pathname === '/journey') {
-    return { label: 'Journey', href: pathname };
-  } else if (pathname === '/skills') {
-    return { label: 'Skills', href: pathname };
+  } else {
+    const item = pathMap[pathname];
+    if (item) {
+      return item;
+    }
   }
 
   return null;

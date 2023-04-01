@@ -14,43 +14,32 @@ const imageBuilder = createImageUrlBuilder(client);
 
 export const urlForImage = (source: string) => imageBuilder.image(source).auto('format').fit('max');
 
-export const getAllPosts = async (): Promise<Post[]> => {
-  const data = await client.fetch<Post[]>(`
-    *[_type == "post"]{
-      _id,
-      title,
-      "slug": slug.current,
-      date,
-      excerpt,
-      "coverImage": coverImage.asset->url,
-      "categories": categories[]->title,
-      "tags": tags[]->title,
-      "author": author->{name, "picture": picture.asset->url},
-      content
-    } | order(date desc)
-  `);
+const postSelection = `
+  _id,
+  title,
+  "slug": slug.current,
+  date,
+  excerpt,
+  "coverImage": coverImage.asset->url,
+  "categories": categories[]->title,
+  "tags": tags[]->title,
+  "author": author->{name, "picture": picture.asset->url},
+  content
+`;
 
+export const getAllPosts = async (): Promise<Post[]> => {
+  const data = await client.fetch<Post[]>(`*[_type == "post"]{${postSelection}} | order(date desc)`);
   return data;
 };
 
 export const getPostBySlug = async (slug: string): Promise<Post | null> => {
-  const data = await client.fetch<Post | null>(
-    `
-    *[_type == "post" && slug.current == $slug][0]{
-      _id,
-      title,
-      "slug": slug.current,
-      date,
-      excerpt,
-      "coverImage": coverImage.asset->url,
-      "categories": categories[]->title,
-      "tags": tags[]->title,
-      "author": author->{name, "picture": picture.asset->url},
-      content
-    }
-  `,
-    { slug }
-  );
-
+  const data = await client.fetch<Post | null>(`*[_type == "post" && slug.current == $slug][0]{${postSelection}}`, {
+    slug,
+  });
   return data;
+};
+
+export const getUrlWithBlurData = (imageUrl: string) => {
+  const blurDataURL = imageBuilder.image(imageUrl).width(20).height(20).auto('format').fit('max').url();
+  return blurDataURL;
 };

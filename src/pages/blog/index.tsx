@@ -1,32 +1,35 @@
-import { GetStaticProps } from 'next';
-import Head from 'next/head';
+import { GetStaticProps, NextPage } from 'next';
+import dynamic from 'next/dynamic';
+
 import { getAllPosts } from '@/lib/Sanity';
 
-import { FeaturedPostsSlider, Loading, BlogGrid, FilterBar, BlogFooter } from '@/components';
+import { Loading, FilterBar, BlogFooter, HeadComponent, FeaturedPostSliderProps, BlogGridProps } from '@/components';
 import { useBlogPosts } from '@/hooks';
 
 import { Post } from '@/interfaces';
 
-interface BlogProps {
+interface BlogPageProps {
   posts: Post[];
 }
 
-const Blog = ({ posts }: BlogProps) => {
-  //
+const FeaturedPostsSlider = dynamic<FeaturedPostSliderProps>(
+  () => import('../../components/Blog/FeaturedPostsSlider').then((mod) => mod.FeaturedPostsSlider),
+  {
+    ssr: true,
+  }
+);
+
+const BlogGrid = dynamic<BlogGridProps>(() => import('../../components/Blog/BlogGrid').then((mod) => mod.BlogGrid), {
+  ssr: true,
+});
+
+const BlogPage: NextPage<BlogPageProps> = ({ posts }) => {
   const { latestPosts, filteredPosts, hasMore, categories, tags, handleFilterChange, handleSortChange, loadMore } =
     useBlogPosts(posts);
 
   return (
     <>
-      <Head>
-        <title>Jonathan Bracho | Frontend Developer | Blog</title>
-        <meta name='description' content='Frontend Developer with a strong background in React + Typescript' />
-        <meta name='viewport' content='width=device-width, initial-scale=1' />
-        <meta
-          name='keywords'
-          content='Frontend Web Developer, TypeScript, React, Redux, Node.js, Express.js, Redux-toolkit, Cypress, Jest, Next.js, React Testing Library, Scrum'
-        />
-      </Head>
+      <HeadComponent title='Blog' />
 
       <main>
         {!posts.length && <Loading />}
@@ -58,4 +61,4 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-export default Blog;
+export default BlogPage;

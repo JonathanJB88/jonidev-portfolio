@@ -1,40 +1,29 @@
 import { useContext } from 'react';
-import { GetStaticProps } from 'next';
-import Head from 'next/head';
+import { NextPage } from 'next';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 import { Slide } from 'react-awesome-reveal';
 
 import { PortfolioContext } from '@/context';
-import { Btn, Loading, SkillsSet } from '@/components';
+import { Btn, HeadComponent, Loading, SkillsSetProps } from '@/components';
+import { withPageStaticProps } from '@/utils';
 
-import { ISkill } from '@/interfaces';
+import { MyPageProps } from '@/interfaces';
 
-interface SkillsProps {
-  techSkills: ISkill[];
-  softSkills: ISkill[];
-}
+const SkillsSet = dynamic<SkillsSetProps>(() => import('../components/Skills/SkillsSet').then((mod) => mod.SkillsSet), {
+  ssr: true,
+});
 
-const Skills = ({ techSkills, softSkills }: SkillsProps) => {
-  //
-
+const SkillsPage: NextPage<MyPageProps> = ({ data: { softSkills, techSkills } }) => {
   const { theme } = useContext(PortfolioContext);
-
   const darkTheme = theme === 'dark';
   const textBg = darkTheme ? 'text-accent' : 'text-primary';
 
-  if (!techSkills || !softSkills) return <Loading />;
+  if (!techSkills || !softSkills || techSkills.length === 0 || softSkills.length === 0) return <Loading />;
 
   return (
     <>
-      <Head>
-        <title>Jonathan Bracho | Frontend Developer | Skills</title>
-        <meta name='description' content='Frontend Developer with a strong background in React + Typescript' />
-        <meta name='viewport' content='width=device-width, initial-scale=1' />
-        <meta
-          name='keywords'
-          content='Frontend Web Developer, TypeScript, React, Redux, Node.js, Express.js, Redux-toolkit, Cypress, Jest, Next.js, React Testing Library, Scrum'
-        />
-      </Head>
+      <HeadComponent title='Skills' />
 
       <main className='relative'>
         <Slide direction='down' triggerOnce>
@@ -51,26 +40,6 @@ const Skills = ({ techSkills, softSkills }: SkillsProps) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async () => {
-  try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/data`);
-    const { techSkills, softSkills } = await res.json();
+export const getStaticProps = withPageStaticProps('/api/data');
 
-    return {
-      props: {
-        techSkills,
-        softSkills,
-      },
-    };
-  } catch (error) {
-    console.error('Error fetching data from API: ', error);
-    return {
-      props: {
-        techSkills: [],
-        softSkills: [],
-      },
-    };
-  }
-};
-
-export default Skills;
+export default SkillsPage;

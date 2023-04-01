@@ -1,5 +1,5 @@
+import { memo } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 
 import { urlForImage } from '@/lib/Sanity';
 import { Btn } from '@/components';
@@ -10,7 +10,7 @@ interface SliderCardProps {
   post: Post;
 }
 
-export const SliderCard = ({ post: { coverImage, title, excerpt, slug } }: SliderCardProps) => {
+const SliderCard = ({ post: { coverImage, title, excerpt } }: SliderCardProps) => {
   return (
     <div className='relative w-full h-full'>
       <Image
@@ -27,10 +27,11 @@ export const SliderCard = ({ post: { coverImage, title, excerpt, slug } }: Slide
           {title}
         </h2>
         <p className='hidden mb-4 md:block font-body'>{excerpt}</p>
-        <Link href={`/blog/${slug}`}>
-          <Btn label='Read More' className='px-2 py-1 text-xs md:text-sm' />
-        </Link>
+
+        <Btn label='Read More' className='px-2 py-1 text-xs md:text-sm' />
       </div>
     </div>
   );
 };
+
+export default memo(SliderCard);

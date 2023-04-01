@@ -1,10 +1,11 @@
 import InfiniteScroll from 'react-infinite-scroll-component';
 
-import { BlogCard, EndMessage, Loading } from '@/components';
+import { EndMessage, Loading } from '@/components';
+import BlogCard from '@/components/Blog/BlogCard';
 
 import { Post } from '@/interfaces';
 
-interface BlogGridProps {
+export interface BlogGridProps {
   posts: Post[];
   hasMore: boolean;
   loadMore: () => void;

@@ -32,3 +32,6 @@ export * from './Blog/EndMessage';
 export * from './Blog/PostDate';
 export * from './Blog/BlogFooter';
 export * from './Layout/BreadCrumbs';
+export * from './Contact/ContactItem';
+export * from './Contact/ContactForm';
+export * from './Layout/HeadComponent';

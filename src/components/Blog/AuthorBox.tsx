@@ -1,6 +1,7 @@
+import { memo } from 'react';
 import Image from 'next/image';
 
-import { urlForImage } from '@/lib/Sanity';
+import { getUrlWithBlurData, urlForImage } from '@/lib/Sanity';
 import { Social } from '@/components';
 
 import { Author } from '@/interfaces';
@@ -9,7 +10,8 @@ type AuthorBoxProps = {
   author: Author;
 };
 
-export const AuthorBox = ({ author }: AuthorBoxProps) => {
+const AuthorBox = ({ author }: AuthorBoxProps) => {
+  const blurDataURL = getUrlWithBlurData(author.picture);
   return (
     <div className='flex items-center my-8'>
       <div className='mr-4'>
@@ -20,6 +22,8 @@ export const AuthorBox = ({ author }: AuthorBoxProps) => {
           height={80}
           loading='lazy'
           className='rounded-full'
+          placeholder='blur'
+          blurDataURL={blurDataURL}
         />
       </div>
       <div>
@@ -31,3 +35,5 @@ export const AuthorBox = ({ author }: AuthorBoxProps) => {
     </div>
   );
 };
+
+export default memo(AuthorBox);

@@ -5,12 +5,13 @@ import { urlForImage } from '@/lib/Sanity';
 import { Btn } from '@/components';
 
 import { Post } from '@/interfaces';
+import { memo } from 'react';
 
 interface BlogCardProps {
   post: Post;
 }
 
-export const BlogCard = ({ post: { coverImage, title, excerpt, author, tags, slug } }: BlogCardProps) => {
+const BlogCard = ({ post: { coverImage, title, excerpt, author, tags, slug } }: BlogCardProps) => {
   return (
     <div className='flex flex-col h-full overflow-hidden bg-gray-200 rounded-lg shadow-lg dark:bg-gray-700 animate-fade-in'>
       <div className='relative w-full h-0 overflow-hidden' style={{ paddingTop: '30%' }}>
@@ -56,3 +57,5 @@ export const BlogCard = ({ post: { coverImage, title, excerpt, author, tags, slu
     </div>
   );
 };
+
+export default memo(BlogCard);

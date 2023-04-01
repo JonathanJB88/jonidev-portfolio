@@ -1,16 +1,16 @@
 import 'swiper/swiper-bundle.min.css';
+import Link from 'next/link';
 import SwiperCore, { Autoplay, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import { SliderCard } from '@/components';
+import SliderCard from '@/components/Blog/SliderCard';
 
 import { Post } from '@/interfaces';
-import Link from 'next/link';
 
 // Install Swiper modules
 SwiperCore.use([Autoplay, Pagination]);
 
-interface FeaturedPostSliderProps {
+export interface FeaturedPostSliderProps {
   posts: Post[];
 }
 

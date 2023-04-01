@@ -1,12 +1,12 @@
-import { GetStaticPaths, GetStaticProps } from 'next';
-import Head from 'next/head';
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { ParsedUrlQuery } from 'querystring';
 
 import { getAllPosts, getPostBySlug } from '@/lib/Sanity';
-import { BlogFooter, Loading, NotFoundPost, PostDetail } from '@/components';
+import { BlogFooter, HeadComponent, Loading, NotFoundPost, PostDetailProps } from '@/components';
 
 import { Post } from '@/interfaces';
+import dynamic from 'next/dynamic';
 
 interface Params extends ParsedUrlQuery {
   slug: string;
@@ -16,22 +16,21 @@ interface PostPageProps {
   post: Post | null;
 }
 
-const PostPage = ({ post }: PostPageProps) => {
+const PostDetail = dynamic<PostDetailProps>(
+  () => import('../../components/Blog/PostDetail').then((mod) => mod.PostDetail),
+  {
+    ssr: true,
+  }
+);
+
+const PostPage: NextPage<PostPageProps> = ({ post }) => {
   const router = useRouter();
 
   if (router.isFallback) return <Loading />;
 
   return (
     <>
-      <Head>
-        <title>Jonathan Bracho | Blog | {post?.title || 'Frontend Blog Posts'}</title>
-        <meta name='description' content='Frontend Developer with a strong background in React + Typescript' />
-        <meta name='viewport' content='width=device-width, initial-scale=1' />
-        <meta
-          name='keywords'
-          content='Frontend Web Developer, TypeScript, React, Redux, Node.js, Express.js, Redux-toolkit, Cypress, Jest, Next.js, React Testing Library, Scrum'
-        />
-      </Head>
+      <HeadComponent title={post?.title || 'Frontend Blog Posts'} />
       <main>{post ? <PostDetail post={post} /> : <NotFoundPost />}</main>
       <BlogFooter />
     </>

@@ -4,14 +4,12 @@ import { SoftSkills, TechSkills } from '@/components';
 
 import { ISkill } from '../../interfaces';
 
-interface SkillsSetProps {
+export interface SkillsSetProps {
   techSkills: ISkill[];
   softSkills: ISkill[];
 }
 
 export const SkillsSet = ({ techSkills, softSkills }: SkillsSetProps) => {
-  //
-
   return (
     <section className='relative flex flex-col pb-24 overflow-x-hidden md:flex-row md:overflow-x-auto md:justify-center'>
       <div className='px-8 md:w-3/4'>
@@ -39,3 +37,5 @@ export const SkillsSet = ({ techSkills, softSkills }: SkillsSetProps) => {
     </section>
   );
 };
+
+export default SkillsSet;

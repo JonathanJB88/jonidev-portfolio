@@ -1,45 +1,19 @@
-import { GetStaticProps } from 'next';
-import Head from 'next/head';
+import { NextPage } from 'next';
 
-import { Intro, Loading } from '@/components';
+import { HeadComponent, Intro, Loading } from '@/components';
+import { withPageStaticProps } from '@/utils';
 
-interface HomeProps {
-  about: string;
-}
+import { MyPageProps } from '@/interfaces';
 
-const Home = ({ about }: HomeProps) => {
-  //
-
+const HomePage: NextPage<MyPageProps> = ({ data: { about } }) => {
   return (
     <>
-      <Head>
-        <title>Jonathan Bracho | Frontend Developer | Portfolio</title>
-        <meta name='description' content='Frontend Developer with a strong background in React + Typescript' />
-        <meta name='viewport' content='width=device-width, initial-scale=1' />
-        <meta
-          name='keywords'
-          content='Frontend Web Developer, TypeScript, React, Redux, Node.js, Express.js, Redux-toolkit, Cypress, Jest, Next.js, React Testing Library, Scrum'
-        />
-        <link rel='icon' href='/favicon.ico' />
-      </Head>
+      <HeadComponent title='Portfolio' />
       <main>{!about ? <Loading /> : <Intro about={about} />}</main>
     </>
   );
 };
 
-export const getStaticProps: GetStaticProps = async () => {
-  try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/data`);
-    const { about } = await res.json();
-    return {
-      props: { about },
-    };
-  } catch (error) {
-    console.error('Error fetching data from API: ', error);
-    return {
-      props: { about: '' },
-    };
-  }
-};
+export const getStaticProps = withPageStaticProps('/api/data');
 
-export default Home;
+export default HomePage;

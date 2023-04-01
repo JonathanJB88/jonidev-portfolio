@@ -1,14 +1,15 @@
 import Image from 'next/image';
 import BlockContent from '@sanity/block-content-to-react';
 
-import { urlForImage } from '@/lib/Sanity';
-import { AuthorBox, Btn, CommentsSection, PostDate } from '@/components';
+import { getUrlWithBlurData, urlForImage } from '@/lib/Sanity';
+import { Btn, CommentsSection, PostDate } from '@/components';
+import AuthorBox from './AuthorBox';
 import { blockSerializer, imageSerializer } from '@/utils';
 
 import { Post } from '@/interfaces';
 import Link from 'next/link';
 
-interface PostDetailProps {
+export interface PostDetailProps {
   post: Post;
 }
 
@@ -20,6 +21,7 @@ const serializers = {
 };
 
 export const PostDetail = ({ post: { coverImage, title, content, author, date } }: PostDetailProps) => {
+  const blurDataURL = getUrlWithBlurData(coverImage);
   return (
     <section>
       <div className='relative w-full mb-2 h-96 animate-fade-in'>
@@ -29,6 +31,8 @@ export const PostDetail = ({ post: { coverImage, title, content, author, date } 
           loading='lazy'
           fill
           sizes='(max-width: 640px) 640px, (max-width: 768px) 768px, (max-width: 1024px) 1024px, 1280px'
+          placeholder='blur'
+          blurDataURL={blurDataURL}
         />
       </div>
       <div className='px-4 py-4 md:px-40'>
