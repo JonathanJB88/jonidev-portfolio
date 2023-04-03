@@ -1,4 +1,8 @@
 /** @type {import('next').NextConfig} */
+
+const devDomain = 'localhost:3000';
+const prodDomain = 'www.yourdomain.com';
+
 const nextConfig = {
   reactStrictMode: true,
 
