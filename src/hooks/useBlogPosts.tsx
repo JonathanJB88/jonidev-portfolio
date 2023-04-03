@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState, useMemo, useCallback } from 'react';
 import { Post } from '@/interfaces';
 
 export const useBlogPosts = (posts: Post[]) => {
@@ -11,7 +11,7 @@ export const useBlogPosts = (posts: Post[]) => {
   const [currentSort, setCurrentSort] = useState<string>('date');
   const [loadedPostsCount, setLoadedPostsCount] = useState<number>(6);
 
-  const getCategoryTags = () => {
+  const getCategoryTags = useCallback(() => {
     const categoriesSet = new Set<string>();
     const tagsSet = new Set<string>();
 
@@ -26,26 +26,32 @@ export const useBlogPosts = (posts: Post[]) => {
 
     setCategories(Array.from(categoriesSet));
     setTags(Array.from(tagsSet));
-  };
+  }, [posts]);
 
-  const filterPosts = (postsToFilter: Post[]): Post[] => {
-    return currentFilter === 'all'
-      ? postsToFilter
-      : postsToFilter.filter((post) => {
-          const [filterType, filterName] = currentFilter.split(':');
-          const items = filterType === 'category' ? post.categories : post.tags;
-          return items.map((x) => x.toLowerCase()).includes(filterName.toLowerCase());
-        });
-  };
+  const filterPosts = useCallback(
+    (postsToFilter: Post[]): Post[] => {
+      return currentFilter === 'all'
+        ? postsToFilter
+        : postsToFilter.filter((post) => {
+            const [filterType, filterName] = currentFilter.split(':');
+            const items = filterType === 'category' ? post.categories : post.tags;
+            return items.map((x) => x.toLowerCase()).includes(filterName.toLowerCase());
+          });
+    },
+    [currentFilter]
+  );
 
-  const sortPosts = (filteredPosts: Post[]): Post[] => {
-    return filteredPosts.sort((a, b) => {
-      if (currentSort === 'date') {
-        return new Date(b.date).getTime() - new Date(a.date).getTime();
-      }
-      return a.title.localeCompare(b.title);
-    });
-  };
+  const sortPosts = useCallback(
+    (filteredPosts: Post[]): Post[] => {
+      return filteredPosts.sort((a, b) => {
+        if (currentSort === 'date') {
+          return new Date(b.date).getTime() - new Date(a.date).getTime();
+        }
+        return a.title.localeCompare(b.title);
+      });
+    },
+    [currentSort]
+  );
 
   const handleFilterChange = (filterValue: string) => {
     setCurrentFilter(filterValue);
@@ -67,20 +73,21 @@ export const useBlogPosts = (posts: Post[]) => {
   };
 
   const slicedPosts = useMemo(() => posts.slice(0, loadedPostsCount), [posts, loadedPostsCount]);
+
   const filteredAndSortedPosts = useMemo(
     () => sortPosts(filterPosts(slicedPosts)),
-    [slicedPosts, currentFilter, currentSort]
+    [slicedPosts, filterPosts, sortPosts]
   );
 
   useEffect(() => {
     setFilteredPosts(filteredAndSortedPosts);
     setHasMore(loadedPostsCount < posts.length);
-  }, [filteredAndSortedPosts, loadedPostsCount]);
+  }, [filteredAndSortedPosts, loadedPostsCount, posts.length]);
 
   useEffect(() => {
     getCategoryTags();
     setLatestPosts(posts.slice(0, 5));
-  }, [posts]);
+  }, [posts, getCategoryTags]);
 
   return {
     latestPosts,

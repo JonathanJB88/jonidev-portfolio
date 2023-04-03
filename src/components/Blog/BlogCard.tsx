@@ -61,4 +61,5 @@ const BlogCard = memo(({ post: { coverImage, title, excerpt, author, tags, slug 
   );
 });
 
+BlogCard.displayName = 'BlogCard';
 export default BlogCard;

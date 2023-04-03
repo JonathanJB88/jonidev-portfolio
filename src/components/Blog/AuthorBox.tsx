@@ -36,4 +36,5 @@ const AuthorBox = memo(({ author }: AuthorBoxProps) => {
   );
 });
 
+AuthorBox.displayName = 'AuthorBox';
 export default AuthorBox;

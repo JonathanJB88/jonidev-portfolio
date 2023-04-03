@@ -31,4 +31,5 @@ const SliderCard = memo(({ post: { coverImage, title, excerpt } }: SliderCardPro
   </div>
 ));
 
+SliderCard.displayName = 'SliderCard';
 export default SliderCard;

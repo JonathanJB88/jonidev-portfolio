@@ -25,3 +25,5 @@ export const DynamicBg = memo(({ children }: DynamicBgProps) => {
     </div>
   );
 });
+
+DynamicBg.displayName = 'DynamicBg';

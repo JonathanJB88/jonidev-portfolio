@@ -1,18 +1,18 @@
 import { useCallback, useContext, useEffect, useState } from 'react';
 import { debounce } from 'lodash';
 
-import { PortfolioContext } from '@/context';
+import { PortfolioContext, Theme } from '@/context';
 
 export const ThemeSwitcher = () => {
   const { theme, setTheme } = useContext(PortfolioContext);
   const [debouncedTheme, setDebouncedTheme] = useState(theme);
 
-  const debouncedSetTheme = useCallback(
-    debounce((newTheme) => {
+  const debouncedSetTheme = useCallback((newTheme: Theme) => {
+    const debouncedFn = debounce(() => {
       setDebouncedTheme(newTheme);
-    }, 300),
-    []
-  );
+    }, 300);
+    debouncedFn();
+  }, []);
 
   useEffect(() => {
     setTheme(debouncedTheme);

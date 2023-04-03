@@ -31,7 +31,7 @@ export const useBreadcrumbNavigation = () => {
           }
         });
     }
-  }, [pathname, isHomePage, postTitle]);
+  }, [pathname, isHomePage, postTitle, setVisitedItems]);
 
   useEffect(() => {
     if (lastVisitedBlog && pathname === '/blog') {
@@ -43,7 +43,7 @@ export const useBreadcrumbNavigation = () => {
       });
       setLastVisitedBlog(false);
     }
-  }, [lastVisitedBlog, pathname, setLastVisitedBlog]);
+  }, [lastVisitedBlog, pathname, setLastVisitedBlog, setVisitedItems]);
 
   const onBreadcrumbClick = (index: number) => {
     setVisitedItems((prevItems) => {
