@@ -13,7 +13,6 @@ const blurDataURL =
   'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGZpbGw9IiMwMDAiIGQ9Ik0wIDBoMTAwdjEwMEgwVjB6Ii8+PC9zdmc+';
 
 export const ProjectCard = ({ project }: ProjectCardProps) => {
-  //
   const { image_path, name, id } = project;
   const [isModalOpen, setIsModalOpen] = useState<number | null>(null);
 

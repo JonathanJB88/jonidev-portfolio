@@ -8,7 +8,6 @@ interface DynamicBgProps {
 }
 
 export const DynamicBg = memo(({ children }: DynamicBgProps) => {
-  //
   const { theme } = useContext(PortfolioContext);
 
   const isDark = theme === 'dark';

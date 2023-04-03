@@ -10,7 +10,6 @@ interface TimelineItemProps {
 }
 
 export const TimelineItem = ({ journey: { year, title, description, category } }: TimelineItemProps) => {
-  //
   const { theme } = useContext(PortfolioContext);
   const isDark = theme === 'dark';
   const borderRight = isDark ? '7px solid #4B5563' : '7px solid #EDF2F7';

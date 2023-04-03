@@ -1,32 +1,37 @@
 import { useContext, useState } from 'react';
 import Link from 'next/link';
 import { VerticalTimeline } from 'react-vertical-timeline-component';
+import { Slide } from 'react-awesome-reveal';
 import 'react-vertical-timeline-component/style.min.css';
 
 import { PortfolioContext } from '@/context';
-import { Btn, TimelineItem } from '@/components';
+import { Button, TimelineItem } from '@/components';
 
 import { IJourney } from '@/interfaces';
-import { Slide } from 'react-awesome-reveal';
 
 interface TimelineSectionProps {
   journey: IJourney[];
 }
 
+const getButtonClass = (isSelected: boolean, darkMode: boolean) => {
+  const baseClass = 'px-3 py-1 mx-1 rounded-lg font-body font-bold';
+  const selectedClass = darkMode
+    ? 'bg-accent text-primary hover:bg-primary hover:text-white'
+    : 'bg-primary text-white hover:bg-accent-hover hover:text-primary';
+  const unselectedClass = 'bg-gray-200 text-gray-700 hover:bg-gray-300 hover:text-gray-800';
+
+  return isSelected ? `${baseClass} ${selectedClass}` : `${baseClass} ${unselectedClass}`;
+};
+
 export const TimelineSection = ({ journey }: TimelineSectionProps) => {
-  //
   const [showEducation, setShowEducation] = useState<boolean>(false);
   const { theme } = useContext(PortfolioContext);
   const isDark = theme === 'dark';
   const textBg = isDark ? 'text-accent' : 'text-primary';
   const lineColor = isDark ? '#4B5563' : '#EDF2F7';
 
-  const educationBtnClass = showEducation
-    ? 'bg-primary text-white px-3 py-1 rounded-lg ml-2 font-body font-bold hover:bg-accent-hover hover:text-primary dark:bg-accent dark:text-primary dark:hover:bg-primary dark:hover:text-white'
-    : 'bg-gray-200 text-gray-700 px-3 py-1 rounded-lg mr-2 font-body font-bold hover:bg-gray-300 hover:text-gray-800';
-  const experienceBtnClass = !showEducation
-    ? 'bg-primary text-white px-3 py-1 rounded-lg mr-2 font-body font-bold hover:bg-accent-hover hover:text-primary dark:bg-accent dark:text-primary dark:hover:bg-primary dark:hover:text-white'
-    : 'bg-gray-200 text-gray-700 px-3 py-1 rounded-lg font-body font-bold hover:bg-gray-300 hover:text-gray-800';
+  const educationBtnClass = getButtonClass(showEducation, isDark);
+  const experienceBtnClass = getButtonClass(!showEducation, isDark);
 
   const filteredJourneyList = journey.filter((journey) =>
     showEducation ? journey.category === 'education' : journey.category === 'experience'
@@ -38,7 +43,7 @@ export const TimelineSection = ({ journey }: TimelineSectionProps) => {
         <div className='relative py-10'>
           <div className='absolute right-0 hidden top-14 md:block md:mr-4'>
             <Link href='/blog'>
-              <Btn label='Visit my Blog' />
+              <Button label='Visit my Blog' />
             </Link>
           </div>
         </div>
@@ -64,7 +69,7 @@ export const TimelineSection = ({ journey }: TimelineSectionProps) => {
       <div className='py-10 md:hidden'>
         <div className='flex justify-center'>
           <Link href='/blog'>
-            <Btn label='Visit my Blog' />
+            <Button label='Visit my Blog' />
           </Link>
         </div>
       </div>

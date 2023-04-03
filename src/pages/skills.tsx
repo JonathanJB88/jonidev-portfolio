@@ -5,15 +5,18 @@ import dynamic from 'next/dynamic';
 import { Slide } from 'react-awesome-reveal';
 
 import { PortfolioContext } from '@/context';
-import { Btn, HeadComponent, Loading, SkillsSetProps } from '@/components';
+import { Button, HeadComponent, Loading, SkillsSetProps } from '@/components';
 import { withPageStaticProps } from '@/utils';
 
 import { MyPageProps } from '@/interfaces';
 
-const SkillsSet = dynamic<SkillsSetProps>(() => import('../components/Skills/SkillsSet').then((mod) => mod.SkillsSet), {
-  loading: () => <Loading />,
-  ssr: false,
-});
+const DynamicSkillsSet = dynamic<SkillsSetProps>(
+  () => import('../components/Skills/SkillsSet').then((mod) => mod.SkillsSet),
+  {
+    loading: () => <Loading />,
+    ssr: false,
+  }
+);
 
 const SkillsPage: NextPage<MyPageProps> = ({ data: { softSkills, techSkills } }) => {
   const { theme } = useContext(PortfolioContext);
@@ -30,10 +33,10 @@ const SkillsPage: NextPage<MyPageProps> = ({ data: { softSkills, techSkills } })
         <Slide direction='down' triggerOnce>
           <h1 className={`pt-12 text-xl font-extrabold text-center font-header md:text-4xl ${textBg}`}>My Skills</h1>
         </Slide>
-        <SkillsSet techSkills={techSkills} softSkills={softSkills} />
+        <DynamicSkillsSet techSkills={techSkills} softSkills={softSkills} />
         <div className='absolute bottom-0 right-0 mb-8 mr-24 md:mr-8 md:mb-10 lg:md-12 animate-slide-in'>
           <Link href='/projects'>
-            <Btn label='Explore my Projects' />
+            <Button label='Explore my Projects' />
           </Link>
         </div>
       </main>

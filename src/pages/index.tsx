@@ -5,14 +5,12 @@ import { withPageStaticProps } from '@/utils';
 
 import { MyPageProps } from '@/interfaces';
 
-const HomePage: NextPage<MyPageProps> = ({ data: { about } }) => {
-  return (
-    <>
-      <HeadComponent title='Portfolio' />
-      <main>{!about ? <Loading /> : <Intro about={about} />}</main>
-    </>
-  );
-};
+const HomePage: NextPage<MyPageProps> = ({ data: { about } }) => (
+  <>
+    <HeadComponent title='Portfolio' />
+    <main>{!about ? <Loading /> : <Intro about={about} />}</main>
+  </>
+);
 
 export const getStaticProps = withPageStaticProps('/api/data');
 

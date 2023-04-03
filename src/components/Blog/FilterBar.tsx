@@ -1,5 +1,7 @@
 import { ChangeEvent } from 'react';
 
+import { OptionGroup } from '@/components';
+
 interface FilterBarProps {
   onFilterChange: (value: string) => void;
   onSortChange: (value: string) => void;
@@ -8,12 +10,8 @@ interface FilterBarProps {
 }
 
 export const FilterBar = ({ onFilterChange, onSortChange, categories, tags }: FilterBarProps) => {
-  const handleFilterChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    onFilterChange(e.target.value);
-  };
-
-  const handleSortChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    onSortChange(e.target.value);
+  const handleChange = (handler: (value: string) => void) => (e: ChangeEvent<HTMLSelectElement>) => {
+    handler(e.target.value);
   };
 
   return (
@@ -25,24 +23,12 @@ export const FilterBar = ({ onFilterChange, onSortChange, categories, tags }: Fi
         <select
           name='filter'
           id='filter'
-          onChange={handleFilterChange}
+          onChange={handleChange(onFilterChange)}
           className='w-20 p-1 text-sm capitalize bg-gray-200 border border-gray-500 rounded md:text-base dark:border-gray-900 dark:bg-gray-700 font-body'
         >
           <option value='all'>All</option>
-          <optgroup label='Categories'>
-            {categories.map((category) => (
-              <option key={category} value={`category:${category}`}>
-                {category}
-              </option>
-            ))}
-          </optgroup>
-          <optgroup label='Tags'>
-            {tags.map((tag) => (
-              <option key={tag} value={`tag:${tag}`}>
-                {tag}
-              </option>
-            ))}
-          </optgroup>
+          <OptionGroup label='Category' options={categories} />
+          <OptionGroup label='Tag' options={tags} />
         </select>
       </div>
       <div className='flex flex-col items-center mb-2 md:flex-row md:w-auto'>
@@ -52,7 +38,7 @@ export const FilterBar = ({ onFilterChange, onSortChange, categories, tags }: Fi
         <select
           name='sort'
           id='sort'
-          onChange={handleSortChange}
+          onChange={handleChange(onSortChange)}
           className='w-20 p-1 text-sm capitalize bg-gray-200 border border-gray-500 rounded md:text-base dark:border-gray-900 dark:bg-gray-700 font-body'
         >
           <option value='date'>Date</option>

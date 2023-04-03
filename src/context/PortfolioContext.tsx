@@ -6,11 +6,11 @@ export type Theme = 'light' | 'dark';
 
 export interface PortfolioContextProps {
   theme: Theme;
-  setTheme: (theme: Theme) => void;
-  lastVisitedBlog: boolean;
-  setLastVisitedBlog: (visited: boolean) => void;
   visitedItems: BreadCrumb[];
+  lastVisitedBlog: boolean;
+  setTheme: (theme: Theme) => void;
   setVisitedItems: (callback: (prevItems: BreadCrumb[]) => BreadCrumb[]) => void;
+  setLastVisitedBlog: (visited: boolean) => void;
 }
 
 export const PortfolioContext = createContext<PortfolioContextProps>({} as PortfolioContextProps);

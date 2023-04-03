@@ -11,19 +11,17 @@ export interface BlogGridProps {
   loadMore: () => void;
 }
 
-export const BlogGrid = ({ posts, hasMore, loadMore }: BlogGridProps) => {
-  return (
-    <InfiniteScroll
-      dataLength={posts.length}
-      next={loadMore}
-      hasMore={hasMore}
-      loader={<Loading />}
-      endMessage={<EndMessage />}
-      className='grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3'
-    >
-      {posts.map((post) => (
-        <BlogCard key={post._id} post={post} />
-      ))}
-    </InfiniteScroll>
-  );
-};
+export const BlogGrid = ({ posts, hasMore, loadMore }: BlogGridProps) => (
+  <InfiniteScroll
+    dataLength={posts.length}
+    next={loadMore}
+    hasMore={hasMore}
+    loader={<Loading />}
+    endMessage={<EndMessage />}
+    className='grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3'
+  >
+    {posts.map((post) => (
+      <BlogCard key={post._id} post={post} />
+    ))}
+  </InfiniteScroll>
+);

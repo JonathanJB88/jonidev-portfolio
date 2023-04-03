@@ -14,26 +14,24 @@ export interface FeaturedPostSliderProps {
   posts: Post[];
 }
 
-export const FeaturedPostsSlider = ({ posts }: FeaturedPostSliderProps) => {
-  return (
-    <div className='relative'>
-      <Swiper
-        spaceBetween={50}
-        slidesPerView={1}
-        pagination={{
-          clickable: true,
-        }}
-        autoplay={{ delay: 5000 }}
-        className='w-full h-[400px] overflow-hidden'
-      >
-        {posts.map((post) => (
-          <SwiperSlide key={post._id}>
-            <Link href={`/blog/${post.slug}`}>
-              <SliderCard post={post} />
-            </Link>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </div>
-  );
-};
+export const FeaturedPostsSlider = ({ posts }: FeaturedPostSliderProps) => (
+  <div className='relative'>
+    <Swiper
+      spaceBetween={50}
+      slidesPerView={1}
+      pagination={{
+        clickable: true,
+      }}
+      autoplay={{ delay: 5000 }}
+      className='w-full h-[400px] overflow-hidden'
+    >
+      {posts.map((post) => (
+        <SwiperSlide key={post._id}>
+          <Link href={`/blog/${post.slug}`}>
+            <SliderCard post={post} />
+          </Link>
+        </SwiperSlide>
+      ))}
+    </Swiper>
+  </div>
+);

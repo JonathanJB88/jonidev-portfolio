@@ -5,14 +5,12 @@ import { withPageStaticProps } from '@/utils';
 
 import { MyPageProps } from '@/interfaces';
 
-const JourneyPage: NextPage<MyPageProps> = ({ data: { journey } }) => {
-  return (
-    <>
-      <HeadComponent title='Journey' />
-      <main>{!journey || journey.length === 0 ? <Loading /> : <TimelineSection journey={journey ?? []} />}</main>
-    </>
-  );
-};
+const JourneyPage: NextPage<MyPageProps> = ({ data: { journey } }) => (
+  <>
+    <HeadComponent title='Journey' />
+    <main>{!journey || journey.length === 0 ? <Loading /> : <TimelineSection journey={journey ?? []} />}</main>
+  </>
+);
 
 export const getStaticProps = withPageStaticProps('/api/data');
 

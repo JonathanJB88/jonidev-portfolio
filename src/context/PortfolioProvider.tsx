@@ -11,16 +11,16 @@ interface Props {
 }
 
 export const PortfolioProvider = ({ children }: Props) => {
-  const { setTheme, theme } = useTheme();
-  const [nextTheme, setNextTheme] = useState<Theme>(() => theme as Theme);
-  const [lastVisitedBlog, setLastVisitedBlog] = useState(false);
+  const { setTheme, theme: currentTheme } = useTheme();
+  const [nextTheme, setNextTheme] = useState<Theme>(() => currentTheme as Theme);
+  const [lastVisitedBlog, setLastVisitedBlog] = useState<boolean>(false);
   const [visitedItems, setVisitedItems] = useState<BreadCrumb[]>(loadVisitedItemsFromLocalStorage());
 
   useEffect(() => {
-    if (nextTheme !== theme) {
+    if (nextTheme !== currentTheme) {
       setTheme(nextTheme);
     }
-  }, [nextTheme, theme, setTheme]);
+  }, [nextTheme, currentTheme, setTheme]);
 
   const value = {
     theme: nextTheme,

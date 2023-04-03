@@ -11,7 +11,6 @@ interface ProjectsNavItemProps {
 }
 
 export const ProjectsNavItem = ({ value, active, handleCategory }: ProjectsNavItemProps) => {
-  //
   const { theme } = useContext(PortfolioContext);
   const isDark = theme === 'dark';
 

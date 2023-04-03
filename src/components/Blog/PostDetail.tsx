@@ -1,13 +1,13 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import BlockContent from '@sanity/block-content-to-react';
 
 import { getUrlWithBlurData, urlForImage } from '@/lib/Sanity';
-import { Btn, CommentsSection, PostDate } from '@/components';
+import { Button, CommentsSection, PostDate } from '@/components';
 import AuthorBox from './AuthorBox';
 import { blockSerializer, imageSerializer } from '@/utils';
 
 import { Post } from '@/interfaces';
-import Link from 'next/link';
 
 export interface PostDetailProps {
   post: Post;
@@ -61,7 +61,7 @@ export const PostDetail = ({ post: { coverImage, title, content, author, date } 
         <BlockContent blocks={content} serializers={serializers} />
         <div className='mt-4'>
           <Link href='/blog'>
-            <Btn label='← Browse More Posts' className='px-2 py-1 text-xs md:text-sm' />
+            <Button label='← Browse More Posts' className='px-2 py-1 text-xs md:text-sm' />
           </Link>
         </div>
         <AuthorBox author={author} />

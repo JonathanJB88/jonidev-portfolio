@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { debounce } from 'lodash';
 
 import { PortfolioContext } from '@/context';
-import { Btn, ProjectCard, ProjectsNavBar } from '@/components';
+import { Button, ProjectCard, ProjectsNavBar } from '@/components';
 
 import { Category, IProject } from '@/interfaces';
 
@@ -14,7 +14,6 @@ export interface ProjectsSetProps {
 }
 
 export const ProjectsSet = ({ projects, active, handleCategory }: ProjectsSetProps) => {
-  //
   const { theme } = useContext(PortfolioContext);
   const darkTheme = theme === 'dark';
   const textBg = darkTheme ? 'text-accent' : 'text-primary';
@@ -59,7 +58,7 @@ export const ProjectsSet = ({ projects, active, handleCategory }: ProjectsSetPro
         </div>
         <div className={`relative ${buttonWrapperClasses}`}>
           <Link href='/journey'>
-            <Btn label='Explore my Journey' />
+            <Button label='Explore my Journey' />
           </Link>
         </div>
       </div>

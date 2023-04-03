@@ -10,7 +10,6 @@ interface SkillCardProps {
 }
 
 export const SkillCard = ({ skillTitle, skillLevel }: SkillCardProps) => {
-  //
   const Icon = getIconComponent(skillTitle);
   const { theme } = useContext(PortfolioContext);
 

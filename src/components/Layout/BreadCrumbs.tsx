@@ -5,7 +5,6 @@ import { useBreadcrumbNavigation } from '@/hooks';
 import { transformText } from '@/utils';
 
 export const BreadCrumbs = () => {
-  //
   const { visitedItems, onBreadcrumbClick } = useBreadcrumbNavigation();
 
   return (

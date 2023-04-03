@@ -12,7 +12,7 @@ interface BlogPageProps {
   posts: Post[];
 }
 
-const FeaturedPostsSlider = dynamic<FeaturedPostSliderProps>(
+const DynamicFeaturedPostsSlider = dynamic<FeaturedPostSliderProps>(
   () => import('../../components/Blog/FeaturedPostsSlider').then((mod) => mod.FeaturedPostsSlider),
   {
     loading: () => <Loading />,
@@ -20,10 +20,13 @@ const FeaturedPostsSlider = dynamic<FeaturedPostSliderProps>(
   }
 );
 
-const BlogGrid = dynamic<BlogGridProps>(() => import('../../components/Blog/BlogGrid').then((mod) => mod.BlogGrid), {
-  loading: () => <Loading />,
-  ssr: false,
-});
+const DynamicBlogGrid = dynamic<BlogGridProps>(
+  () => import('../../components/Blog/BlogGrid').then((mod) => mod.BlogGrid),
+  {
+    loading: () => <Loading />,
+    ssr: false,
+  }
+);
 
 const BlogPage: NextPage<BlogPageProps> = ({ posts }) => {
   const { latestPosts, filteredPosts, hasMore, categories, tags, handleFilterChange, handleSortChange, loadMore } =
@@ -35,7 +38,7 @@ const BlogPage: NextPage<BlogPageProps> = ({ posts }) => {
 
       <main>
         {!posts.length && <Loading />}
-        <FeaturedPostsSlider posts={latestPosts} />
+        <DynamicFeaturedPostsSlider posts={latestPosts} />
 
         <section className='container px-8 py-8 mx-auto'>
           <FilterBar
@@ -44,7 +47,7 @@ const BlogPage: NextPage<BlogPageProps> = ({ posts }) => {
             onFilterChange={handleFilterChange}
             onSortChange={handleSortChange}
           />
-          <BlogGrid posts={filteredPosts} hasMore={hasMore} loadMore={loadMore} />
+          <DynamicBlogGrid posts={filteredPosts} hasMore={hasMore} loadMore={loadMore} />
         </section>
       </main>
       <BlogFooter />

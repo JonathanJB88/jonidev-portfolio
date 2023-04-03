@@ -1,8 +1,8 @@
 import { useImperativeHandle, forwardRef, memo, useContext } from 'react';
 import Particles from 'react-particles';
 
-import { useParticlesConfig, useParticlesRefresh } from '@/hooks';
 import { PortfolioContext } from '@/context';
+import { useParticlesConfig, useParticlesRefresh } from '@/hooks';
 
 type Props = {
   children?: React.ReactNode;

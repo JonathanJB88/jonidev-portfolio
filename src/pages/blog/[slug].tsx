@@ -16,7 +16,7 @@ interface PostPageProps {
   post: Post | null;
 }
 
-const PostDetail = dynamic<PostDetailProps>(
+const DynamicPostDetail = dynamic<PostDetailProps>(
   () => import('../../components/Blog/PostDetail').then((mod) => mod.PostDetail),
   {
     ssr: true,
@@ -31,7 +31,7 @@ const PostPage: NextPage<PostPageProps> = ({ post }) => {
   return (
     <>
       <HeadComponent title={post?.title || 'Frontend Blog Posts'} />
-      <main>{post ? <PostDetail post={post} /> : <NotFoundPost />}</main>
+      <main>{post ? <DynamicPostDetail post={post} /> : <NotFoundPost />}</main>
       <BlogFooter />
     </>
   );

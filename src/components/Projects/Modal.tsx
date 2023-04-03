@@ -11,7 +11,6 @@ interface ModalProps {
 }
 
 export const Modal = ({ setIsModalOpen, project }: ModalProps) => {
-  //
   const { image_path, name, description, key_techs, github_url, deployed_url } = project;
 
   return (

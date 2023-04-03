@@ -6,11 +6,11 @@ import { Social } from '@/components';
 
 import { Author } from '@/interfaces';
 
-type AuthorBoxProps = {
+interface AuthorBoxProps {
   author: Author;
-};
+}
 
-const AuthorBox = ({ author }: AuthorBoxProps) => {
+const AuthorBox = memo(({ author }: AuthorBoxProps) => {
   const blurDataURL = getUrlWithBlurData(author.picture);
   return (
     <div className='flex items-center my-8'>
@@ -34,6 +34,6 @@ const AuthorBox = ({ author }: AuthorBoxProps) => {
       </div>
     </div>
   );
-};
+});
 
-export default memo(AuthorBox);
+export default AuthorBox;

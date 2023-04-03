@@ -1,6 +1,6 @@
 import autosize from 'autosize';
 
-import { Btn } from '@/components';
+import { Button } from '@/components';
 
 interface ContactFormProps {
   state: {
@@ -53,7 +53,7 @@ export const ContactForm = ({
     {!loading && messageSent && (
       <p className='text-sm font-semibold text-center text-green-500 md:text-lg'>Message sent successfully!</p>
     )}
-    {!loading && !messageSent && <Btn label='Send Message' className='w-full py-2' />}
+    {!loading && !messageSent && <Button label='Send Message' className='w-full py-2' />}
     {errorMessage && <p className='mt-2 text-sm font-semibold text-center text-red-500 md:text-lg'>{errorMessage}</p>}
   </form>
 );

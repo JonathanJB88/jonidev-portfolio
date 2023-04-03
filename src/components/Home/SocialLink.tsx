@@ -6,16 +6,13 @@ interface SocialLinkProps {
   url: string;
   delay?: number;
 }
-export const SocialLink = ({ Icon, url, delay = 100 }: SocialLinkProps) => {
-  //
-  const iconClassName =
-    'w-8 h-8 text-primary transition-colors duration-300 dark:text-accent dark:hover:text-primary hover:text-accent mx-1';
+const iconClassName =
+  'w-8 h-8 text-primary transition-colors duration-300 dark:text-accent dark:hover:text-primary hover:text-accent mx-1';
 
-  return (
-    <Fade direction='up' delay={delay} triggerOnce>
-      <a href={url} target='_blank' rel='noreferrer' aria-label={url}>
-        <Icon className={iconClassName} />
-      </a>
-    </Fade>
-  );
-};
+export const SocialLink = ({ Icon, url, delay = 100 }: SocialLinkProps) => (
+  <Fade direction='up' delay={delay} triggerOnce>
+    <a href={url} target='_blank' rel='noreferrer' aria-label={url}>
+      <Icon className={iconClassName} />
+    </a>
+  </Fade>
+);

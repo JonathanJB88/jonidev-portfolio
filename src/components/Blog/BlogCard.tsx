@@ -1,22 +1,25 @@
+import { memo } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
 import { urlForImage } from '@/lib/Sanity';
-import { Btn } from '@/components';
+import { Button } from '@/components';
 
 import { Post } from '@/interfaces';
-import { memo } from 'react';
 
 interface BlogCardProps {
   post: Post;
 }
 
-const BlogCard = ({ post: { coverImage, title, excerpt, author, tags, slug } }: BlogCardProps) => {
+const BlogCard = memo(({ post: { coverImage, title, excerpt, author, tags, slug } }: BlogCardProps) => {
+  const coverImageUrl = urlForImage(coverImage).url() || '';
+  const authorImageUrl = urlForImage(author.picture).url() || '';
+
   return (
     <div className='flex flex-col h-full overflow-hidden bg-gray-200 rounded-lg shadow-lg dark:bg-gray-700 animate-fade-in'>
       <div className='relative w-full h-0 overflow-hidden' style={{ paddingTop: '30%' }}>
         <Image
-          src={urlForImage(coverImage).url() || ''}
+          src={coverImageUrl}
           alt={`Cover Image for the post ${title}`}
           loading='lazy'
           width={1400}
@@ -31,7 +34,7 @@ const BlogCard = ({ post: { coverImage, title, excerpt, author, tags, slug } }: 
         <div className='mt-auto'>
           <div className='flex items-center mb-4'>
             <Image
-              src={urlForImage(author.picture).url() || ''}
+              src={authorImageUrl}
               alt={`Avatar for ${author.name}`}
               width={30}
               height={30}
@@ -50,12 +53,12 @@ const BlogCard = ({ post: { coverImage, title, excerpt, author, tags, slug } }: 
             ))}
           </div>
           <Link href={`/blog/${slug}`}>
-            <Btn label='Read More' className='px-2 py-1 text-xs md:text-sm' />
+            <Button label='Read More' className='px-2 py-1 text-xs md:text-sm' />
           </Link>
         </div>
       </div>
     </div>
   );
-};
+});
 
-export default memo(BlogCard);
+export default BlogCard;

@@ -6,7 +6,7 @@ import { BiMailSend } from 'react-icons/bi';
 import { IoLogoWhatsapp } from 'react-icons/io';
 
 import { PortfolioContext } from '@/context';
-import { ANCHOR_CLASS, Btn, ContactForm, ContactItem, HeadComponent, Social } from '@/components';
+import { ANCHOR_CLASS, Button, ContactForm, ContactItem, HeadComponent, Social } from '@/components';
 import { useContact } from '@/hooks';
 
 const ContactPage: NextPage = () => {
@@ -45,7 +45,7 @@ const ContactPage: NextPage = () => {
             handlers={{ handleChange, handleSubmit }}
           />
 
-          <Btn label='Visit my Blog' onClick={handleCTAClick} className='px-2 py-1' />
+          <Button label='Visit my Blog' onClick={handleCTAClick} className='px-2 py-1' />
         </Fade>
       </div>
     </>

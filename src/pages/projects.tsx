@@ -7,7 +7,7 @@ import { withPageStaticProps } from '@/utils';
 
 import { Category, MyPageProps } from '@/interfaces';
 
-const ProjectsSet = dynamic<ProjectsSetProps>(
+const DynamicProjectsSet = dynamic<ProjectsSetProps>(
   () => import('../components/Projects/ProjectsSet').then((mod) => mod.ProjectsSet),
   {
     loading: () => <Loading />,
@@ -34,7 +34,7 @@ const ProjectsPage: NextPage<MyPageProps> = ({ data: { projects } }) => {
         {!projectsFallback.length ? (
           <Loading />
         ) : (
-          <ProjectsSet projects={filteredProjects} handleCategory={handleCategory} active={activeCategory} />
+          <DynamicProjectsSet projects={filteredProjects} handleCategory={handleCategory} active={activeCategory} />
         )}
       </main>
     </>
