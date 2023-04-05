@@ -15,7 +15,7 @@ export const Intro = ({ about }: IntroProps) => (
         <div className='flex justify-center mb-6 -mt-8'>
           <Image
             src='/images/profilepic.png'
-            alt='Profile Photo'
+            alt='Profile Photo of Jonathan Bracho'
             width={150}
             height={150}
             loading='lazy'
@@ -40,7 +40,7 @@ export const Intro = ({ about }: IntroProps) => (
     </div>
     <div className='flex flex-col items-center w-1/2 mt-20 justify-evenly md:flex-row'>
       <div className='flex flex-row items-center mb-2 md:mb-0 md:mr-2'>
-        <Social />
+        <Social aria-label='Visit Jonathan Bracho Social Media' />
       </div>
       <div className='mt-4 md:mt-0 md:mr-2'>
         <DownloadCV />

@@ -17,7 +17,7 @@ const AuthorBox = memo(({ author }: AuthorBoxProps) => {
       <div className='mr-4'>
         <Image
           src={urlForImage(author.picture).url() || ''}
-          alt={author.name}
+          alt={`Profile picture of ${author.name}`}
           width={80}
           height={80}
           loading='lazy'
@@ -29,7 +29,7 @@ const AuthorBox = memo(({ author }: AuthorBoxProps) => {
       <div>
         <h3 className='mb-2 text-lg font-semibold md:text-xl font-header'>{author.name}</h3>
         <div className='flex space-x-2'>
-          <Social />
+          <Social data-testid='social-component' aria-label='Visit Jonathan Bracho Social Media' />
         </div>
       </div>
     </div>

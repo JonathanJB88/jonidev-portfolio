@@ -29,7 +29,12 @@ const ProjectsPage: NextPage<MyPageProps> = ({ data: { projects } }) => {
 
   return (
     <>
-      <HeadComponent title='Projects' />
+      <HeadComponent
+        title='Projects'
+        description='A showcase of my personal projects, including web and mobile apps built with modern technologies like TypeScript, React, React Native, and more.'
+        keywords='TypeScript, React, React Native, Next, JavaScript, TailwindCSS, ChakraUI'
+        pageUrl='/projects'
+      />
       <main>
         {!projectsFallback.length ? (
           <Loading />

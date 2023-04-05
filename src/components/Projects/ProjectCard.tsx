@@ -28,7 +28,7 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
       >
         <Image
           src={`/images/${image_path}`}
-          alt={name}
+          alt={`Project Image of: ${name}`}
           width={200}
           height={100}
           loading='lazy'

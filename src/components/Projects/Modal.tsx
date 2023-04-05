@@ -26,7 +26,7 @@ export const Modal = ({ setIsModalOpen, project }: ModalProps) => {
           <div className='relative w-full h-0 pb-[50%] overflow-hidden rounded-lg'>
             <Image
               src={`/images/${image_path}`}
-              alt={name}
+              alt={`Project Image of: ${name}`}
               width={200}
               height={100}
               loading='lazy'
@@ -35,13 +35,13 @@ export const Modal = ({ setIsModalOpen, project }: ModalProps) => {
             />
           </div>
           <div className='flex justify-center my-4 space-x-3'>
-            <ButtonLink url={github_url} Icon={AiFillGithub} text='GitHub' />
-            <ButtonLink url={deployed_url} Icon={AiFillProject} text='Deploy' />
+            <ButtonLink url={github_url} Icon={AiFillGithub} text='GitHub' aria-label='Visit my Project on Github' />
+            <ButtonLink url={deployed_url} Icon={AiFillProject} text='Deploy' aria-label='Visit my Project' />
           </div>
         </div>
         <div className='flex flex-col justify-center my-4'>
           <h2 className='mb-3 text-xl font-medium underline md:text-2xl font-header'>{name}</h2>
-          <h3 className='mb-3 text-sm font-medium text-justify font-body'>{description}</h3>
+          <h2 className='mb-3 text-sm font-medium text-justify font-body'>{description}</h2>
           <div className='flex flex-wrap justify-center mt-5 space-x-2 text-sm tracking-wider'>
             {key_techs.map((tech) => (
               <span

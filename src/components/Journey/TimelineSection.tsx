@@ -39,7 +39,7 @@ export const TimelineSection = ({ journey }: TimelineSectionProps) => {
 
   return (
     <>
-      <div className='container mx-auto'>
+      <section className='container mx-auto'>
         <div className='relative py-10'>
           <div className='absolute right-0 hidden top-14 md:block md:mr-4'>
             <Link href='/blog'>
@@ -47,7 +47,7 @@ export const TimelineSection = ({ journey }: TimelineSectionProps) => {
             </Link>
           </div>
         </div>
-      </div>
+      </section>
       <section className='pb-5'>
         <Slide direction='down' triggerOnce>
           <h1 className={`mb-6 text-xl font-extrabold text-center font-header md:text-4xl ${textBg}`}>My Journey</h1>
@@ -66,13 +66,13 @@ export const TimelineSection = ({ journey }: TimelineSectionProps) => {
           ))}
         </VerticalTimeline>
       </section>
-      <div className='py-10 md:hidden'>
+      <section className='py-10 md:hidden'>
         <div className='flex justify-center'>
           <Link href='/blog'>
             <Button label='Visit my Blog' />
           </Link>
         </div>
-      </div>
+      </section>
     </>
   );
 };

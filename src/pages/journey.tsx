@@ -7,7 +7,12 @@ import { MyPageProps } from '@/interfaces';
 
 const JourneyPage: NextPage<MyPageProps> = ({ data: { journey } }) => (
   <>
-    <HeadComponent title='Journey' />
+    <HeadComponent
+      title='Journey'
+      description="Jonathan Bracho's professional journey as a frontend developer, including education and work experiences."
+      keywords='journey, frontend developer, education, work experience, career path'
+      pageUrl='/journey'
+    />
     <main>{!journey || journey.length === 0 ? <Loading /> : <TimelineSection journey={journey ?? []} />}</main>
   </>
 );

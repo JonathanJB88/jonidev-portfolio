@@ -27,6 +27,7 @@ export interface ISocial {
   id: number;
   Icon: IconType;
   url: string;
+  ariaLabel: string;
 }
 
 export interface IJourney {

@@ -40,7 +40,7 @@ export const TimelineItem = ({ journey: { year, title, description, category } }
       dateClassName='font-body text-base'
       iconStyle={iconStyle}
       icon={
-        <span role='img' aria-label={icon}>
+        <span role='img' aria-label={icon === '🎓' ? 'Graduation cap' : 'Man at computer'}>
           {icon}
         </span>
       }

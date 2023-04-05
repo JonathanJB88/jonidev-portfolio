@@ -21,7 +21,7 @@ export const SkillCard = ({ skillTitle, skillLevel }: SkillCardProps) => {
     <div className={`flex p-4 rounded-md bg-gray-200 dark:bg-gray-700`}>
       <div className='flex items-center'>
         <JackInTheBox delay={500} triggerOnce>
-          <Icon className='mr-4 text-2xl md:text-4xl dark:text-secondary' />
+          <Icon className='mr-4 text-2xl md:text-4xl dark:text-secondary' aria-label={`${skillTitle} icon`} />
         </JackInTheBox>
       </div>
       <div className='flex-1'>

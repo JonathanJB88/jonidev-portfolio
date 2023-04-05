@@ -21,33 +21,47 @@ const ContactPage: NextPage = () => {
 
   return (
     <>
-      <HeadComponent title='Contact' />
-      <div className={`${ANCHOR_CLASS} min-h-screen flex-col`}>
+      <HeadComponent
+        title='Contact'
+        description='Get in touch with Jonathan Bracho, a Frontend Developer with a strong background in React and TypeScript. Available for projects and collaborations.'
+        keywords='contact, frontend development, design, web developer, portfolio'
+        pageUrl='/contact'
+      />
+      <main className={`${ANCHOR_CLASS} min-h-screen flex-col`}>
         <Fade triggerOnce>
-          <h1 className='mb-4 text-2xl font-bold md:text-4xl font-header text-primary dark:text-accent'>
-            Get in Touch
-          </h1>
-          <p className='max-w-md px-4 mb-8 text-sm text-center md:text-base font-body'>
-            Feel free to get in touch with me. I am available to discuss your project, answer any questions, or just
-            chat about frontend development and design.
-          </p>
-          <div className='grid grid-cols-1 gap-4 mb-8 md:grid-cols-2'>
-            <ContactItem icon={<BiMailSend />} type='mail' contact='Jonajes0288@gmail.com' />
-            <ContactItem icon={<IoLogoWhatsapp />} type='whatsapp' contact='+34652540974' />
-            <div className='flex items-center justify-center md:col-span-2'>
-              <Social />
+          <section>
+            <h1 className='mb-4 text-2xl font-bold text-center md:text-4xl font-header text-primary dark:text-accent'>
+              Get in Touch
+            </h1>
+            <p className='max-w-md px-4 mb-8 text-sm text-center md:text-base font-body'>
+              Feel free to get in touch with me. I am available to discuss your project, answer any questions, or just
+              chat about frontend development and design.
+            </p>
+            <div className='grid grid-cols-1 gap-4 mb-8 md:grid-cols-2'>
+              <ContactItem icon={<BiMailSend />} aria-label='Email Icon' type='mail' contact='Jonajes0288@gmail.com' />
+              <ContactItem
+                icon={<IoLogoWhatsapp />}
+                aria-label='Whatsapp Icon'
+                type='whatsapp'
+                contact='+34652540974'
+              />
+              <div className='flex items-center justify-center md:col-span-2'>
+                <Social aria-label='Visit Jonathan Bracho Social Media' />
+              </div>
             </div>
-          </div>
-
-          <ContactForm
-            state={{ loading, messageSent, errorMessage }}
-            values={{ name, email, project }}
-            handlers={{ handleChange, handleSubmit }}
-          />
-
-          <Button label='Visit my Blog' onClick={handleCTAClick} className='px-2 py-1' />
+          </section>
+          <section>
+            <ContactForm
+              state={{ loading, messageSent, errorMessage }}
+              values={{ name, email, project }}
+              handlers={{ handleChange, handleSubmit }}
+            />
+          </section>
+          <section>
+            <Button label='Visit my Blog' onClick={handleCTAClick} className='px-2 py-1' />
+          </section>
         </Fade>
-      </div>
+      </main>
     </>
   );
 };

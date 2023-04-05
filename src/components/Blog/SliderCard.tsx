@@ -14,7 +14,7 @@ const SliderCard = memo(({ post: { coverImage, title, excerpt } }: SliderCardPro
   <div className='relative w-full h-full'>
     <Image
       src={urlForImage(coverImage).url() || ''}
-      alt={title}
+      alt={`Cover Image for the post ${title}`}
       loading='lazy'
       fill
       sizes='(max-width: 640px) 640px, (max-width: 768px) 768px, (max-width: 1024px) 1024px, 1280px'

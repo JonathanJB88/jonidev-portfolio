@@ -49,6 +49,9 @@ export const PostDetail = ({ post: { coverImage, title, content, author, date } 
             <a
               href='https://twitter.com/JonathanDev88'
               className='text-primary dark:text-accent-hover dark:hover:text-primary-light hover:text-accent-hover'
+              target='_blank'
+              rel='noopener noreferrer'
+              aria-label='Follow me on Twitter'
             >
               {' '}
               @JonathanDev88

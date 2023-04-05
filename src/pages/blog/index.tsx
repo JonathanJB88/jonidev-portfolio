@@ -34,7 +34,12 @@ const BlogPage: NextPage<BlogPageProps> = ({ posts }) => {
 
   return (
     <>
-      <HeadComponent title='Blog' />
+      <HeadComponent
+        title='Blog'
+        description="Read the latest articles on web development, programming, and technology trends in Jonathan Bracho's Blog."
+        keywords='web development, programming, technology trends, blog, articles, post'
+        pageUrl='/blog'
+      />
 
       <main>
         {!posts.length && <Loading />}

@@ -27,7 +27,12 @@ const SkillsPage: NextPage<MyPageProps> = ({ data: { softSkills, techSkills } })
 
   return (
     <>
-      <HeadComponent title='Skills' />
+      <HeadComponent
+        title='Skills'
+        description='Explore my technical and soft skills in web development, programming, and teamwork.'
+        keywords='web development, programming, teamwork, technical skills, soft skills'
+        pageUrl='/skills'
+      />
 
       <main className='relative'>
         <Slide direction='down' triggerOnce>

@@ -12,8 +12,6 @@ export const client = createClient({
 
 const imageBuilder = createImageUrlBuilder(client);
 
-export const urlForImage = (source: string) => imageBuilder.image(source).auto('format').fit('max');
-
 const postSelection = `
   _id,
   title,
@@ -26,6 +24,8 @@ const postSelection = `
   "author": author->{name, "picture": picture.asset->url},
   content
 `;
+
+export const urlForImage = (source: string) => imageBuilder.image(source).auto('format').fit('max');
 
 export const getAllPosts = async (): Promise<Post[]> => {
   const data = await client.fetch<Post[]>(`*[_type == "post"]{${postSelection}} | order(date desc)`);

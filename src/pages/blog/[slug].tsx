@@ -25,12 +25,21 @@ const DynamicPostDetail = dynamic<PostDetailProps>(
 
 const PostPage: NextPage<PostPageProps> = ({ post }) => {
   const router = useRouter();
+  const pageUrl = router.asPath;
 
   if (router.isFallback) return <Loading />;
 
   return (
     <>
-      <HeadComponent title={post?.title || 'Frontend Blog Posts'} />
+      <HeadComponent
+        title={post?.title || 'Frontend Blog Post'}
+        description={post?.excerpt || 'Read the latest article on web development, programming, and technology trends.'}
+        keywords={post?.tags.join(', ') || 'web development, programming, technology trends, blog, article'}
+        ogTitle={post?.title}
+        ogDescription={post?.excerpt}
+        ogImage={post?.coverImage || '/images/jonidev_logo.png'}
+        pageUrl={pageUrl}
+      />
       <main>{post ? <DynamicPostDetail post={post} /> : <NotFoundPost />}</main>
       <BlogFooter />
     </>
