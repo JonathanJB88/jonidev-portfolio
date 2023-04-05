@@ -1,17 +1,13 @@
 import { BreadCrumb } from '@/interfaces';
 
-interface PathMap {
+export interface PathMap {
   [key: string]: BreadCrumb;
 }
 
-const pathMap: PathMap = {
+export const pathMap: PathMap = {
   '/blog': {
     label: 'Blog',
     href: '/blog',
-  },
-  '/about': {
-    label: 'About',
-    href: '/about',
   },
   '/contact': {
     label: 'Contact',

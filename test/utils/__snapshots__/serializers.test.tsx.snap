@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`blockSerializer should render the correct JSX based on the input 1`] = `
+<div>
+  <h1
+    class="mb-4 text-xl font-bold animate-fade-in md:text-2xl font-header"
+  >
+    Test Title
+  </h1>
+</div>
+`;
+
+exports[`blockSerializer should render the correct JSX based on the input 2`] = `
+<div>
+  <h2
+    class="mb-3 text-base font-semibold animate-fade-in md:text-xl font-header"
+  >
+    Test Subtitle
+  </h2>
+</div>
+`;
+
+exports[`blockSerializer should render the correct JSX based on the input 3`] = `
+<div>
+  <h3
+    class="mb-2 text-base font-medium animate-fade-in md:text-xl font-header"
+  >
+    Test Heading 3
+  </h3>
+</div>
+`;
+
+exports[`blockSerializer should render the correct JSX based on the input 4`] = `
+<div>
+  <blockquote
+    class="p-4 m-3 mx-6 text-xs italic bg-gray-400 border-l-4 border-gray-500 rounded-md animate-fade-in md:text-base dark:bg-gray-700 dark:text-secondary md:mx-32 text-dark"
+  >
+    Test Blockquote
+  </blockquote>
+</div>
+`;
+
+exports[`blockSerializer should render the correct JSX based on the input 5`] = `
+<div>
+  <div
+    class="pb-2 text-sm animate-fade-in font-body md:text-base"
+  >
+    Test Paragraph
+  </div>
+</div>
+`;
+
+exports[`imageSerializer should render the correct JSX based on the input 1`] = `
+<div>
+  <div
+    class="flex justify-center"
+  >
+    <div
+      class="relative w-3/4 h-0 overflow-hidden"
+      style="padding-top: 35%;"
+    >
+      <img
+        alt="Test Image"
+        class="absolute top-0 left-0 w-full h-full rounded-lg shadow-sm"
+        data-nimg="1"
+        decoding="async"
+        height="350"
+        loading="lazy"
+        sizes="100vw"
+        src="/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fvqggrqao%2Fproduction%2FTb9Ew8CXIwaY6R1kjMvI0uRR-2000x3000.jpg%3Ffit%3Dmax%26auto%3Dformat&w=3840&q=75"
+        srcset="/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fvqggrqao%2Fproduction%2FTb9Ew8CXIwaY6R1kjMvI0uRR-2000x3000.jpg%3Ffit%3Dmax%26auto%3Dformat&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fvqggrqao%2Fproduction%2FTb9Ew8CXIwaY6R1kjMvI0uRR-2000x3000.jpg%3Ffit%3Dmax%26auto%3Dformat&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fvqggrqao%2Fproduction%2FTb9Ew8CXIwaY6R1kjMvI0uRR-2000x3000.jpg%3Ffit%3Dmax%26auto%3Dformat&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fvqggrqao%2Fproduction%2FTb9Ew8CXIwaY6R1kjMvI0uRR-2000x3000.jpg%3Ffit%3Dmax%26auto%3Dformat&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fvqggrqao%2Fproduction%2FTb9Ew8CXIwaY6R1kjMvI0uRR-2000x3000.jpg%3Ffit%3Dmax%26auto%3Dformat&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fvqggrqao%2Fproduction%2FTb9Ew8CXIwaY6R1kjMvI0uRR-2000x3000.jpg%3Ffit%3Dmax%26auto%3Dformat&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fvqggrqao%2Fproduction%2FTb9Ew8CXIwaY6R1kjMvI0uRR-2000x3000.jpg%3Ffit%3Dmax%26auto%3Dformat&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fvqggrqao%2Fproduction%2FTb9Ew8CXIwaY6R1kjMvI0uRR-2000x3000.jpg%3Ffit%3Dmax%26auto%3Dformat&w=3840&q=75 3840w"
+        style="color: transparent;"
+        width="1400"
+      />
+    </div>
+  </div>
+</div>
+`;
