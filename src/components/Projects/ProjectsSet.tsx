@@ -17,7 +17,7 @@ export const ProjectsSet = ({ projects, active, handleCategory }: ProjectsSetPro
   const { theme } = useContext(PortfolioContext);
   const darkTheme = theme === 'dark';
   const textBg = darkTheme ? 'text-accent' : 'text-primary';
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   useEffect(() => {
     const handleResize = debounce(() => {
@@ -56,7 +56,7 @@ export const ProjectsSet = ({ projects, active, handleCategory }: ProjectsSetPro
             ))}
           </div>
         </div>
-        <div className={`relative ${buttonWrapperClasses}`}>
+        <div aria-label='button-wrapper' className={`relative ${buttonWrapperClasses}`}>
           <Link href='/journey'>
             <Button label='Explore my Journey' />
           </Link>

@@ -43,7 +43,7 @@ export const Intro = ({ about }: IntroProps) => (
         <Social aria-label='Visit Jonathan Bracho Social Media' />
       </div>
       <div className='mt-4 md:mt-0 md:mr-2'>
-        <DownloadCV />
+        <DownloadCV data-testid='download-cv' />
       </div>
     </div>
   </section>

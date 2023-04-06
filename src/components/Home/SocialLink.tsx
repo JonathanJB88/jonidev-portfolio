@@ -1,7 +1,7 @@
 import { Fade } from 'react-awesome-reveal';
 import { IconType } from 'react-icons';
 
-interface SocialLinkProps {
+export interface SocialLinkProps {
   Icon: IconType;
   url: string;
   ariaLabel: string;
@@ -13,7 +13,7 @@ const iconClassName =
 export const SocialLink = ({ Icon, url, ariaLabel, delay = 100 }: SocialLinkProps) => (
   <Fade direction='up' delay={delay} triggerOnce>
     <a href={url} target='_blank' rel='noreferrer' aria-label={ariaLabel}>
-      <Icon className={iconClassName} />
+      <Icon className={iconClassName} data-testid='social-icon' />
     </a>
   </Fade>
 );

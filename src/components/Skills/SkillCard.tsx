@@ -29,7 +29,7 @@ export const SkillCard = ({ skillTitle, skillLevel }: SkillCardProps) => {
           {skillTitle}
         </h2>
         <div className='w-full h-2 mt-2 bg-gray-500 rounded-md'>
-          <div className={`h-2 rounded-md ${barBg}`} style={{ width: skillLevel }} />
+          <div role='progressbar' className={`h-2 rounded-md ${barBg}`} style={{ width: skillLevel }} />
         </div>
       </div>
     </div>
