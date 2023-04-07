@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-interface HeadComponentProps {
+export interface HeadComponentProps {
   title: string;
   description?: string;
   keywords?: string;
@@ -53,3 +53,5 @@ export const HeadComponent = ({
     </Head>
   );
 };
+
+export default HeadComponent;

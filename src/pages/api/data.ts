@@ -4,7 +4,7 @@ import { about, techSkills, projects, services, softSkills, journey } from '../.
 
 import { ISkill, IProject, IService, IJourney } from '../../interfaces';
 
-type Data = {
+export type Data = {
   about: string;
   techSkills: ISkill[];
   softSkills: ISkill[];

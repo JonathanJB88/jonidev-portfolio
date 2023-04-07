@@ -45,7 +45,7 @@ const BlogPage: NextPage<BlogPageProps> = ({ posts }) => {
         {!posts.length && <Loading />}
         <DynamicFeaturedPostsSlider posts={latestPosts} />
 
-        <section className='container px-8 py-4 mx-auto'>
+        <section className='container px-8 py-4 mx-auto' data-testid='filterbar-blogGrid'>
           <FilterBar
             categories={categories}
             tags={tags}

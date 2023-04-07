@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomePage matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    data-testid="head-component"
+  />
+  <main>
+    <div
+      data-testid="intro"
+    />
+  </main>
+</DocumentFragment>
+`;

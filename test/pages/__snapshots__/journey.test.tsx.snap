@@ -1,0 +1,133 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`JourneyPage should match snapshot 1`] = `
+<DocumentFragment>
+  <main>
+    <section
+      class="container mx-auto"
+    >
+      <div
+        class="relative py-10"
+      >
+        <div
+          class="absolute right-0 hidden top-14 md:block md:mr-4"
+        >
+          <a
+            href="/blog"
+          >
+            <button
+              class="px-3 py-1 font-semibold transition-colors duration-300 
+  border-2 rounded-md font-body dark:border-accent 
+  dark:hover:border-primary dark:bg-accent dark:hover:bg-primary 
+  text-secondary border-primary bg-primary 
+  hover:bg-accent hover:border-accent animate-slide-in"
+            >
+              Visit my Blog
+            </button>
+          </a>
+        </div>
+      </div>
+    </section>
+    <section
+      class="pb-5"
+    >
+      <div
+        class="css-0"
+        style="animation-delay: 0ms;"
+      >
+        <h1
+          class="mb-6 text-xl font-extrabold text-center font-header md:text-4xl text-primary"
+        >
+          My Journey
+        </h1>
+      </div>
+      <div
+        class="css-0"
+        style="animation-delay: 0ms;"
+      >
+        <div
+          class="flex justify-center mb-10"
+        >
+          <button
+            class="px-3 py-1 mx-1 rounded-lg font-body font-bold bg-primary text-white hover:bg-accent-hover hover:text-primary"
+          >
+            Experience
+          </button>
+          <button
+            class="px-3 py-1 mx-1 rounded-lg font-body font-bold bg-gray-200 text-gray-700 hover:bg-gray-300 hover:text-gray-800"
+            data-testid="education-button"
+          >
+            Education
+          </button>
+        </div>
+      </div>
+      <div
+        class="vertical-timeline vertical-timeline--animate vertical-timeline--two-columns"
+      >
+        <div
+          class="vertical-timeline-element--work vertical-timeline-element"
+          id=""
+        >
+          <span
+            class="vertical-timeline-element-icon is-hidden"
+            style="background: rgb(51, 88, 196); display: flex; align-items: center; justify-content: center; font-size: 24px; width: 36px; height: 36px; border-radius: 50%;"
+          >
+            <span
+              aria-label="Man at computer"
+              role="img"
+            >
+              👨‍💻
+            </span>
+          </span>
+          <div
+            class="vertical-timeline-element-content is-hidden"
+            style="background: rgb(237, 242, 247); color: rgb(18, 18, 18); border-radius: 10px; font-size: 16px;"
+          >
+            <div
+              class="vertical-timeline-element-content-arrow"
+              style="border-right: 7px solid #EDF2F7;"
+            />
+            <h3
+              class="underline vertical-timeline-element-title font-header"
+            >
+              Frontend Developer
+            </h3>
+            <p
+              class="text-justify font-body"
+              style="font-size: 14px;"
+            >
+              Worked as a frontend developer at Company XYZ.
+            </p>
+            <span
+              class="font-body text-base vertical-timeline-element-date"
+            >
+              2020
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      class="py-10 md:hidden"
+    >
+      <div
+        class="flex justify-center"
+      >
+        <a
+          href="/blog"
+        >
+          <button
+            class="px-3 py-1 font-semibold transition-colors duration-300 
+  border-2 rounded-md font-body dark:border-accent 
+  dark:hover:border-primary dark:bg-accent dark:hover:bg-primary 
+  text-secondary border-primary bg-primary 
+  hover:bg-accent hover:border-accent animate-slide-in"
+          >
+            Visit my Blog
+          </button>
+        </a>
+      </div>
+    </section>
+  </main>
+</DocumentFragment>
+`;

@@ -5,7 +5,7 @@ export const PostDate = ({ dateString }: { dateString: string }) => {
 
   const date = parseISO(dateString);
   return (
-    <time dateTime={dateString} className='text-sm font-body md:text-base'>
+    <time dateTime={dateString} className='text-sm font-body md:text-base' data-testid='post-date'>
       {format(date, 'LLLL	d, yyyy')}
     </time>
   );

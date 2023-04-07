@@ -51,7 +51,7 @@ const samplePosts: Post[] = [
 ];
 
 describe('useBlogPosts hook', () => {
-  test('handles filtering and sorting correctly', () => {
+  it('handles filtering and sorting correctly', () => {
     const { result } = renderHook(() => useBlogPosts(samplePosts));
 
     expect(result.current.filteredPosts.length).toBe(samplePosts.length); // Updated
@@ -69,7 +69,7 @@ describe('useBlogPosts hook', () => {
     expect(result.current.filteredPosts[0].title).toBe('Sample Post 1');
   });
 
-  test('loads more posts', () => {
+  it('loads more posts', () => {
     const { result } = renderHook(() => useBlogPosts(samplePosts));
 
     act(() => {
@@ -79,14 +79,14 @@ describe('useBlogPosts hook', () => {
     expect(result.current.filteredPosts.length).toBe(samplePosts.length);
   });
 
-  test('updates categories and tags', () => {
+  it('updates categories and tags', () => {
     const { result } = renderHook(() => useBlogPosts(samplePosts));
 
     expect(result.current.categories).toEqual(['category 1', 'category 2']); // Updated
     expect(result.current.tags).toEqual(['tag 1', 'tag 2']); // Updated
   });
 
-  test('updates latest posts', () => {
+  it('updates latest posts', () => {
     const { result } = renderHook(() => useBlogPosts(samplePosts));
 
     expect(result.current.latestPosts.length).toBe(samplePosts.length); // Updated

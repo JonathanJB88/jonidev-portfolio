@@ -27,12 +27,15 @@ export const ThemeSwitcher = () => {
 
   return (
     <div className='fixed z-30 flex items-center top-3 md:top-4 right-4 md:right-6 animate-fade-in'>
-      <label
-        className='inline-block text-sm md:text-base pr-1 md:pr-[0.15rem] hover:cursor-pointer'
-        htmlFor='flexSwitchCheckDefault'
-      >
-        {theme === 'dark' && '☀️'}
-      </label>
+      {debouncedTheme === 'dark' && (
+        <label
+          aria-label='dark mode'
+          className='inline-block text-sm md:text-base pr-1 md:pr-[0.15rem] hover:cursor-pointer'
+          htmlFor='flexSwitchCheckDefault'
+        >
+          {'☀️'}
+        </label>
+      )}
       <input
         className={switcherClassName}
         type='checkbox'
@@ -41,12 +44,15 @@ export const ThemeSwitcher = () => {
         checked={theme === 'dark'}
         onChange={toggleTheme}
       />
-      <label
-        className='inline-block text-sm md:text-base pl-1 md:pl-[0.15rem] hover:cursor-pointer'
-        htmlFor='flexSwitchCheckDefault'
-      >
-        {theme === 'light' && '🌙'}
-      </label>
+      {debouncedTheme === 'light' && (
+        <label
+          aria-label='light mode'
+          className='inline-block text-sm md:text-base pl-1 md:pl-[0.15rem] hover:cursor-pointer'
+          htmlFor='flexSwitchCheckDefault'
+        >
+          {'🌙'}
+        </label>
+      )}
     </div>
   );
 };

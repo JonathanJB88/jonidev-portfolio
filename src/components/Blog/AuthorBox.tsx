@@ -11,12 +11,13 @@ interface AuthorBoxProps {
 }
 
 const AuthorBox = memo(({ author }: AuthorBoxProps) => {
+  const profilePicture = urlForImage(author.picture).url() || '';
   const blurDataURL = getUrlWithBlurData(author.picture);
   return (
     <div className='flex items-center my-8'>
       <div className='mr-4'>
         <Image
-          src={urlForImage(author.picture).url() || ''}
+          src={profilePicture}
           alt={`Profile picture of ${author.name}`}
           width={80}
           height={80}
@@ -28,8 +29,8 @@ const AuthorBox = memo(({ author }: AuthorBoxProps) => {
       </div>
       <div>
         <h3 className='mb-2 text-lg font-semibold md:text-xl font-header'>{author.name}</h3>
-        <div className='flex space-x-2'>
-          <Social data-testid='social-component' aria-label='Visit Jonathan Bracho Social Media' />
+        <div className='flex space-x-2' data-testid='social-component'>
+          <Social aria-label='Visit Jonathan Bracho Social Media' />
         </div>
       </div>
     </div>

@@ -39,7 +39,10 @@ const SkillsPage: NextPage<MyPageProps> = ({ data: { softSkills, techSkills } })
           <h1 className={`pt-12 text-xl font-extrabold text-center font-header md:text-4xl ${textBg}`}>My Skills</h1>
         </Slide>
         <DynamicSkillsSet techSkills={techSkills} softSkills={softSkills} />
-        <div className='absolute bottom-0 right-0 mb-8 mr-24 md:mr-8 md:mb-10 lg:md-12 animate-slide-in'>
+        <div
+          aria-label='projects-button'
+          className='absolute bottom-0 right-0 mb-8 mr-24 md:mr-8 md:mb-10 lg:md-12 animate-slide-in'
+        >
           <Link href='/projects'>
             <Button label='Explore my Projects' />
           </Link>

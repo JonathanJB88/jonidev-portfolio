@@ -24,7 +24,7 @@ export const ContactForm = ({
   values: { name, email, project },
   handlers: { handleChange, handleSubmit },
 }: ContactFormProps) => (
-  <form onSubmit={handleSubmit} className='w-full max-w-md px-4 mb-8 font-body'>
+  <form aria-label='contact-form' onSubmit={handleSubmit} className='w-full max-w-md px-4 mb-8 font-body'>
     <input
       type='text'
       name='name'

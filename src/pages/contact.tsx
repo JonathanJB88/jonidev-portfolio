@@ -33,7 +33,7 @@ const ContactPage: NextPage = () => {
             <h1 className='mb-4 text-2xl font-bold text-center md:text-4xl font-header text-primary dark:text-accent'>
               Get in Touch
             </h1>
-            <p className='max-w-md px-4 mb-8 text-sm text-center md:text-base font-body'>
+            <p data-testid='CTA-text' className='max-w-md px-4 mb-8 text-sm text-center md:text-base font-body'>
               Feel free to get in touch with me. I am available to discuss your project, answer any questions, or just
               chat about frontend development and design.
             </p>
@@ -57,7 +57,7 @@ const ContactPage: NextPage = () => {
               handlers={{ handleChange, handleSubmit }}
             />
           </section>
-          <section>
+          <section aria-label='CTA-button'>
             <Button label='Visit my Blog' onClick={handleCTAClick} className='px-2 py-1' />
           </section>
         </Fade>

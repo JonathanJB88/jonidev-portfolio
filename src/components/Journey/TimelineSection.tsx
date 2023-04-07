@@ -55,7 +55,7 @@ export const TimelineSection = ({ journey }: TimelineSectionProps) => {
             <button className={experienceBtnClass} onClick={() => setShowEducation(false)}>
               Experience
             </button>
-            <button className={educationBtnClass} onClick={() => setShowEducation(true)}>
+            <button data-testid='education-button' className={educationBtnClass} onClick={() => setShowEducation(true)}>
               Education
             </button>
           </div>
@@ -76,3 +76,5 @@ export const TimelineSection = ({ journey }: TimelineSectionProps) => {
     </>
   );
 };
+
+export default TimelineSection;

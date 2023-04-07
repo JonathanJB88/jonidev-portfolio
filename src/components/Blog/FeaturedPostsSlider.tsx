@@ -11,7 +11,7 @@ export interface FeaturedPostSliderProps {
 }
 
 export const FeaturedPostsSlider = ({ posts }: FeaturedPostSliderProps) => (
-  <div className='relative w-full h-[400px] overflow-hidden'>
+  <div className='relative w-full h-[400px] overflow-hidden' data-testid='carousel'>
     <Carousel
       showThumbs={false}
       showStatus={false}
@@ -27,7 +27,7 @@ export const FeaturedPostsSlider = ({ posts }: FeaturedPostSliderProps) => (
       dynamicHeight
     >
       {posts.map((post) => (
-        <div key={post._id}>
+        <div key={post._id} data-testid='slider-card'>
           <Link href={`/blog/${post.slug}`}>
             <SliderCard post={post} />
           </Link>
