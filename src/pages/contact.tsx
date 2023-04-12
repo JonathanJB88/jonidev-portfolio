@@ -40,6 +40,7 @@ const ContactPage: NextPage = () => {
             <div className='grid grid-cols-1 gap-4 mb-8 md:grid-cols-2'>
               <ContactItem icon={<BiMailSend />} aria-label='Email Icon' type='mail' contact='Jonajes0288@gmail.com' />
               <ContactItem
+                data-testid='whatsapp'
                 icon={<IoLogoWhatsapp />}
                 aria-label='Whatsapp Icon'
                 type='whatsapp'
@@ -58,7 +59,7 @@ const ContactPage: NextPage = () => {
             />
           </section>
           <section aria-label='CTA-button'>
-            <Button label='Visit my Blog' onClick={handleCTAClick} className='px-2 py-1' />
+            <Button label='Check out my Blog' onClick={handleCTAClick} className='px-2 py-1' />
           </section>
         </Fade>
       </main>

@@ -44,7 +44,7 @@ export const PostDetail = ({ post: { coverImage, title, content, author, date } 
         </h1>
         <div className='flex flex-col animate-fade-in'>
           <PostDate dateString={date} />
-          <span className='mt-2 text-xs italic font-medium font-body md:text-sm'>
+          <span data-testid='post-author' className='mt-2 text-xs italic font-medium font-body md:text-sm'>
             by
             <a
               href='https://twitter.com/JonathanDev88'

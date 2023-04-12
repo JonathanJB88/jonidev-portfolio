@@ -41,10 +41,11 @@ export const Modal = ({ setIsModalOpen, project }: ModalProps) => {
         </div>
         <div className='flex flex-col justify-center my-4'>
           <h2 className='mb-3 text-xl font-medium underline md:text-2xl font-header'>{name}</h2>
-          <h2 className='mb-3 text-sm font-medium text-justify font-body'>{description}</h2>
+          <h3 className='mb-3 text-sm font-medium text-justify font-body'>{description}</h3>
           <div className='flex flex-wrap justify-center mt-5 space-x-2 text-sm tracking-wider'>
             {key_techs.map((tech) => (
               <span
+                aria-label='Key Technologies'
                 key={tech}
                 className='px-2 py-1 my-1 rounded-md text-secondary dark:text-dark bg-primary dark:bg-accent font-body'
               >

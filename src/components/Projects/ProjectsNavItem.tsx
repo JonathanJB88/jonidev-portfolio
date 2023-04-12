@@ -5,8 +5,8 @@ import { PortfolioContext } from '@/context';
 import { Category } from '@/interfaces';
 
 interface ProjectsNavItemProps {
-  value: Category | 'All';
-  handleCategory: (category: Category | 'All') => void;
+  value: Category;
+  handleCategory: (category: Category) => void;
   active: string;
 }
 

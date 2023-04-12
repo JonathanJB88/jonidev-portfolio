@@ -1,24 +1,12 @@
 import { ProjectsNavItem } from '@/components';
+import { categories } from '@/data';
 
 import { Category } from '@/interfaces';
 
-type Categories = Category | 'All';
-
 interface ProjectsNavBarProps {
-  handleCategory: (category: Categories) => void;
+  handleCategory: (category: Category) => void;
   active: string;
 }
-
-const categories: Categories[] = [
-  'All',
-  'TypeScript',
-  'React',
-  'React Native',
-  'Next',
-  'JavaScript',
-  'TailwindCSS',
-  'ChakraUI',
-];
 
 export const ProjectsNavBar = ({ active, handleCategory }: ProjectsNavBarProps) => {
   return (

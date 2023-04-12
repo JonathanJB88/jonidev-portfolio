@@ -19,6 +19,7 @@ const BlogCard = memo(({ post: { coverImage, title, excerpt, author, tags, slug 
     <div className='flex flex-col h-full overflow-hidden bg-gray-200 rounded-lg shadow-lg dark:bg-gray-700 animate-fade-in'>
       <div className='relative w-full h-0 overflow-hidden' style={{ paddingTop: '30%' }}>
         <Image
+          data-testid='postcard-image'
           src={coverImageUrl}
           alt={`Cover Image for the post ${title}`}
           loading='lazy'
@@ -34,13 +35,16 @@ const BlogCard = memo(({ post: { coverImage, title, excerpt, author, tags, slug 
         <div className='mt-auto'>
           <div className='flex items-center mb-4'>
             <Image
+              data-testid='postcard-author-image'
               src={authorImageUrl}
               alt={`Avatar for ${author.name}`}
               width={30}
               height={30}
               className='rounded-full'
             />
-            <p className='ml-2 text-xs font-body md:text-sm'>{author.name}</p>
+            <p data-testid='postcard-author-name' className='ml-2 text-xs font-body md:text-sm'>
+              {author.name}
+            </p>
           </div>
           <div className='flex-grow mb-4'>
             {tags.map((tag, index) => (

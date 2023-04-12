@@ -17,6 +17,7 @@ const AuthorBox = memo(({ author }: AuthorBoxProps) => {
     <div className='flex items-center my-8'>
       <div className='mr-4'>
         <Image
+          data-testid='profile-picture'
           src={profilePicture}
           alt={`Profile picture of ${author.name}`}
           width={80}

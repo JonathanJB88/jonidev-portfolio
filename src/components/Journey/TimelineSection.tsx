@@ -52,7 +52,11 @@ export const TimelineSection = ({ journey }: TimelineSectionProps) => {
         <Slide direction='down' triggerOnce>
           <h1 className={`mb-6 text-xl font-extrabold text-center font-header md:text-4xl ${textBg}`}>My Journey</h1>
           <div className='flex justify-center mb-10'>
-            <button className={experienceBtnClass} onClick={() => setShowEducation(false)}>
+            <button
+              data-testid='experience-button'
+              className={experienceBtnClass}
+              onClick={() => setShowEducation(false)}
+            >
               Experience
             </button>
             <button data-testid='education-button' className={educationBtnClass} onClick={() => setShowEducation(true)}>

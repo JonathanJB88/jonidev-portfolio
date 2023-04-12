@@ -1,4 +1,4 @@
-import { ISkill, IProject, IService, IJourney } from '@/interfaces';
+import { ISkill, IProject, IService, IJourney, Category } from '@/interfaces';
 
 export const about: string = `I'm Jonathan Bracho, a Frontend Developer proficient in React, Typescript, Next.js, and Node.js. With a unique background in education and business, I excel in strategic planning, teamwork, and communication. Driven by curiosity, I'm always eager to enhance my skills and create innovative web solutions that spark your interest.`;
 
@@ -340,4 +340,15 @@ export const journey: IJourney[] = [
     description:
       'Developed World Travelers, a Next.js and Typescript SPA using Postgres and MongoDB with Prisma and Mongoose as ORMs, Socket.io, Nodemailer, Auth0, and Cloudinary for the backend, and ChakraUI, React, ReactQuery, Leaflet, Rainbowkit, Wagmi, and Ethers.js for the frontend, utilizing Git & Github for version control, SCRUM methodology, and railway and Heroku for deployment, enabling users to create and filter trips, pay, chat, and interact, showcasing skills in Full-Stack Development, Scrum, Front-end Design, and other relevant technologies.',
   },
+];
+
+export const categories: Category[] = [
+  'All',
+  'TypeScript',
+  'React',
+  'React Native',
+  'Next',
+  'JavaScript',
+  'TailwindCSS',
+  'ChakraUI',
 ];
